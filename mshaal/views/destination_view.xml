@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="destination_action" model="ir.actions.act_window">
+        <field name="name">Destination</field>
+        <field name="res_model">destination</field>
+        <field name="view_mode">tree,kanban,form,activity</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new destination!
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_destination" name="Destinations"
+              parent="purchase.menu_purchase_config"
+              action="destination_action" sequence="11"/>
+
+    <record id="view_destination_form" model="ir.ui.view">
+        <field name="name">view.destination.form</field>
+        <field name="model">destination</field>
+        <field name="arch" type="xml">
+            <form string="Destination">
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="related_con_ids" invisible="True"/>
+                        <field name="related_contact_id"/>
+                        <field name="goods_dipatch_add"/>
+                        <field name="city"/>
+                        <field name="country_id"/>
+                    </group>
+                    <group>
+                        <field name="name"/>
+                        <field name="duration"/>
+                        <field name="cost_per_volume"/>
+                        <field name="cost_per_weight"/>
+                    </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_destination_tree" model="ir.ui.view">
+        <field name="name">view.destination.tree</field>
+        <field name="model">destination</field>
+        <field name="arch" type="xml">
+            <tree string="Destinations">
+                <field name="partner_id"/>
+                <field name="related_con_ids" invisible="True"/>
+                <field name="related_contact_id"/>
+                <field name="goods_dipatch_add"/>
+                <field name="city"/>
+                <field name="country_id"/>
+                <field name="name"/>
+                <field name="duration"/>
+                <field name="cost_per_volume"/>
+                <field name="cost_per_weight"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
