@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase_order_form_inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//header/field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,piv,sent,purchase" readonly="1"/>
+
+                </xpath>
+                <xpath expr="//button[3]" position="replace">
+                    <button name="create_piv" type="object" invisible="state != 'draft'" string="Piv"
+                            class="oe_highlight"/>
+
+                </xpath>
+                <xpath expr="//button[8]" position="replace">
+
+                </xpath>
+
+                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                    <button class="oe_stat_button" type="object"
+                            name="piv_action"
+                            icon="fa-list">
+                        <field string="Piv" name="po_piv" widget="statinfo"/>
+                    </button>
+                </xpath>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

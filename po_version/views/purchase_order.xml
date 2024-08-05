@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase_order_form_inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                    <button class="oe_stat_button" type="object"
+                            name="po_versions_action"
+                            icon="fa-list">
+                        <field string="Po Versione" name="po_versions_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
