@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_msh_port,access_msh_port,model_msh_port,,1,1,1,1
+access_msh_git,access_msh_git,model_msh_git,,1,1,1,1
+access_msh_git_piv_line,access_msh_git_piv_line,model_msh_git_piv_line,,1,1,1,1
+access_piv_products_lines,access_piv_products_lines,model_piv_products_lines,,1,1,1,1

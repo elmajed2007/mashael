@@ -1,0 +1,96 @@
+<odoo>
+    <data>
+        <record id="msh_git_view_tree" model="ir.ui.view">
+            <field name="name">msh_git_view_tree</field>
+            <field name="model">msh.git</field>
+            <field name="arch" type="xml">
+                <tree string="msh_git_tree">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="destination_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="msh_git_view_form" model="ir.ui.view">
+            <field name="name">msh_git_view_form</field>
+            <field name="model">msh.git</field>
+            <field name="arch" type="xml">
+                <form string="git_form">
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">GIT</span>
+                            <h1 class="d-flex">
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="destination_id"/>
+                                <field name="loading_port_id"/>
+                                <field name="destination_port_id"/>
+                            </group>
+                            <group>
+                                <field name="stock_location_id"/>
+                                <field name="shipping_date"/>
+                                <field name="clearing_agent"/>
+                                <field name="transporter"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Piv">
+                                <field name="piv_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="destination_id" invisible="1"/>
+                                        <field name="piv_id"/>
+                                        <field name="supplier_inv_num"/>
+                                        <field name="supplier_inv_date"/>
+                                        <field name="value"/>
+                                        <field name="currency_id"/>
+                                        <field name="is_select"/>
+                                        <field name="packing_list_ref"/>
+                                        <field name="container_num"/>
+                                        <field name="coo_no"/>
+                                        <field name="coo_date"/>
+                                        <field name="attachment"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Piv Products">
+                                <field name="piv_products_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="code"/>
+                                        <field name="po_quantity"/>
+                                        <field name="piv_quantity"/>
+                                        <field name="packing_list_number"/>
+                                        <field name="call_no"/>
+                                        <field name="hs_code"/>
+                                        <field name="origin"/>
+                                        <field name="saber_reguiation"/>
+                                        <field name="cart_no"/>
+                                        <field name="cert_expiration_date"/>
+                                        <field name="eta"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="git_action" model="ir.actions.act_window">
+            <field name="name">Git</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">msh.git</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="git_menu" name="Git" parent="purchase.menu_procurement_management"
+                  action="git_action"/>
+
+    </data>
+</odoo>

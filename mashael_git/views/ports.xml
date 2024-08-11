@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ports_view_tree" model="ir.ui.view">
+            <field name="name">ports_view_tree</field>
+            <field name="model">msh.port</field>
+            <field name="arch" type="xml">
+                <tree string="ports_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="msh_port_view_form" model="ir.ui.view">
+            <field name="name">msh_port_view_form</field>
+            <field name="model">msh.port</field>
+            <field name="arch" type="xml">
+                <form string="msh_port_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ports_action" model="ir.actions.act_window">
+            <field name="name">Ports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">msh.port</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_ports" name="Ports"
+                  parent="purchase.menu_purchase_config"
+                  action="ports_action"/>
+
+
+    </data>
+</odoo>
