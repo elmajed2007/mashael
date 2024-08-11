@@ -18,8 +18,7 @@ class PurchasePiv(models.Model):
         result = super(PurchasePiv, self).create(vals)
         return result
 
-    currency_id = fields.Many2one('res.currency', 'Currency', required=True,
-        default=lambda self: self.env.company.currency_id.id)
+    currency_id = fields.Many2one('res.currency', 'Currency')
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
 
     #vendor
@@ -61,6 +60,7 @@ class PurchasePiv(models.Model):
                             "price_total": line.price_total,
                             "product_uom": line.product_uom,
                             "price_tax": line.price_tax,
+                            "purchase_order_id": line.order_id.id,
 
                         }
                     )
@@ -97,6 +97,24 @@ class PurchasePiv(models.Model):
         string='',
         required=False)
 
+    total_lines = fields.Float(
+        string='Total Lines',
+        required=False, compute='_compute_total_lines')
+
+    total = fields.Float(
+        string='Total',
+        required=False)
+
+    @api.depends('purchase_piv_line_ids.price_total')
+    def _compute_total_lines(self):
+        for rec in self:
+            total = 0
+            for line in rec.purchase_piv_line_ids:
+                total += line.price_total
+            rec.total_lines = total
+            rec.total = total
+
+
 
 
 class PurchasePivLine(models.Model):
@@ -115,7 +133,7 @@ class PurchasePivLine(models.Model):
     name = fields.Text(
         string='Description', required=True, store=True,
         readonly=False)
-    product_qty = fields.Float(string='Quantity', digits='Product Unit of Measure', required=True, store=True, readonly=False)
+    product_qty = fields.Float(string='Quantity')
     product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
 
 

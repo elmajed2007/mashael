@@ -29,9 +29,11 @@ class PurchaseOrder(models.Model):
     def create_po_version(self):
         vals = {}
         po_history = self.env['po.version'].search([('purchase_order_id', '=', self.id)])
+        print('len(po_history) >>>', len(po_history))
         po_ver_seq = 0
         if len(po_history) > 0:
-            po_ver_seq = str(len(po_history))
+            att = len(po_history)
+            po_ver_seq = str(att + 1)
         if len(po_history) == 0:
             po_ver_seq = str(1)
 

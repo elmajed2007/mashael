@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
 {
-    'name': "purchase_piv",
+    'name': "Po Price list",
     'author': "Sigma Code | Toqa Elgazzar",
     'website': "",
-    'depends': ['base', 'purchase', 'mshaal'],
+    'depends': ['base', 'product', 'purchase', 'mshaal'],
     'data': [
         'security/ir.model.access.csv',
-        'views/seq.xml',
         'views/views.xml',
-        'views/purchase.xml',
     ],
 
 }

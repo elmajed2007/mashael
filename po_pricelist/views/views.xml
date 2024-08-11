@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <record id="price_list_destination_view" model="ir.ui.view">
+            <field name="name">price_list_destination_view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="destination_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='product_tmpl_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page string="Products">
+                            <field name="supplier_line_ids" nolabel="1">
+                                <tree string="Products">
+                                    <!--                                    <group>-->
+                                    <!--                                        <group>-->
+                                    <field name="supplier_line_id" invisible="1"/>
+                                    <field name="product_id"/>
+                                    <field name="vendor_purchase_code"/>
+                                    <field name="vendor_barcode"/>
+                                    <field name="vendor_description"/>
+                                    <field name="uom_po_id"/>
+                                    <!--                                        </group>-->
+                                    <!--                                        <group>-->
+                                    <field name="unit_purchase_price"/>
+                                    <field name="currency_id"/>
+                                    <field name="eta_at_supplier"/>
+                                    <!--                                        </group>-->
+                                    <!--                                        <group>-->
+                                    <field name="box_qty_uom_id"/>
+                                    <field name="dimension"/>
+                                    <field name="pallet_qty_uom_id"/>
+                                    <field name="pallet_dimension"/>
+
+                                    <!--                                        </group>-->
+                                    <!--                                        <group>-->
+                                    <field name="weight"/>
+                                    <field name="volume"/>
+                                    <field name="country_of_origin"/>
+                                    <field name="hs_code"/>
+                                    <!--                                        </group>-->
+                                    <!--                                    </group>-->
+                                </tree>
+                                <form string="Products">
+                                    <group>
+                                        <group>
+                                            <field name="supplier_line_id" invisible="1"/>
+                                            <field name="product_id"/>
+                                            <field name="vendor_purchase_code"/>
+                                            <field name="vendor_barcode"/>
+                                            <field name="vendor_description"/>
+                                            <field name="uom_po_id"/>
+                                        </group>
+                                        <group>
+                                            <field name="unit_purchase_price"/>
+                                            <field name="currency_id"/>
+                                            <field name="eta_at_supplier"/>Days
+                                        </group>
+                                        <group>
+                                            <field name="uom_id_domain" invisible="1"/>
+                                            <field name="box_qty_uom_id" domain="uom_id_domain"/>
+                                            <field name="box_ratio"/>
+                                            <field name="dimension"/>
+                                            <field name="pallet_qty_uom_id" domain="uom_id_domain"/>
+                                            <field name="pallet_ratio"/>
+                                            <field name="pallet_dimension"/>
+
+                                        </group>
+                                        <group>
+                                            <field name="weight"/>
+                                            <field name="volume"/>
+                                            <field name="country_of_origin"/>
+                                            <field name="hs_code"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
