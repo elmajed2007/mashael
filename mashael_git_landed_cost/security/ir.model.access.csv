@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_git_landed_cost,access_git_landed_cost,model_git_landed_cost,,1,1,1,1
+access_git_landed_cost_line,access_git_landed_cost_line,model_git_landed_cost_line,,1,1,1,1
+access_piv_custom_line,access_piv_custom_line,model_piv_custom_line,,1,1,1,1

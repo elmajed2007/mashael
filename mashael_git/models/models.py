@@ -70,6 +70,32 @@ class MshGit(models.Model):
         inverse_name='piv_products_line_id',
         string='',
         required=False)
+    #
+    carrier_name = fields.Char(
+        string='Carrier Name',
+        required=False)
+    vessel_flight = fields.Char(
+        string='Vessel/Flight No./Plate No',
+        required=False)
+    bl_manifest = fields.Char(
+        string='Bl/Manifest',
+        required=False)
+    manifest_date = fields.Date(
+        string='Date',
+        required=False)
+    manifest_attachment = fields.Binary('Attach')
+    create_bayan_no = fields.Char(
+        string='Create Bayan No',
+        required=False)
+    manual_date = fields.Date(
+        string='(Manual) Date',
+        required=False)
+    current_attachment = fields.Binary('(Current Enable Manual Change)Attach')
+
+
+
+
+
 
     @api.model
     def create(self, vals):

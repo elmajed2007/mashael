@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+        <record id="git_landed_cost_view_tree" model="ir.ui.view">
+            <field name="name">git_landed_cost_view_tree</field>
+            <field name="model">git.landed.cost</field>
+            <field name="arch" type="xml">
+                <tree string="git_landed_cost_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="git_landed_cost_view_form" model="ir.ui.view">
+            <field name="name">git_landed_cost_view_form</field>
+            <field name="model">git.landed.cost</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">GIT Landed Cost</span>
+                            <h1 class="d-flex">
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="git_id" string="GIT NO. رقم الشحنه"/>
+                                <field name="dec_no" string="Dec NO. رقم البيان"/>
+                                <field name="dec_date" string="Dec Date  تاريخ البيان"/>
+                                <field name="saded_unified_number" string="Sadad Unified No.  الرقم الموحد"/>
+                            </group>
+                            <group>
+                                <field name="company_id" string="Importer. المسنورد"/>
+                                <field name="commercial_reg_no" string="Commercial Reg. No. رقم السجل التجاري"/>
+                                <field name="vat" string="Tax No. الرقم الضريبي"/>
+                                <field name="partner_id" string="clearing Agent المخلص الجمركي"/>
+                                <field name="license_no" string="Licence No. رقم الرخصة"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="loading_port_id" string="Port of Loading ميناء الشحن"/>
+                                <field name="destination_port_id" string="Port of Discharge ميناء التفريغ"/>
+                                <field name="destination_id" string="Port Type نوع المنفذ"/>
+                            </group>
+                            <group>
+                                <field name="destination_company_id" string="Destination  جهة المقصد"/>
+                                <field name="bl_manifest" string=" B\L-AWB No./Manif. رقم البوليصة/ المنافيست"/>
+                                <field name="carrier_name" string=" Carrier’s Name اسم الناقلة"/>
+                                <!--                                <field name="flight_no" string=" Carrier’s Name اسم الناقلة"/>-->
+                                <field name="flight_no" string="Voyage / Flight No. رقم الرحلة"/>
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="invoices" string="Invoices">
+                                <field name="piv_line_ids" widget="one2many" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="piv_id"/>
+                                        <field name="partner_id"/>
+                                        <field name="supplier_inv_num"/>
+                                        <field name="other"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="customs" string="customs">
+                                <field name="piv_custom_ids" widget="one2many" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="hs_code"/>
+                                        <field name="type_arabic_name"/>
+                                        <field name="origin"/>
+                                        <field name="foreign_value"/>
+                                        <field name="currency_id"/>
+                                        <field name="price"/>
+                                        <field name="local_price"/>
+                                        <field name="local_value"/>
+                                        <field name="company_currency_id"/>
+                                        <field name="custom_rate"/>
+                                        <field name="total"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <group>
+                                <group>
+                                </group>
+                                <group class="oe_subtotal_footer">
+                                    <field name="total_custom" string="Customs Fees الرسوم الجمركية"/>
+                                    <field name="total_custom_vat" string="VAT ضريبة القيمة المضافة"/>
+                                    <field name="excis" string=" Excise الضريبة الإنتقائية"/>
+                                    <field name="handing_fees" string="Handling fees رسوم المناولة"/>
+                                    <field name="landing_fees" string="Landing Demurrage Fees رسوم الارضيات"/>
+                                    <field name="other_fees" string="Other Fees رسوم أخرى"/>
+                                    <field name="definitive" string="قطعي Definitive"/>
+                                    <field name="insurance" string="تأمين Insurance"/>
+                                    <field name="total_feeses" string="Total Fees اجمالي الرسوم"/>
+                                </group>
+                            </group>
+                            <div class="clearfix"/>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="git_landed_cost_action" model="ir.actions.act_window">
+            <field name="name">Git Landed Cost</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">git.landed.cost</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="git_landed_cost_menu" name="Git Landed Cost" parent="purchase.menu_procurement_management"
+                  action="git_landed_cost_action"/>
+
+    </data>
+</odoo>
