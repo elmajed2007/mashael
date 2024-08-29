@@ -21,7 +21,7 @@ jobs:
     - name: Post-deployment Commands
       run: |
           echo "Running post-deployment commands..."
-          sudo docker restart 05bb683549f2
+          docker restart 05bb683549f2
           # Restart Odoo service
           #sudo systemctl restart odoo.service
           # Additional commands can be added here
