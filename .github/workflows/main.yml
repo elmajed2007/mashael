@@ -20,9 +20,12 @@ jobs:
 
     - name: Post-deployment Commands
       run: |
-          echo "Running post-deployment commands..."
-          docker restart 05bb683549f2
-          # Restart Odoo service
-          #sudo systemctl restart odoo.service
-          # Additional commands can be added here
-          echo "Post-deployment tasks completed."
+        echo "Running post-deployment commands..."
+        CONTAINER_ID=$(docker ps -aqf "name=05bb683549f2")  # Adjust this to your container's name or filtering criteria
+        if [ -z "$CONTAINER_ID" ]; then
+          echo "No Odoo container found, skipping restart."
+        else
+          docker restart $CONTAINER_ID
+          echo "Odoo container restarted."
+        fi
+        echo "Post-deployment tasks completed."    
