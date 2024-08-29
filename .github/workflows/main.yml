@@ -21,11 +21,12 @@ jobs:
     - name: Post-deployment Commands
       run: |
         echo "Running post-deployment commands..."
-        CONTAINER_ID=$(docker ps -aqf "name=odoo-17")  # Adjust this to your container's name or filtering criteria
-        if [ -z "$CONTAINER_ID" ]; then
-          echo "No Odoo container found, skipping restart."
-        else
-          docker restart $CONTAINER_ID
-          echo "Odoo container restarted."
-        fi
-        echo "Post-deployment tasks completed."    
+        sudo docker restart odoo-17
+        #CONTAINER_ID=$(docker ps -aqf "name=odoo-17")  # Adjust this to your container's name or filtering criteria
+        #if [ -z "$CONTAINER_ID" ]; then
+          #echo "No Odoo container found, skipping restart."
+        #else
+          #docker restart $CONTAINER_ID
+          #echo "Odoo container restarted."
+        #fi
+        #echo "Post-deployment tasks completed."    
