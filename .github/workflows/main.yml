@@ -1,0 +1,28 @@
+name: Deploy Odoo Project 🚀
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      with:
+        TARGET: /opt/odoo-one/addons/  # Adjust to your actual Odoo directory path
+        SSH_PRIVATE_KEY: ${{ secrets.odoo_mashael }}
+        REMOTE_HOST: 84.247.174.94
+        REMOTE_USER: root
+        REMOTE_PORT: 22
+
+    - name: Post-deployment Commands
+      run: |
+          echo "Running post-deployment commands..."
+          sudo docker restart 05bb683549f2
+          # Restart Odoo service
+          #sudo systemctl restart odoo.service
+          # Additional commands can be added here
+          echo "Post-deployment tasks completed."
