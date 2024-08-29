@@ -6,7 +6,6 @@
 #
 #    For Module Support : info@sitaramsolutions.in  or Skype : contact.hiren1188
 #
-##############################################################################
 
 {
     "name": "Product Warranty & Claim Management",
