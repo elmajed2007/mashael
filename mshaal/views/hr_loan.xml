@@ -1,0 +1,35 @@
+<odoo>
+    <record id="view_hr_loan_form" model="ir.ui.view">
+        <field name="name">hr.loan.form</field>
+        <field name="model">hr.loan</field>
+        <field name="inherit_id" ref="ent_ohrms_loan.hr_loan_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <button name="create_gurantee_rec"
+                        class="oe_stat_button"
+                        string="Gurantee Loan"
+                        icon="fa-list"
+                        type="object"
+                />
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="before">
+                <field name="employee_ids" widget="many2many_tags" invisible="True"/>
+                <field name="hide_jurantee_field" invisible="True"/>
+            </xpath>
+            <xpath expr="//field[@name='loan_amount']" position="after">
+                <field name="gurantee_id"/>
+                <field name="gurante_id"/>
+            </xpath>
+            <xpath expr="//field[@name='gurantee_id']" position="attributes">
+                <attribute name="invisible">hide_jurantee_field == True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='gurante_id']" position="attributes">
+                <attribute name="invisible">hide_jurantee_field != True</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="loan_gurantee_group_show" model="res.groups">
+        <field name="name">Loan Gurantee</field>
+    </record>
+
+</odoo>

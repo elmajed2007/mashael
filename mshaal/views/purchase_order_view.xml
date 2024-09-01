@@ -15,4 +15,24 @@
                 </xpath>
         </field>
     </record>
+    <record id="view_sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="before">
+                    <field name="purchase_id" />
+                </xpath>
+        </field>
+    </record>
+    <record id="view_sr_product_warranty_form" model="ir.ui.view">
+        <field name="name">sr.product.warranty.form</field>
+        <field name="model">sr.product.warranty</field>
+        <field name="inherit_id" ref="sr_warranty_management.sr_product_warranty_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[2]/field[@name='qty']" position="after">
+                    <field name="purchase_id" readonly="1"/>
+                </xpath>
+        </field>
+    </record>
 </odoo>

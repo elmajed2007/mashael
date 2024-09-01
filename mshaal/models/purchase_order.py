@@ -30,4 +30,24 @@ class PurchaseOrderLine(models.Model):
     expected_arrival_date=fields.Datetime("Expected Arrival")
 
 
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+
+    purchase_id=fields.Many2one('purchase.order',"PO",store=True)
+
+class srProductWarranty(models.Model):
+    _inherit = "sr.product.warranty"
+
+    sale_order_id = fields.Many2one('sale.order', "PO")
+    purchase_id=fields.Many2one('purchase.order',"PO",compute="compute_po")
+
+    def compute_po(self):
+        sale_id = self.env["sale.order"].search(
+            [("partner_id", "=", self.partner_id.id)]
+        )
+        for record in self:
+            for rec in sale_id:
+                if rec.partner_id:
+                    record.purchase_id = rec.order_line.purchase_id
 

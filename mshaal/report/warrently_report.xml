@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_warranty" inherit_id="sr_warranty_management.report_warranty_document">
+            <xpath expr="//div/t[2]/div/table/t[5]" position="after">
+                <t t-if="doc.qty">
+                    <tr>
+                        <td>
+                            <span>
+                                <strong>PO</strong>
+                            </span>
+                        </td>
+                        <td>
+                            <span t-field="doc.purchase_id"/>
+                        </td>
+                    </tr>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
