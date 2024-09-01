@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="grn_form_view" model="ir.ui.view">
+            <field name="name">grn.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']"
+                       position="before">
+                    <field name="purchase_order_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="after">
+                    <field name="code"/>
+                    <field name="piv_qty"/>
+                    <field name="serial_no"/>
+                </xpath>
+
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_uom']"
+                       position="after">
+                    <field name="shortage"/>
+                    <field name="shortage_value" groups="mashael_grn.show_shortage_value_group"/>
+                    <field name="serial_mts"/>
+                    <field name="serial_calibration_cert"/>
+                    <field name="piv_batch_no"/>
+                    <field name="price_total" invisible="1"/>
+
+                </xpath>
+
+
+                <xpath expr="//div[hasclass('o_td_label')]" position="before">
+                    <field name="git_id"/>
+                    <field name="piv_ids" invisible="1"/>
+                    <field name="piv_id"/>
+                    <field name="piv_partner_id"/>
+                    <field name="supplier_invoice_number"/>
+                    <field name="supplier_invoice_date"/>
+                    <field name="shortage_total_value" groups="mashael_grn.show_shortage_value_group"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

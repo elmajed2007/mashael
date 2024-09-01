@@ -220,6 +220,14 @@ class PurchasePivLine(models.Model):
         string='Serial NO',
         required=False)
 
+    serial_mts = fields.Binary('Serial MTC')
+    serial_calibration_cert = fields.Binary('Serial Calibration Cert')
+
+    serial_no_ids = fields.Many2one(
+        comodel_name='piv.serial',
+        string='Serial No',
+        required=False)
+
     expiry_date = fields.Date(
         string='Expiry Date',
         required=False)

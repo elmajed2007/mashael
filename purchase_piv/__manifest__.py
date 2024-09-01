@@ -6,6 +6,7 @@
     'depends': ['base', 'purchase', 'mshaal'],
     'data': [
         'security/ir.model.access.csv',
+        'views/serial.xml',
         'views/seq.xml',
         'views/views.xml',
         'views/purchase.xml',

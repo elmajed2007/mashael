@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="dn_confirm_group" model="res.groups">
+            <field name="name">DN Confirm Group</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <record id="dn_view_tree" model="ir.ui.view">
+            <field name="name">dn_view_tree</field>
+            <field name="model">debit.note</field>
+            <field name="arch" type="xml">
+                <tree string="dn_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="dn_view_form" model="ir.ui.view">
+            <field name="name">dn_view_form</field>
+            <field name="model">debit.note</field>
+            <field name="arch" type="xml">
+                <form string="dn_form">
+                    <header>
+                        <button name="button_confirm" type="object" invisible="state == 'confirm'" string="Confirm"
+                                class="oe_highlight" id="bid_confirm" data-hotkey="q"
+                                groups="mashael_dn.dn_confirm_group"
+                        />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" readonly="1"/>
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Debit Note</span>
+                            <h1 class="d-flex">
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="grn_id"/>
+                                <field name="git_id"/>
+                                <field name="piv_id"/>
+                                <field name="piv_partner_id"/>
+                            </group>
+                            <group>
+                                <field name="supplier_invoice_number"/>
+                                <field name="supplier_invoice_date"/>
+                                <field name="shortage_total_value"/>
+                                <field name="vendor_cn_date"/>
+                                <field name="cn_attach_doc"/>
+                            </group>
+
+                        </group>
+                        <notebook>
+                            <page string="GRN Lines">
+                                <field name="debit_note_line_ids" widget="section_and_note_one2many" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="product_id" invisible="1"/>
+                                        <field name="purchase_order_id"/>
+                                        <field name="code"/>
+                                        <field name="name"/>
+                                        <field name="git_qty"/>
+                                        <field name="grn_qty"/>
+                                        <field name="shortage"/>
+                                        <field name="shortage_value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mashael_dn_action" model="ir.actions.act_window">
+            <field name="name">Debit Note (DN)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">debit.note</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="mashael_dn_menu" name="DN" parent="purchase.menu_purchase_config" action="mashael_dn_action"/>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="piv_serial_view_tree" model="ir.ui.view">
+            <field name="name">piv_serial_view_tree</field>
+            <field name="model">piv.serial</field>
+            <field name="arch" type="xml">
+                <tree string="_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="piv_serial_view_form" model="ir.ui.view">
+            <field name="name">piv_serial_view_form</field>
+            <field name="model">piv.serial</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="piv_serial_action" model="ir.actions.act_window">
+            <field name="name">Piv Serial</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">piv.serial</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="piv_serial_menu" name="Piv Serial" parent="purchase.menu_purchase_config" action="piv_serial_action"/>
+    </data>
+</odoo>
