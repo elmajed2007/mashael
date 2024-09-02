@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_hr_penalty_policy_manager,access.hr.penalty.policy.manager,model_hr_penalty_policy,hr.group_hr_manager,1,1,1,0
+access_hr_penalty_policy_user,access.hr.penalty.policy.user,model_hr_penalty_policy,hr.group_hr_user,1,0,0,0
+
+access_hr_penalty_policy_line_manager,access.hr.penalty.policy.line.manager,model_hr_penalty_policy_line,hr.group_hr_manager,1,1,1,1
+access_hr_penalty_policy_line_user,access.hr.penalty.policy.line.user,model_hr_penalty_policy_line,hr.group_hr_user,1,0,0,0
+
+access_hr_employee_penalty_user,access_hr_employee_penalty_user,model_hr_employee_penalty,hr.group_hr_manager,1,1,1,1
+access_hr_employee_penalty_manager,access_hr_employee_penalty_manager,model_hr_employee_penalty,hr.group_hr_user,1,1,1,0
+
+hr_employee_penalties.access_penalty_configuration,access_penalty_configuration,hr_employee_penalties.model_penalty_configuration,base.group_user,1,1,1,1
+
