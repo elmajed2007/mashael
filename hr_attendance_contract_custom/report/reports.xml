@@ -1,0 +1,22 @@
+<odoo>
+<!--    <record id="action_report_attendance_pdf" model="ir.actions.report">-->
+<!--        <field name="name">Attendance Report PDF</field>-->
+<!--        <field name="model">attendance.report.wizard</field>-->
+<!--        <field name="binding_model_id" ref="model_attendance_report_wizard"/>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">hr_attendance_contract_custom.attendance_report_pdf</field>-->
+<!--        <field name="report_file">hr_attendance_contract_custom.attendance_report_pdf</field>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+        <record id="action_report_attendance_excel" model="ir.actions.report">
+        <field name="name">Attendance Report Excel</field>
+        <field name="model">attendance.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">attendance_report_excel</field>
+        <field name="report_file">attendance_report_excel</field>
+        <field name="binding_model_id" ref="model_attendance_report_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_penalty_policy_form_view" model="ir.ui.view">
+        <field name="name">hr.penalty.policy.form.view</field>
+        <field name="model">hr.penalty.policy</field>
+        <field name="arch" type="xml">
+            <form string="Penalty Policy">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group string="Penalty Rules"/>
+                    <field name="line_ids">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="first"/>
+                            <field name="second"/>
+                            <field name="third"/>
+                            <field name="fourth"/>
+                            <field name="fifth"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_penalty_policy_tree_view" model="ir.ui.view">
+        <field name="name">hr.penalty.policy.tree.view</field>
+        <field name="model">hr.penalty.policy.line</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_penalty_policy" model="ir.actions.act_window">
+        <field name="name">Penalty Policies</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.penalty.policy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create a new document
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_penalty_policy"
+              name="Penalties"
+              parent="hr.menu_hr_root"
+              sequence="99"/>
+    <menuitem id="menu_penalty_policy_rules" name="Penalty Settings"
+              parent="menu_hr_penalty_policy" action="action_penalty_policy"
+              sequence="20"/>
+</odoo>
+

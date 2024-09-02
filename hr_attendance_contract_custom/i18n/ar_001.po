@@ -1,0 +1,364 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_attendance_contract_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-23 00:33+0000\n"
+"PO-Revision-Date: 2024-03-23 00:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_contract_custom
+#: model_terms:ir.ui.view,arch_db:hr_attendance_contract_custom.hr_contract_form_inherit
+msgid "/ month"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__act_diff_time
+msgid "Actual Diff"
+msgstr "فرق مغادرة فعلي"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__act_late_in
+msgid "Actual Late"
+msgstr "فرق تاخير فعلي"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_contract__allowances
+msgid "Allowances"
+msgstr "بدلات"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__amount
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__amount
+msgid "Amount"
+msgstr "مبلغ"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__att_date
+msgid "Attendance Date"
+msgstr "تاريخ الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.actions.act_window,name:hr_attendance_contract_custom.action_hr_attendance_policy
+msgid "Attendance Policies"
+msgstr "سياسات الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_contract__att_policy_id
+msgid "Attendance Policy"
+msgstr "سياسات الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.ui.menu,name:hr_attendance_contract_custom.menu_hr_attendance_rules
+msgid "Attendance Rules"
+msgstr "قواعد الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.ui.menu,name:hr_attendance_contract_custom.menu_hr_attendance_setting
+msgid "Attendance Setting"
+msgstr "اعدادات الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.ui.menu,name:hr_attendance_contract_custom.menu_hr_attendance_policy_action
+msgid "Attendances Policies"
+msgstr "سياسات الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.actions.server,name:hr_attendance_contract_custom.action_custom_compute_attendance_hours
+msgid "Compute ِAttendance"
+msgstr "احتساب الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model_terms:ir.actions.act_window,help:hr_attendance_contract_custom.action_diff_rules
+#: model_terms:ir.actions.act_window,help:hr_attendance_contract_custom.action_hr_attendance_policy
+#: model_terms:ir.actions.act_window,help:hr_attendance_contract_custom.action_late_rules
+msgid "Create a new document"
+msgstr "اضافة مستند جديد"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__create_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__create_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__create_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__create_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__create_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__create_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__create_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__create_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__diff_id
+msgid "Diff Rule"
+msgstr "قواعد الانصراف المبكر"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__diff_time
+msgid "Diff Time"
+msgstr "وقت انصراف محسوب"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_diff_rule
+msgid "Diff Time Rule"
+msgstr "قواعد الانصراف المبكر"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_diff_rule_line
+msgid "Diff Time Rule Line"
+msgstr "قواعد الانصراف المبكر"
+
+#. module: hr_attendance_contract_custom
+#: model_terms:ir.ui.view,arch_db:hr_attendance_contract_custom.hr_diff_rule_form_view
+msgid "Difference Time Periods"
+msgstr "فترات الانصراف المبكر"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__diff_rule_id
+msgid "Difference Time Rule"
+msgstr "قواعد الانصراف"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.actions.act_window,name:hr_attendance_contract_custom.action_diff_rules
+#: model:ir.ui.menu,name:hr_attendance_contract_custom.menu_hr_diff_rules
+msgid "Difference Time Rules"
+msgstr "قواعد الانصراف"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__line_ids
+msgid "Difference time Periods"
+msgstr "فترات الانصراف المبكر"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__display_name
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__display_name
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__display_name
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__display_name
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,help:hr_attendance_contract_custom.field_hr_contract__allowances
+msgid "Employee's monthly Allowances."
+msgstr "بدلات الموظف الشهرية"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__fifth
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__fifth
+msgid "Fifth Time"
+msgstr "المرة الخامسة"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__first
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__first
+msgid "First Time"
+msgstr "المرة الاولى"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields.selection,name:hr_attendance_contract_custom.selection__hr_diff_rule_line__type__fix
+#: model:ir.model.fields.selection,name:hr_attendance_contract_custom.selection__hr_late_rule_line__type__fix
+msgid "Fixed"
+msgstr "ثابت"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__fourth
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__fourth
+msgid "Fourth Time"
+msgstr "المرة الرابعة"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_attendance_policy
+msgid "HR Attendance Policies"
+msgstr "سياسات الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_attendance
+msgid "Hr Attendance Custom"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__id
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__id
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__id
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__id
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__id
+msgid "ID"
+msgstr "الرمز"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_contract__insurance_salary
+msgid "Insurance Salary"
+msgstr "الراتب التاميني"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_resource_calendar__is_2days
+msgid "Is 2Days?"
+msgstr "وردية تمتد يومين"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_resource_calendar__is_midday
+#: model_terms:ir.ui.view,arch_db:hr_attendance_contract_custom.resource_calendar_form_inherit
+msgid "Is Midday?"
+msgstr "وردية منتصف اليوم"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_resource_calendar__is_midnight
+msgid "Is Midnight?"
+msgstr "وردية منتصف الليل"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy____last_update
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule____last_update
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line____last_update
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule____last_update
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__write_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__write_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__write_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__write_uid
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__write_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__write_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__write_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__write_date
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__late_in
+msgid "Late In"
+msgstr "وقت التاخير محسوب"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__line_ids
+#: model_terms:ir.ui.view,arch_db:hr_attendance_contract_custom.hr_late_rule_form_view
+msgid "Late In Periods"
+msgstr "فترات وقت التاخير"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__late_rule_id
+msgid "Late In Rule"
+msgstr "قواعد التاخير"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_late_rule_line
+msgid "Late In Rule Lines"
+msgstr "قواعد التاخير"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.actions.act_window,name:hr_attendance_contract_custom.action_late_rules
+#: model:ir.model,name:hr_attendance_contract_custom.model_hr_late_rule
+#: model:ir.ui.menu,name:hr_attendance_contract_custom.menu_hr_late_rules
+msgid "Late In Rules"
+msgstr "قواعد التاخير"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__late_id
+msgid "Late Rule"
+msgstr "قواعد التاخير"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance_policy__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__overtime_hours
+msgid "Over Time"
+msgstr "وقت اضافي"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__is_public_holiday
+msgid "Public Holiday"
+msgstr "اجازة رسمية"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__rate
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__rate
+#: model:ir.model.fields.selection,name:hr_attendance_contract_custom.selection__hr_diff_rule_line__type__rate
+#: model:ir.model.fields.selection,name:hr_attendance_contract_custom.selection__hr_late_rule_line__type__rate
+msgid "Rate"
+msgstr "معادل"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model,name:hr_attendance_contract_custom.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "جدول الدوام"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__second
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__second
+msgid "Second Time"
+msgstr "المرة الثانية"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__sixth
+msgid "Sixth Time"
+msgstr "المرة السادسة"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__is_tamper
+msgid "Tamper"
+msgstr "تلاعب"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__third
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__third
+msgid "Third Time"
+msgstr "المرة الثالثة"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__time
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__time
+msgid "Time"
+msgstr "الوقت"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule_line__type
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule_line__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_attendance__is_weekend
+msgid "Weekend"
+msgstr "اجازة اسبوعية"
+
+#. module: hr_attendance_contract_custom
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_diff_rule__name
+#: model:ir.model.fields,field_description:hr_attendance_contract_custom.field_hr_late_rule__name
+msgid "name"
+msgstr "الاسم"

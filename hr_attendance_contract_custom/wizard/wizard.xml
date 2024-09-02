@@ -1,0 +1,45 @@
+<odoo>
+    <record id="attendance_report_wizard_form" model="ir.ui.view">
+        <field name="name">attendance.report.wizard.form</field>
+        <field name="model">attendance.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Report">
+                <sheet string="Attendance Report">
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="employee_ids" widget="many2many_tags"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <footer>
+                        <!--                        <button-->
+                        <!--                                name="button_export_pdf"-->
+                        <!--                                string="Print PDF"-->
+                        <!--                                type="object"-->
+                        <!--                        />-->
+                        <!--                        or-->
+                        <button
+                                name="button_export_xlsx"
+                                string="Export XLSX"
+                                type="object"
+                                class="oe_highlight"
+                        />
+                        or
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_attendance_report_wizard" model="ir.actions.act_window">
+        <field name="name">Attendance Report</field>
+        <field name="res_model">attendance.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_attendance_contract_custom.attendance_report_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem action="action_attendance_report_wizard" id="menu_action_attendance_report_wizard"
+              parent="hr_attendance.menu_hr_attendance_root" name="Work Entries" sequence="30"/>
+</odoo>

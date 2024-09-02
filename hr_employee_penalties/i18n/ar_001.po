@@ -1,0 +1,427 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_penalties
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-23 00:46+0000\n"
+"PO-Revision-Date: 2024-03-23 00:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_needaction
+msgid "Action Needed"
+msgstr "اجراء للتنفيذ"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_ids
+msgid "Activities"
+msgstr "نشاطات"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_form
+msgid "Add Notes"
+msgstr "اضافة ملاحظات"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_form
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields.selection,name:hr_employee_penalties.selection__hr_employee_penalty__state__approved
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_search
+msgid "Approved"
+msgstr "موافقة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_search
+msgid "Canceled"
+msgstr "الغاء"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields.selection,name:hr_employee_penalties.selection__hr_employee_penalty__state__cancel
+msgid "Cancelled"
+msgstr "الغاء"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__company_id
+msgid "Company"
+msgstr "شركة"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.actions.act_window,help:hr_employee_penalties.action_penalty_policy
+msgid "Create a new document"
+msgstr "اضافة مستند جديد"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__create_uid
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__create_uid
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__create_date
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__create_date
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__date
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_search
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__rule_line_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__display_name
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__display_name
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_search
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_employee_penalties
+#: model:ir.model,name:hr_employee_penalties.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__fifth
+msgid "Fifth Time"
+msgstr "المرة الخامسة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__first
+msgid "First Time"
+msgstr "المرة الاولى"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__fourth
+msgid "Fourth Time"
+msgstr "المرة الرابعة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__name
+msgid "Group Name"
+msgstr "اسم المجموعة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model,name:hr_employee_penalties.model_hr_employee_penalty
+msgid "Hr Employee Penalties"
+msgstr "جزاءات الموظفين"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__id
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__id
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__id
+msgid "ID"
+msgstr "الرمز"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_needaction
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_has_error
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty____last_update
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy____last_update
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__write_uid
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__write_uid
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__write_date
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__write_date
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__memo
+msgid "Memo"
+msgstr "بيان"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.ui.menu,name:hr_employee_penalties.menu_hr_penalty_policy
+msgid "Penalties"
+msgstr "الجزاءات"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee__penalty_line_ids
+msgid "Penalty Line"
+msgstr "بند الجزاءات"
+
+#. module: hr_employee_penalties
+#: model:ir.model,name:hr_employee_penalties.model_hr_penalty_policy_line
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy__line_ids
+msgid "Penalty Lines"
+msgstr "بند الجزاءات"
+
+#. module: hr_employee_penalties
+#: model:ir.actions.act_window,name:hr_employee_penalties.action_penalty_policy
+#: model:ir.model,name:hr_employee_penalties.model_hr_penalty_policy
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__penalty_id
+msgid "Penalty Policies"
+msgstr "سياسات الجزاءات"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_penalty_policy_form_view
+msgid "Penalty Policy"
+msgstr "سياسات الجزاءات"
+
+#. module: hr_employee_penalties
+#: model:ir.actions.act_window,name:hr_employee_penalties.hr_employee_penalty_action
+#: model:ir.ui.menu,name:hr_employee_penalties.hr_employee_penalties_menu
+msgid "Penalty Request"
+msgstr "طلب جزاء"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_penalty_policy_form_view
+msgid "Penalty Rules"
+msgstr "قواعد الجزاءات"
+
+#. module: hr_employee_penalties
+#: model:ir.ui.menu,name:hr_employee_penalties.menu_penalty_policy_rules
+msgid "Penalty Settings"
+msgstr "اعدادات الجزاءات"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__name
+msgid "Rule Name"
+msgstr "اسم القاعدة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__second
+msgid "Second Time"
+msgstr "المرة الثانية"
+
+#. module: hr_employee_penalties
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_search
+msgid "State"
+msgstr "الحالة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields.selection,name:hr_employee_penalties.selection__hr_employee_penalty__state__submit
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_penalties.hr_employee_penalty_search
+msgid "Submit"
+msgstr "اعتماد"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_penalty_policy_line__third
+msgid "Third Time"
+msgstr "المرة المرة الثالثة"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields.selection,name:hr_employee_penalties.selection__hr_employee_penalty__state__draft
+msgid "To Submit"
+msgstr "طلب اعتماد"
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,help:hr_employee_penalties.field_hr_employee_penalty__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: model:ir.model.fields,field_description:hr_employee_penalties.field_hr_employee_penalty__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: hr_employee_penalties
+#: code:addons/hr_employee_penalties/models/hr_employee_penalty.py:0
+#, python-format
+msgid "You can't delete it in this state"
+msgstr "لا يمكن الحذف الان!"
