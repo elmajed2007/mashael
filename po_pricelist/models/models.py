@@ -131,7 +131,7 @@ class PurchaseOrderLine(models.Model):
     @api.onchange('product_id', 'product_template_id')
     def onchange_method(self):
         if self.product_id.id and self.order_id.partner_id and self.order_id.destination_id:
-            pricelist = self.env['product.supplierinfo'].search([('destination_id', '=', self.order_id.destination_id.id),('product_tmpl_id', '=', self.product_id.product_template_id.id), ('partner_id', '=', self.order_id.partner_id.id)]).filtered(lambda d: d.date_start != False).sorted(
+            pricelist = self.env['product.supplierinfo'].search([('destination_id', '=', self.order_id.destination_id.id),('product_tmpl_id', '=', self.product_id.product_tmpl_id.id), ('partner_id', '=', self.order_id.partner_id.id)]).filtered(lambda d: d.date_start != False).sorted(
                 key=lambda x: x.date_start)
             print('pricelist >>', pricelist)
             for line in pricelist.supplier_line_ids:
