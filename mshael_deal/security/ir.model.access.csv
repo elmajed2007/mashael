@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_msh_deal,access_msh_deal,model_msh_deal,,1,1,1,1
+access_deal_general_specification,access_deal_general_specification,model_deal_general_specification,,1,1,1,1
+access_ms_screen_line,access_ms_screen_line,model_ms_screen_line,,1,1,1,1

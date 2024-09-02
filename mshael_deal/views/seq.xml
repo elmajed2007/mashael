@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="msh_deal_seq" model="ir.sequence">
+            <field name="name">msh_deal_seq</field>
+            <field name="code">msh.deal</field>
+            <field name="prefix">DE/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="deal_general_specification_seq" model="ir.sequence">
+            <field name="name">deal_general_specification_seq</field>
+            <field name="code">deal.general.specification</field>
+            <field name="prefix"></field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,108 @@
+<odoo>
+    <data>
+        <record id="msh_deal_view_tree" model="ir.ui.view">
+            <field name="name">msh_deal_view_tree</field>
+            <field name="model">msh.deal</field>
+            <field name="arch" type="xml">
+                <tree string="deal_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="msh_deal_view_tree" model="ir.ui.view">
+            <field name="name">msh_deal_view_tree</field>
+            <field name="model">msh.deal</field>
+            <field name="arch" type="xml">
+                <form string="deal_form">
+                    <header>
+                        <button name="confirm_deal" type="object" invisible="state == 'confirm'" string="Confirm"
+                                class="oe_highlight" id="bid_confirm" data-hotkey="q"
+                                groups="mshael_deal.purchase_users_confirm_deal"
+                        />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" readonly="1"/>
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Deal</span>
+                            <h1 class="d-flex">
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="version"/>
+                                <field name="deal_requester_id"/>
+                                <field name="req_date"/>
+                                <field name="offer_deadline"/>
+                            </group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="destination_id"/>
+                                <field name="discount_needed" widget="percentage"/>
+                                <field name="req_project_duration"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="project_name"/>
+                                <field name="owner_name"/>
+                            </group>
+                            <group>
+                                <field name="client_name"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="General Specification &amp; Conditions">
+                                <field name="general_line_ids" widget="section_and_note_one2many" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="general_line_id" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="product_id"/>
+                                        <field name="item_description"/>
+                                        <field name="item_wise_additional_specification"/>
+                                        <field name="qty"/>
+                                        <field name="uom_id"/>
+                                        <field name="discount_requested" widget="percentage"/>
+                                        <field name="total_given_discount" widget="percentage"/>
+                                        <field name="hs_code"/>
+                                        <field name="origin"/>
+                                        <field name="saber_regulation"/>
+                                        <field name="certificate"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+
+                            <page string="M&amp;S Screen">
+                                <field name="ms_screen_line_ids" widget="section_and_note_one2many" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="ms_screen_line_id" invisible="1"/>
+                                        <field name="confirmed_qty_variance" widget="percentage"/>
+                                        <field name="deal_red"/>
+                                        <field name="deal_green"/>
+                                        <field name="sales_delivery_condition"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mshael_deal_action" model="ir.actions.act_window">
+            <field name="name">Deal</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">msh.deal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="mashael_deal_menu" name="Deal" parent="crm.crm_menu_sales" action="mshael_deal_action"/>
+
+    </data>
+</odoo>
