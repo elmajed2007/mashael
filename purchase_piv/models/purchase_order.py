@@ -40,7 +40,8 @@ class PurchaseOrder(models.Model):
         po.append(self.id)
         piv = self.env['purchase.piv'].create({
             'partner_id': self.partner_id.id,
-            'purchase_order_ids': po,
+            'destination_id': self.destination_id.id,
+            # 'purchase_order_ids': po,
         })
         print('piv >>', piv)
         self.write({'state': 'piv'})
