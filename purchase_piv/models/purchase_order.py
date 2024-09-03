@@ -16,12 +16,12 @@ class PurchaseOrder(models.Model):
             'domain': [('purchase_order_ids', 'in', self.id)],
         }
 
-    po_piv = fields.Integer(compute='compute_po_piv')
-
-    def compute_po_piv(self):
-        for rec in self:
-            rec.po_piv = len(
-                rec.env['purchase.piv'].search([('purchase_order_ids', 'in', rec.id)]))
+    # po_piv = fields.Integer(compute='compute_po_piv')
+    #
+    # def compute_po_piv(self):
+    #     for rec in self:
+    #         rec.po_piv = len(
+    #             rec.env['purchase.piv'].search([('purchase_order_ids', 'in', rec.id)]))
 
 
     state = fields.Selection([
