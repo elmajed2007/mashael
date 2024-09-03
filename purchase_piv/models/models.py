@@ -126,7 +126,7 @@ class PurchasePivLine(models.Model):
         string='purchase_piv_line_id',
         required=False)
 
-    currency_id = fields.Many2one(related='purchase_piv_line_id.currency_id', store=True, string='Currency', readonly=True)
+    currency_id = fields.Many2one(store=True, string='Currency', readonly=True)
 
 
     product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
@@ -134,7 +134,8 @@ class PurchasePivLine(models.Model):
         string='Description', required=True, store=True,
         readonly=False)
     product_qty = fields.Float(string='Quantity')
-    product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
+    # product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
+    product_uom_category_id = fields.Many2one()
 
 
     qty_received = fields.Float("Received Qty", compute_sudo=True, store=True, digits='Product Unit of Measure')
