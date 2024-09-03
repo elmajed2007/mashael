@@ -24,7 +24,7 @@
                     <button class="oe_stat_button" type="object"
                             name="piv_action"
                             icon="fa-list">
-<!--                        <field string="Piv" name="po_piv" widget="statinfo"/>-->
+                        <field string="Piv" name="po_piv" widget="statinfo"/>
                     </button>
                 </xpath>
 

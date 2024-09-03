@@ -1,7 +1,5 @@
 import json
 from odoo import api, fields, models, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, get_lang
-from odoo.tools.float_utils import float_compare, float_round
 
 
 
@@ -39,33 +37,33 @@ class PurchasePiv(models.Model):
         store=False,
     )
 
-    @api.onchange('purchase_order_ids')
-    def onchange_purchase_order_ids(self):
-        po_lines = []
-        self.purchase_piv_line_ids = [(5, 0)]
-        for po in self.purchase_order_ids:
-            for line in po.order_line:
-                    po_lines.append(
-                        {
-                            "product_id": line.product_id.id,
-                            "currency_id": line.currency_id.id,
-                            "name": line.name,
-                            "product_qty": line.product_qty,
-                            "product_uom_category_id": line.product_uom_category_id,
-                            "qty_received": line.qty_received,
-                            "qty_invoiced": line.qty_invoiced,
-                            "price_unit": line.price_unit,
-                            "taxes_id": line.taxes_id,
-                            "price_subtotal": line.price_subtotal,
-                            "price_total": line.price_total,
-                            "product_uom": line.product_uom,
-                            "price_tax": line.price_tax,
-                            "purchase_order_id": line.order_id.id,
-
-                        }
-                    )
-        for line in po_lines:
-            self.purchase_piv_line_ids = [(0, 0, line)]
+    # @api.onchange('purchase_order_ids')
+    # def onchange_purchase_order_ids(self):
+    #     po_lines = []
+    #     self.purchase_piv_line_ids = [(5, 0)]
+    #     for po in self.purchase_order_ids:
+    #         for line in po.order_line:
+    #                 po_lines.append(
+    #                     {
+    #                         "product_id": line.product_id.id,
+    #                         "currency_id": line.currency_id.id,
+    #                         "name": line.name,
+    #                         "product_qty": line.product_qty,
+    #                         "product_uom_category_id": line.product_uom_category_id,
+    #                         "qty_received": line.qty_received,
+    #                         "qty_invoiced": line.qty_invoiced,
+    #                         "price_unit": line.price_unit,
+    #                         "taxes_id": line.taxes_id,
+    #                         "price_subtotal": line.price_subtotal,
+    #                         "price_total": line.price_total,
+    #                         "product_uom": line.product_uom,
+    #                         "price_tax": line.price_tax,
+    #                         "purchase_order_id": line.order_id.id,
+    #
+    #                     }
+    #                 )
+    #     for line in po_lines:
+    #         self.purchase_piv_line_ids = [(0, 0, line)]
 
     @api.depends('partner_id')
     def _compute_purchase_order_ids_domain(self):
