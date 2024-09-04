@@ -46,19 +46,19 @@ class PurchasePiv(models.Model):
                     po_lines.append(
                         {
                             "product_id": line.product_id.id,
-                            "currency_id": line.currency_id.id,
+                            # "currency_id": line.currency_id.id,
                             "name": line.name,
                             "product_qty": line.product_qty,
                             # "product_uom_category_id": line.product_uom_category_id,
                             "qty_received": line.qty_received,
                             "qty_invoiced": line.qty_invoiced,
                             "price_unit": line.price_unit,
-                            "taxes_id": line.taxes_id,
-                            "price_subtotal": line.price_subtotal,
-                            "price_total": line.price_total,
-                            "product_uom": line.product_uom,
-                            "price_tax": line.price_tax,
-                            "purchase_order_id": line.order_id.id,
+                            # "taxes_id": line.taxes_id,
+                            # "price_subtotal": line.price_subtotal,
+                            # "price_total": line.price_total,
+                            # "product_uom": line.product_uom,
+                            # "price_tax": line.price_tax,
+                            "purchase_order_id": po.id,
 
                         }
                     )
