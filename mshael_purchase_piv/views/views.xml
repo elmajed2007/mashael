@@ -1,5 +1,14 @@
 <odoo>
     <data>
+        
+        <record id="purchase_piv_seq" model="ir.sequence">
+            <field name="name">purchase.piv seq</field>
+            <field name="code">purchase.piv</field>
+            <field name="prefix">PIV/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="purchase_piv_view_tree" model="ir.ui.view">
             <field name="name">purchase_piv_view_tree</field>
             <field name="model">purchase.piv</field>
