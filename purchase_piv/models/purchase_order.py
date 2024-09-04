@@ -37,11 +37,32 @@ class PurchaseOrder(models.Model):
 
     def create_piv(self):
         po = []
+        po_lines = []
         po.append(self.id)
+        for line in self.order_line:
+            po_lines.append(
+                {
+                    "product_id": line.product_id.id,
+                    "currency_id": line.currency_id.id,
+                    "name": line.name,
+                    "product_qty": line.product_qty,
+                    "qty_received": line.qty_received,
+                    "qty_invoiced": line.qty_invoiced,
+                    "price_unit": line.price_unit,
+                    "taxes_id": line.taxes_id,
+                    "price_subtotal": line.price_subtotal,
+                    "price_total": line.price_total,
+                    "product_uom": line.product_uom,
+                    "price_tax": line.price_tax,
+                    "purchase_order_id": self.id,
+
+                }
+            )
         piv = self.env['purchase.piv'].create({
             'partner_id': self.partner_id.id,
             'destination_id': self.destination_id.id,
             'purchase_order_ids': po,
+            'purchase_piv_line_ids': [(0, 0, po_lines)],
         })
         print('piv >>', piv)
         self.write({'state': 'piv'})
