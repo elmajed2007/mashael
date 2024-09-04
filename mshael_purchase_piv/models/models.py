@@ -129,18 +129,18 @@ class PurchasePivLine(models.Model):
     currency_id = fields.Many2one(store=True, string='Currency', readonly=True)
     product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)])
     name = fields.Text(
-        string='Description', required=True, store=True,
+        string='Description', required=False, store=True,
         readonly=False)
     product_qty = fields.Float(string='Quantity')
     # product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
     # product_uom_category_id = fields.Many2one()
     #
-    # qty_received = fields.Float("Received Qty", compute_sudo=True, store=True)
-    # qty_invoiced = fields.Float(string="Billed Qty", store=True)
-    # price_unit = fields.Float(
-    #     string='Unit Price', required=True, digits='Product Price', readonly=False, store=True)
-    # taxes_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
-    # price_subtotal = fields.Monetary(string='Subtotal', store=True)
+    qty_received = fields.Float("Received Qty", compute_sudo=True, store=True)
+    qty_invoiced = fields.Float(string="Billed Qty", store=True)
+    price_unit = fields.Float(
+        string='Unit Price', required=True, digits='Product Price', readonly=False, store=True)
+    taxes_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
+    price_subtotal = fields.Monetary(string='Subtotal', store=True)
     price_total = fields.Monetary(string='Total', store=True)
     # # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
     # product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
