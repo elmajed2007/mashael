@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <record id="purchase_piv_view_tree" model="ir.ui.view">
+            <field name="name">purchase_piv_view_tree</field>
+            <field name="model">purchase.piv</field>
+            <field name="arch" type="xml">
+                <tree string="purchase_piv_tree">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="purchase_piv_view_form" model="ir.ui.view">
+            <field name="name">purchase.piv.view.form</field>
+            <field name="model">purchase.piv</field>
+            <field name="arch" type="xml">
+                <form string="purchase_piv_form">
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Purchase Piv</span>
+                            <h1 class="d-flex">
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="destination_id"/>
+                                <field name="purchase_order_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="supplier_invoice_number"/>
+                                <field name="supplier_invoice_date"/>
+                                <field name="packing_list"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Products" name="products">
+                                <field name="purchase_piv_line_ids"
+                                       widget="section_and_note_one2many"
+                                       mode="tree">
+                                    <tree string="Purchase Piv Order Lines" editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="name"/>
+                                        <field name="product_qty" readonly="1"/>
+                                        <field name="product_uom_category_id" invisible="1"/>
+                                        <field name="qty_received"/>
+                                        <field name="qty_invoiced"/>
+                                        <field name="price_unit"/>
+<!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
+<!--                                        <field name="taxes_id" domain="[('type_tax_use', '=', 'purchase')" widget="many2many_tags"/>-->
+                                        <field name="taxes_id" widget="many2many_tags"/>
+                                        <field name="price_subtotal"/>
+                                        <field name="price_total"/>
+                                        <field name="product_uom"/>
+                                        <field name="price_tax"/>
+                                        <field name="coll_no"/>
+                                        <field name="purchase_order_id"/>
+                                        <field name="serial_mts"/>
+                                        <field name="serial_calibration_cert"/>
+                                        <field name="serial_no_ids" widget="many2many_tags"/>
+                                        <field name="expiry_date"/>
+                                        <field name="production_date"/>
+                                        <field name="batch_no"/>
+                                        <field name="net_weight"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                        <group></group>
+                        <group class="oe_subtotal_footer">
+                            <field name="total" colspan="2"
+                                   readonly="1"/>
+                        </group>
+                        <div class="clearfix"/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="purchase_piv_action" model="ir.actions.act_window">
+            <field name="name">Purchase Piv</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.piv</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="purchase_piv_menu" name="Purchase Piv" parent="purchase.menu_procurement_management"
+                  action="purchase_piv_action"/>
+    </data>
+</odoo>
