@@ -86,6 +86,7 @@ class GitLandedCost(models.Model):
     total_custom = fields.Float(
         string='Total',
         required=False, compute='_compute_total_custom')
+
     total_custom_vat = fields.Float(
         string='Total',
         required=False, compute='_compute_total_custom')
@@ -129,7 +130,7 @@ class GitLandedCost(models.Model):
                 total += line.total
                 total_vats += line.total_pr_taxes * line.local_value
             rec.total_custom = total
-            rec.total_pr_taxes = total_vats
+            rec.total_custom_vat = total_vats
 
 
     @api.onchange('git_id')
