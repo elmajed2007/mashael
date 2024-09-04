@@ -94,22 +94,25 @@ class PurchasePiv(models.Model):
         string='',
         required=False)
 
+    # total_lines = fields.Float(
+    #     string='Total Lines',
+    #     required=False, compute='_compute_total_lines')
     total_lines = fields.Float(
         string='Total Lines',
-        required=False, compute='_compute_total_lines')
+        required=False)
 
     total = fields.Float(
         string='Total',
         required=False)
 
-    @api.depends('purchase_piv_line_ids.price_total')
-    def _compute_total_lines(self):
-        for rec in self:
-            total = 0
-            for line in rec.purchase_piv_line_ids:
-                total += line.price_total
-            rec.total_lines = total
-            rec.total = total
+    # @api.depends('purchase_piv_line_ids.price_total')
+    # def _compute_total_lines(self):
+    #     for rec in self:
+    #         total = 0
+    #         for line in rec.purchase_piv_line_ids:
+    #             total += line.price_total
+    #         rec.total_lines = total
+    #         rec.total = total
 
 
 
