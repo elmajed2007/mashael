@@ -72,7 +72,7 @@ class StockPicking(models.Model):
                             "piv_qty": piv_line.qty_invoiced,
                             "piv_batch_no": piv_line.batch_no,
                             "price_total": piv_line.price_total,
-                            "serial_no_ids": piv_line.serial_no_ids,
+                            "serial_no_id": piv_line.serial_no_id,
                             "serial_mts": piv_line.serial_mts,
                             "serial_calibration_cert": piv_line.serial_calibration_cert,
                         }
@@ -127,7 +127,7 @@ class StockMove(models.Model):
         string='Serial NO',
         required=False)
 
-    serial_no_ids = fields.Many2one(
+    serial_no_id = fields.Many2one(
         comodel_name='piv.serial',
         string='Serial No',
         required=False)
