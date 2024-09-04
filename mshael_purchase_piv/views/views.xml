@@ -63,17 +63,17 @@
 <!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
                                         <field name="price_subtotal"/>
                                         <field name="price_total"/>
-<!--                                        <field name="product_uom"/>-->
-<!--                                        <field name="price_tax"/>-->
-<!--                                        <field name="coll_no"/>-->
-<!--                                        <field name="purchase_order_id"/>-->
-<!--                                        <field name="serial_mts"/>-->
-<!--                                        <field name="serial_calibration_cert"/>-->
-<!--                                        <field name="serial_no_ids" widget="many2many_tags"/>-->
-<!--                                        <field name="expiry_date"/>-->
-<!--                                        <field name="production_date"/>-->
-<!--                                        <field name="batch_no"/>-->
-<!--                                        <field name="net_weight"/>-->
+                                        <field name="product_uom"/>
+                                        <field name="price_tax"/>
+                                        <field name="coll_no"/>
+                                        <field name="purchase_order_id"/>
+                                        <field name="serial_mts"/>
+                                        <field name="serial_calibration_cert"/>
+                                        <field name="serial_no_ids" widget="many2many_tags"/>
+                                        <field name="expiry_date"/>
+                                        <field name="production_date"/>
+                                        <field name="batch_no"/>
+                                        <field name="net_weight"/>
                                     </tree>
                                 </field>
                             </page>

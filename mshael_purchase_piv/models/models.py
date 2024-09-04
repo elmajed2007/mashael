@@ -142,44 +142,44 @@ class PurchasePivLine(models.Model):
     taxes_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
     price_subtotal = fields.Monetary(string='Subtotal', store=True)
     price_total = fields.Monetary(string='Total', store=True)
-    # # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
-    # product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
-    # # price_tax = fields.Float(string='Tax', store=True)
-    # coll_no = fields.Char(
-    #     string='Coll NO',
+    # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
+    product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
+    price_tax = fields.Float(string='Tax', store=True)
+    coll_no = fields.Char(
+        string='Coll NO',
+        required=False)
+    company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
+
+    purchase_order_id = fields.Many2one(
+        comodel_name='purchase.order',
+        string='Purchase_order_id',
+        required=False)
+
+
+    serial_no = fields.Char(
+        string='Serial NO',
+        required=False)
+
+    serial_mts = fields.Binary('Serial MTC')
+    serial_calibration_cert = fields.Binary('Serial Calibration Cert')
+    #
+    # serial_no_ids = fields.Many2one(
+    #     comodel_name='piv.serial',
+    #     string='Serial No',
     #     required=False)
-    # company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
-    #
-    # purchase_order_id = fields.Many2one(
-    #     comodel_name='purchase.order',
-    #     string='Purchase_order_id',
-    #     required=False)
-    #
-    #
-    # serial_no = fields.Char(
-    #     string='Serial NO',
-    #     required=False)
-    #
-    # serial_mts = fields.Binary('Serial MTC')
-    # serial_calibration_cert = fields.Binary('Serial Calibration Cert')
-    # #
-    # # serial_no_ids = fields.Many2one(
-    # #     comodel_name='piv.serial',
-    # #     string='Serial No',
-    # #     required=False)
-    #
-    # expiry_date = fields.Date(
-    #     string='Expiry Date',
-    #     required=False)
-    #
-    # production_date = fields.Date(
-    #     string='Production Date',
-    #     required=False)
-    #
-    # batch_no = fields.Char(
-    #     string='Batch NO',
-    #     required=False)
-    #
-    # net_weight = fields.Char(
-    #     string='Net Weight',
-    #     required=False)
+
+    expiry_date = fields.Date(
+        string='Expiry Date',
+        required=False)
+
+    production_date = fields.Date(
+        string='Production Date',
+        required=False)
+
+    batch_no = fields.Char(
+        string='Batch NO',
+        required=False)
+
+    net_weight = fields.Char(
+        string='Net Weight',
+        required=False)
