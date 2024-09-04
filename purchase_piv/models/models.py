@@ -221,7 +221,7 @@ class PurchasePivLine(models.Model):
     serial_mts = fields.Binary('Serial MTC')
     serial_calibration_cert = fields.Binary('Serial Calibration Cert')
 
-    serial_no_ids = fields.Many2one(
+    serial_no_id = fields.Many2one(
         comodel_name='piv.serial',
         string='Serial No',
         required=False)

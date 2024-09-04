@@ -1,9 +1,9 @@
 from odoo import api, fields, models
 
 
-class PivSerial(models.Model):
-    _name = 'piv.serial'
-    _description = 'PivSerial'
+class PoSerial(models.Model):
+    _name = 'po.serial'
+    _description = 'PO Serial'
     _rec_name = "name"
 
     name = fields.Char()

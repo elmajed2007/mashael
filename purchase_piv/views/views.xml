@@ -60,7 +60,7 @@
                                         <field name="purchase_order_id"/>
                                         <field name="serial_mts"/>
                                         <field name="serial_calibration_cert"/>
-                                        <field name="serial_no_ids" widget="many2many_tags"/>
+                                        <field name="serial_no_id"/>
                                         <field name="expiry_date"/>
                                         <field name="production_date"/>
                                         <field name="batch_no"/>
