@@ -124,7 +124,9 @@ class PurchasePivLine(models.Model):
         string='purchase_piv_line_id',
         required=False)
 
-    currency_id = fields.Many2one(store=True, string='Currency', readonly=True)
+    # currency_id = fields.Many2one(store=True, string='Currency', readonly=True)
+    currency_id = fields.Many2one('res.currency', 'Currency', readonly=True)
+
 
 
     product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
