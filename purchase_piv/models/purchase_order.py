@@ -52,7 +52,6 @@ class PurchaseOrder(models.Model):
                     "taxes_id": line.taxes_id,
                     "price_subtotal": line.price_subtotal,
                     "price_total": line.price_total,
-                    "product_uom": line.product_uom,
                     "price_tax": line.price_tax,
                     "purchase_order_id": self.id,
 
