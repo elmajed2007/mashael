@@ -143,7 +143,8 @@ class PurchasePivLine(models.Model):
     taxes_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
     price_subtotal = fields.Monetary(string='Subtotal', store=True)
     price_total = fields.Monetary(string='Total', store=True)
-    product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
+    # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
+    product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
     price_tax = fields.Float(string='Tax', store=True)
     coll_no = fields.Char(
         string='Coll NO',
