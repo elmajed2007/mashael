@@ -62,7 +62,7 @@ class PurchaseOrder(models.Model):
             'partner_id': self.partner_id.id,
             'destination_id': self.destination_id.id,
             'purchase_order_ids': po,
-            'purchase_piv_line_ids': [(0, 0, po_lines)],
+            'purchase_piv_line_ids': [(0, 0, {po_lines})],
         })
         print('piv >>', piv)
         self.write({'state': 'piv'})
