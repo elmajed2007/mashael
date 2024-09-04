@@ -62,7 +62,7 @@
 <!--&lt;!&ndash;                                        <field name="taxes_id" domain="[('type_tax_use', '=', 'purchase')" widget="many2many_tags"/>&ndash;&gt;-->
 <!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
 <!--                                        <field name="price_subtotal"/>-->
-<!--                                        <field name="price_total"/>-->
+                                        <field name="price_total"/>
 <!--                                        <field name="product_uom"/>-->
 <!--                                        <field name="price_tax"/>-->
 <!--                                        <field name="coll_no"/>-->
