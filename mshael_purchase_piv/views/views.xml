@@ -55,13 +55,13 @@
                                         <field name="name"/>
                                         <field name="product_qty" readonly="1"/>
 <!--                                        <field name="product_uom_category_id" invisible="1"/>-->
-<!--                                        <field name="qty_received"/>-->
-<!--                                        <field name="qty_invoiced"/>-->
-<!--                                        <field name="price_unit"/>-->
-<!--&lt;!&ndash;                                        <field name="taxes_id" widget="many2many_tags"/>&ndash;&gt;-->
+                                        <field name="qty_received"/>
+                                        <field name="qty_invoiced"/>
+                                        <field name="price_unit"/>
+                                        <field name="taxes_id" widget="many2many_tags"/>
 <!--&lt;!&ndash;                                        <field name="taxes_id" domain="[('type_tax_use', '=', 'purchase')" widget="many2many_tags"/>&ndash;&gt;-->
 <!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
-<!--                                        <field name="price_subtotal"/>-->
+                                        <field name="price_subtotal"/>
                                         <field name="price_total"/>
 <!--                                        <field name="product_uom"/>-->
 <!--                                        <field name="price_tax"/>-->
