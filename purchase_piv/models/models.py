@@ -46,7 +46,7 @@ class PurchasePiv(models.Model):
                     po_lines.append(
                         {
                             "product_id": line.product_id.id,
-                            # "currency_id": line.currency_id.id,
+                            "currency_id": line.currency_id.id,
                             "name": line.name,
                             "product_qty": line.product_qty,
                             # "product_uom_category_id": line.product_uom_category_id,
