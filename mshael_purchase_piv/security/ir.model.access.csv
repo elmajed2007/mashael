@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_piv_serial,access_piv_serial,model_piv_serial,,1,1,1,1
 access_purchase_piv,access_purchase_piv,model_purchase_piv,,1,1,1,1
 access_purchase_piv_line,access_purchase_piv_line,model_purchase_piv_line,,1,1,1,1
