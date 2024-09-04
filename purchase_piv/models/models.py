@@ -49,7 +49,7 @@ class PurchasePiv(models.Model):
                             "currency_id": line.currency_id.id,
                             "name": line.name,
                             "product_qty": line.product_qty,
-                            "product_uom_category_id": line.product_uom_category_id,
+                            # "product_uom_category_id": line.product_uom_category_id,
                             "qty_received": line.qty_received,
                             "qty_invoiced": line.qty_invoiced,
                             "price_unit": line.price_unit,
