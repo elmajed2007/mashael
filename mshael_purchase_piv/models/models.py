@@ -56,19 +56,19 @@ class PurchasePiv(models.Model):
                     po_lines.append(
                         {
                             "product_id": line.product_id.id,
-                            "currency_id": line.currency_id.id,
+                            # "currency_id": line.currency_id.id,
                             "name": line.name,
                             "product_qty": line.product_qty,
-                            "product_uom_category_id": line.product_uom_category_id,
-                            "qty_received": line.qty_received,
-                            "qty_invoiced": line.qty_invoiced,
-                            "price_unit": line.price_unit,
-                            "taxes_id": line.taxes_id,
-                            "price_subtotal": line.price_subtotal,
-                            "price_total": line.price_total,
-                            "product_uom": line.product_uom,
-                            "price_tax": line.price_tax,
-                            "purchase_order_id": line.order_id.id,
+                            # "product_uom_category_id": line.product_uom_category_id,
+                            # "qty_received": line.qty_received,
+                            # "qty_invoiced": line.qty_invoiced,
+                            # "price_unit": line.price_unit,
+                            # "taxes_id": line.taxes_id,
+                            # "price_subtotal": line.price_subtotal,
+                            # "price_total": line.price_total,
+                            # "product_uom": line.product_uom,
+                            # "price_tax": line.price_tax,
+                            # "purchase_order_id": line.order_id.id,
 
                         }
                     )
@@ -130,53 +130,53 @@ class PurchasePivLine(models.Model):
         readonly=False)
     product_qty = fields.Float(string='Quantity')
     # product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
-    product_uom_category_id = fields.Many2one()
-
-    qty_received = fields.Float("Received Qty", compute_sudo=True, store=True)
-    qty_invoiced = fields.Float(string="Billed Qty", store=True)
-    price_unit = fields.Float(
-        string='Unit Price', required=True, digits='Product Price', readonly=False, store=True)
-    taxes_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
-    price_subtotal = fields.Monetary(string='Subtotal', store=True)
-    price_total = fields.Monetary(string='Total', store=True)
-    # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
-    product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
-    price_tax = fields.Float(string='Tax', store=True)
-    coll_no = fields.Char(
-        string='Coll NO',
-        required=False)
-    company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
-
-    purchase_order_id = fields.Many2one(
-        comodel_name='purchase.order',
-        string='Purchase_order_id',
-        required=False)
-
-
-    serial_no = fields.Char(
-        string='Serial NO',
-        required=False)
-
-    serial_mts = fields.Binary('Serial MTC')
-    serial_calibration_cert = fields.Binary('Serial Calibration Cert')
-
-    serial_no_ids = fields.Many2one(
-        comodel_name='piv.serial',
-        string='Serial No',
-        required=False)
-
-    expiry_date = fields.Date(
-        string='Expiry Date',
-        required=False)
-
-    production_date = fields.Date(
-        string='Production Date',
-        required=False)
-
-    batch_no = fields.Char(
-        string='Batch NO',
-        required=False)
-
-    net_weight = fields.Char(
-        string='Net Weight',
-        required=False)
+    # product_uom_category_id = fields.Many2one()
+    #
+    # qty_received = fields.Float("Received Qty", compute_sudo=True, store=True)
+    # qty_invoiced = fields.Float(string="Billed Qty", store=True)
+    # price_unit = fields.Float(
+    #     string='Unit Price', required=True, digits='Product Price', readonly=False, store=True)
+    # taxes_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
+    # price_subtotal = fields.Monetary(string='Subtotal', store=True)
+    # price_total = fields.Monetary(string='Total', store=True)
+    # # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
+    # product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
+    # # price_tax = fields.Float(string='Tax', store=True)
+    # coll_no = fields.Char(
+    #     string='Coll NO',
+    #     required=False)
+    # company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
+    #
+    # purchase_order_id = fields.Many2one(
+    #     comodel_name='purchase.order',
+    #     string='Purchase_order_id',
+    #     required=False)
+    #
+    #
+    # serial_no = fields.Char(
+    #     string='Serial NO',
+    #     required=False)
+    #
+    # serial_mts = fields.Binary('Serial MTC')
+    # serial_calibration_cert = fields.Binary('Serial Calibration Cert')
+    # #
+    # # serial_no_ids = fields.Many2one(
+    # #     comodel_name='piv.serial',
+    # #     string='Serial No',
+    # #     required=False)
+    #
+    # expiry_date = fields.Date(
+    #     string='Expiry Date',
+    #     required=False)
+    #
+    # production_date = fields.Date(
+    #     string='Production Date',
+    #     required=False)
+    #
+    # batch_no = fields.Char(
+    #     string='Batch NO',
+    #     required=False)
+    #
+    # net_weight = fields.Char(
+    #     string='Net Weight',
+    #     required=False)
