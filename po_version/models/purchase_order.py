@@ -47,7 +47,7 @@ class PurchaseOrder(models.Model):
         po_version = self.env['po.version'].create({
                 'name': "V" + po_ver_seq,
                 'purchase_order_id': self.id,
-                'partner_id': self.partner_id.id,
+                # 'partner_id': self.partner_id.id,
                 'partner_ref': self.partner_ref,
                 'date_approve': self.date_approve,
                 'date_planned': self.date_planned,
