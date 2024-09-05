@@ -6,7 +6,7 @@ class PoVersion(models.Model):
     _description = 'Po Version'
 
     name = fields.Char()
-    partner_id = fields.Many2one('res.partner', string='Vendor', required=True, change_default=True, tracking=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
+    partner_id = fields.Many2one('res.partner', string='Vendor', required=False, change_default=True, tracking=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
     partner_ref = fields.Char('Vendor Reference', copy=False,
         help="Reference of the sales order or bid sent by the vendor. "
              "It's used to do the matching when you receive the "
