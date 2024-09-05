@@ -11,11 +11,11 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,piv,sent,purchase" readonly="1"/>
 
                 </xpath>
-<!--                <xpath expr="//button[3]" position="replace">-->
-<!--                    <button name="create_piv" type="object" invisible="state != 'draft'" string="Piv"-->
-<!--                            class="oe_highlight"/>-->
+                <xpath expr="//button[3]" position="replace">
+                    <button name="create_piv" type="object" invisible="state != 'draft'" string="Piv"
+                            class="oe_highlight"/>
 
-<!--                </xpath>-->
+                </xpath>
                 <xpath expr="//button[8]" position="replace">
 
                 </xpath>
