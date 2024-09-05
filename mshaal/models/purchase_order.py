@@ -15,12 +15,21 @@ class PurchaseOrder(models.Model):
             if self.date_planned:
                 line.expected_arrival_date = self.date_planned
 
-    @api.onchange('partner_id','destination_id','date_order')
-    def compute_date(self):
-        for record in self:
-            for rec in record.destination_id:
-                if rec.duration and record.date_order:
-                    record.date_planned = record.date_order + timedelta(days=rec.duration)
+    date_planned = fields.Datetime(
+        string='Expected Arrival', index=True, copy=False, compute='_compute_custome_date_planned', store=True, readonly=False,
+        help="Delivery date promised by vendor. This date is used to determine expected arrival of products.")
+
+    def _compute_custome_date_planned(self):
+        for rec in self:
+            rec.date_planned = rec.date_order + timedelta(days=rec.destination_id.duration)
+
+
+    # @api.onchange('partner_id','destination_id','date_order')
+    # def compute_date(self):
+    #     for record in self:
+    #         for rec in record.destination_id:
+    #             if rec.duration and record.date_order:
+    #                 record.date_planned = record.date_order + timedelta(days=rec.destination_id.duration)
 
 
 class PurchaseOrderLine(models.Model):
