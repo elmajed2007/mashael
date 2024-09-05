@@ -12,7 +12,7 @@ class MshGit(models.Model):
 
     name = fields.Char()
     partner_id = fields.Many2one('res.partner', string='Vendor')
-    destination_id = fields.Many2one(comodel_name='destination', string='Destination', domain="[('partner_id', '=', partner_id)]")
+    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode', domain="[('partner_id', '=', partner_id)]")
     loading_port_id = fields.Many2one(
         comodel_name='msh.port',
         string='Port Of Loading',

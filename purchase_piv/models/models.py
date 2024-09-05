@@ -24,7 +24,7 @@ class PurchasePiv(models.Model):
 
     destination_id = fields.Many2one(
         comodel_name='destination',
-        string='Destination_id',
+        string='Shipping Mode',
         required=False)
 
     purchase_order_ids = fields.Many2many(
