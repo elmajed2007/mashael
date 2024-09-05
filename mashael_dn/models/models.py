@@ -87,8 +87,8 @@ class DebitNote(models.Model):
         self.write({'state': 'confirm'})
         invoice = self.env['account.move'].create({
             'move_type': 'in_refund',
-            # 'partner_id': self.piv_partner_id.id,
-            'partner_id': self.partner_id.id,
+            'partner_id': self.piv_partner_id.id,
+            # 'partner_id': self.partner_id.id,
             'invoice_date': fields.date.today(),
         })
         print('invoice>>', invoice)

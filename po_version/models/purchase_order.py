@@ -5,6 +5,12 @@ from odoo import api, fields, models
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
+
+    def button_confirm(self):
+        res = super().button_confirm()
+
+        return res
+
     def po_versions_action(self):
         return {
             'name': 'Po Versions',
