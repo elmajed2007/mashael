@@ -28,6 +28,11 @@ class PurchaseOrderLine(models.Model):
 
 
     expected_arrival_date=fields.Datetime("Expected Arrival")
+    hs_code = fields.Many2one('hs.code', string="HS Code", related='product_id.hs_code')
+    discount = fields.Float(
+        string='Discount', 
+        required=False)
+
 
 
 class SaleOrderLine(models.Model):

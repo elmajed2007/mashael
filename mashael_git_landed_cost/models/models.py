@@ -148,7 +148,6 @@ class GitLandedCost(models.Model):
 
     @api.constrains('piv_line_ids')
     def check_piv_line_ids(self):
-
         products = []
         hs_codes = []
         for line in self.piv_line_ids:

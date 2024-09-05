@@ -12,6 +12,8 @@
             </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
                     <field name="expected_arrival_date" />
+                    <field name="hs_code" />
+                    <field name="discount" />
                 </xpath>
         </field>
     </record>

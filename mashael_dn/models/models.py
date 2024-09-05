@@ -87,7 +87,8 @@ class DebitNote(models.Model):
         self.write({'state': 'confirm'})
         invoice = self.env['account.move'].create({
             'move_type': 'in_refund',
-            'partner_id': self.piv_partner_id.id,
+            # 'partner_id': self.piv_partner_id.id,
+            'partner_id': self.partner_id.id,
             'invoice_date': fields.date.today(),
         })
         print('invoice>>', invoice)
@@ -105,6 +106,7 @@ class DebitNote(models.Model):
             invoice.invoice_line_ids = [(0, 0, line)]
         invoice.action_post()
         self.send_email(self.dn_page())
+        self.create_piv()
 
     def dn_page(self):
         menu_id = self.env.ref('mashael_dn.mashael_dn_menu')
