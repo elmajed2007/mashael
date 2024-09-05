@@ -24,7 +24,7 @@
 				<attribute name="domain">[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id), ('is_warranty', '=', parent.is_warranty)]</attribute>
 			</xpath>
 			<xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_template_id']" position="attributes">
-				<attribute name="domain">[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id), ('is_warranty', '=', parent.is_warranty)]</attribute>
+				<attribute name="domain">[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]</attribute>
 			</xpath>
 			<xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_id']" position="before">
 				<field name="warranty_id" invisible="1"/>
