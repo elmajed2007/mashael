@@ -12,7 +12,7 @@ class PoVersion(models.Model):
              "It's used to do the matching when you receive the "
              "products as this reference is usually written on the "
              "delivery order sent by your vendor.")
-    date_approve = fields.Datetime('Confirmation Date', readonly=True, index=True, copy=False)
+    date_approve = fields.Datetime('Confirmation Date', readonly=False, index=True, copy=False)
     date_planned = fields.Datetime(
         string='Expected Arrival', index=True, copy=False, compute='_compute_date_planned', store=True, readonly=False,
         help="Delivery date promised by vendor. This date is used to determine expected arrival of products.")
@@ -37,7 +37,7 @@ class PoVersionLine(models.Model):
         comodel_name='po.version',
         string='order_id',
         required=False)
-    currency_id = fields.Many2one(related='order_id.currency_id', store=True, string='Currency', readonly=True)
+    currency_id = fields.Many2one(related='order_id.currency_id', store=True, string='Currency', readonly=False)
 
 
     product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
