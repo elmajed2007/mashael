@@ -44,7 +44,7 @@
                                     <tree string="Purchase Piv Order Lines" editable="bottom">
                                         <field name="product_id"/>
                                         <field name="name"/>
-                                        <field name="product_qty" readonly="1"/>
+                                        <field name="product_qty"/>
                                         <field name="qty_received"/>
                                         <field name="qty_invoiced"/>
                                         <field name="price_unit"/>
