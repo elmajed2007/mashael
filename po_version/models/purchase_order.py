@@ -8,6 +8,7 @@ class PurchaseOrder(models.Model):
 
     def button_confirm(self):
         res = super().button_confirm()
+        self.create_po_version()
 
         return res
 
