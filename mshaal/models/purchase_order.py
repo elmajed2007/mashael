@@ -20,7 +20,7 @@ class PurchaseOrder(models.Model):
         for record in self:
             for rec in record.destination_id:
                 if rec.duration and record.date_order:
-                    record.date_planned = record.date_order + + timedelta(days=rec.duration)
+                    record.date_planned = record.date_order + timedelta(days=rec.duration)
 
 
 class PurchaseOrderLine(models.Model):
