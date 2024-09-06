@@ -1,38 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_penalty_configuration_form" model="ir.ui.view">
-        <field name="name">penalty.configuration.form</field>
-        <field name="model">penalty.configuration</field>
-        <field name="arch" type="xml">
-            <form string="Penalty Configuration">
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="duration"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    <record id="view_penalty_configuration_tree" model="ir.ui.view">
-        <field name="name">penalty.configuration.tree</field>
-        <field name="model">penalty.configuration</field>
-        <field name="arch" type="xml">
-            <tree string="Penalty Configuration">
-                <field name="name"/>
-                <field name="duration"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="action_penalty_configuration" model="ir.actions.act_window">
-        <field name="name">Penalty Configuration</field>
-        <field name="res_model">penalty.configuration</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-
     <record id="hr_employee_penalty_form" model="ir.ui.view">
         <field name="name">hr.employee.penalty.form</field>
         <field name="model">hr.employee.penalty</field>
@@ -55,8 +21,10 @@
                             class="oe_highlight"
                             groups="hr.group_hr_manager"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,submit,approved"/>
+
                 </header>
                 <sheet>
+
                     <div class="oe_title">
                         <group>
                             <group>
@@ -124,10 +92,4 @@
               action="hr_employee_penalty_action"
               parent="menu_hr_penalty_policy"
               sequence="30"/>
-
-    <!--    <menuitem id="menu_penalty_configuration"-->
-    <!--              name="Penalty Configuration"-->
-    <!--              parent="menu_hr_penalty_policy"-->
-    <!--              action="action_penalty_configuration"/>-->
-
 </odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="paperformat_lowmargin_new" model="report.paperformat">
+        <field name="name">European A4 low margin new</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">25</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_journal" model="ir.actions.report">
+        <field name="paperformat_id" ref="paperformat_lowmargin_new"/>
+        <field name="name">Journal Entry Report</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">Journal_entry_report.journal_entry_report</field>
+        <field name="report_file">Journal_entry_report.journal_entry_report</field>
+    </record>
+
+    <report
+            id="action_report_journal"
+            string="Journal Entry Report"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="Journal_entry_report.journal_entry_report"
+            name="Journal_entry_report.journal_entry_report"/>
+
+</odoo>

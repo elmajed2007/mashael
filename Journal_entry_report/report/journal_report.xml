@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="journal_entry_report">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <div style="margin-top:80px">
+                        <div style="margin-top:80px">
+                            <h1 style="text-align:center;font-size:30px;">
+                                Qafas Elwrood
+                            </h1>
+                            <br/>
+                            <br/>
+                            <div style="width:100%">
+                                <table class="text-left table table-borderless"
+                                       style="font-size:20px; white-space:nowrap; width:100%;">
+                                    <tr>
+                                        <td class="text-left" style="font-size:20px;">
+                                            <span class="font-weight-bold">Account Dept.</span>
+                                        </td>
+                                        <td class="text-center" style="line-height:46px;">
+                                            <span class="font-weight-bold"></span>
+                                        </td>
+                                        <td class="text-right" style="font-size:20px; text-align:right;">
+                                            <span class="font-weight-bold">قسم الحسابات</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <div>
+                                    <span>
+                                        <h1 style="text-align:center;font-size:30px;">
+                                            Journal Entries
+                                        </h1>
+                                    </span>
+                                </div>
+                                <table class="table table-bordered"
+                                       style="font-size:20px;width:100%">
+                                    <tr style="height:60px;width:100%">
+                                        <td class="text-left" style="font-size:15px">
+                                            <span class="font-weight-bold">Reference:</span>
+                                        </td>
+                                        <td class="text-left" style="line-height:40px">
+                                            <t t-esc="doc.ref"/>
+                                        </td>
+                                        <td class="text-center" style="font-size:15px">
+                                            <span class="font-weight-bold">Accounting Date:</span>
+                                        </td>
+                                        <td class="text-center" style="line-height:4px">
+                                            <t t-esc="doc.date"/>
+                                        </td>
+                                        <td class="text-right" style="font-size:15px">
+                                            <span class="font-weight-bold">Date:</span>
+                                        </td>
+                                        <td class="text-right" style="line-height:4px">
+                                            <t t-esc="doc.today"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div style="margin-top:40px">
+                                    <table class="table table-bordered"
+                                           style="font-size:20px;width:100%;border:2px solid">
+                                        <thead>
+                                            <tr style="height:50px;border:2px solid black">
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;width: 1%">
+                                                    <span>No</span>
+                                                </th>
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Account</span>
+                                                </th>
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Partner</span>
+                                                </th>
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Label</span>
+                                                </th>
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Taxes</span>
+                                                </th>
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Debit</span>
+                                                </th>
+                                                <th class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Credit</span>
+                                                </th>
+<!--                                                <th class="text-center font-weight-bold"-->
+<!--                                                    style="border: 1px solid black;">-->
+<!--                                                    <span>Tax Grids</span>-->
+<!--                                                </th>-->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="total_debit" t-value="0"/>
+                                            <t t-set="total_credit" t-value="0"/>
+                                            <t t-foreach="doc.invoice_line_ids" t-as="line">
+                                                <tr style="height:50px;border:2px solid black">
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="line_index + 1"/>
+                                                    </td>
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="line.account_id.name"/>
+                                                    </td>
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="line.partner_id.name"/>
+                                                    </td>
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="line.name"/>
+                                                    </td>
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="'%.0f'%line.tax_ids.amount"/>%
+                                                    </td>
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="'%.0f'%line.debit"/>
+                                                        <t t-set="total_debit" t-value="total_debit + line.debit"/>
+                                                    </td>
+                                                    <td class="text-center" style="border: 1px solid black;">
+                                                        <span t-esc="'%.0f'%line.credit"/>
+                                                        <t t-set="total_credit" t-value="total_credit + line.credit"/>
+                                                    </td>
+<!--                                                    <td class="text-center" style="border: 1px solid black;">-->
+<!--                                                        <span t-esc="line.tax_tag_ids.name"/>-->
+<!--                                                    </td>-->
+                                                </tr>
+                                            </t>
+                                            <!-- Row for total debit and total credit -->
+                                            <tr style="height:50px;border:2px solid black">
+                                                <td colspan="5" class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span>Total Journal Entries</span>
+                                                </td>
+                                                <td class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span t-esc="'%.0f'%total_debit"/>
+                                                </td>
+                                                <td class="text-center font-weight-bold"
+                                                    style="border: 1px solid black;">
+                                                    <span t-esc="'%.0f'%total_credit"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div style="margin-top:10px;float:left;width:100%">
+                                    <table style="margin-top:20px;float:left;width:100%">
+                                        <tr>
+                                            <td>
+                                                <span>
+                                                    <p style="text-align:center;font-size:16px;">Accountant</p>
+                                                    <p style="text-align:center;font-size:16px;">
+                                                        -------------------------------------
+                                                    </p>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <p style="text-align:center;font-size:16px;">Accountant Manager</p>
+                                                    <p style="text-align:center;font-size:16px;">
+                                                        -----------------------------------
+                                                    </p>
+                                                </span>
+                                            </td>
+                                            <td style="text-align:right">
+                                                <span>
+                                                    <p style="text-align:center;font-size:16px;">Manager</p>
+                                                    <p style="text-align:center;font-size:16px;">
+                                                        -----------------------------------
+                                                    </p>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
