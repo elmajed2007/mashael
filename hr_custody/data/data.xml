@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model='ir.sequence' id='hr_custody_seq'>
+            <field name='name'>HR Custody</field>
+            <field name='padding'>3</field>
+            <field name="code">hr.custody</field>
+            <field name="prefix">HRCustody/</field>
+        </record>
+        <record model='ir.sequence' id='hr_custody_seq'>
+            <field name='name'>HR Custody Return</field>
+            <field name='padding'>3</field>
+            <field name="code">hr.custody.return</field>
+            <field name="prefix">HRCustodyReturn/</field>
+        </record>
+
+
+        <record id="email_template_submit_hr_custody_mail" model="mail.template">
+            <field name="name">HR Custody</field>
+            <field name="email_from">"{{object.user_id.name}}"&lt;{{object.user_id.email}}&gt;</field>
+            <field name="email_to">{{ctx.get('email_to')}}</field>
+            <field name="subject">HR Custody -{{object.name or 'n/a' }}</field>
+            <field name="model_id" ref="hr_custody.model_hr_custody"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+
+                    <p> Dear Sir / <t t-out="object.employee_id.name"/></p>
+                    <p>The Custody Is Submit</p>
+
+                ]]>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

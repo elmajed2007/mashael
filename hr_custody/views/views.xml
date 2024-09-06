@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- HR Custody Return -->
+    <record id="tree_hr_custody_return_view" model="ir.ui.view">
+        <field name="name">hr.custody.return.tree</field>
+        <field name="model">hr.custody.return</field>
+        <field name="arch" type="xml">
+            <tree string="HR Custody">
+
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="job_position"/>
+                <field name="date"/>
+                <field name="custody"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_custody_return_form" model="ir.ui.view">
+        <field name="name">hr.custody.return.form</field>
+        <field name="model">hr.custody.return</field>
+        <field name="arch" type="xml">
+            <form string="HR Custody">
+                <header>
+                    <button name="action_submit" type="object" string="Submit"
+                            invisible="state not in ['draft']"
+                            class="oe_highlight"/>
+                    <button name="action_approve" type="object" string="Approve"
+                            invisible="state not in ['submit']"
+                            class="oe_highlight"/>
+
+                    <button name="action_set_to_draft" type="object" string="Set To Draft"
+                            invisible="state not in ['submit','hr_approve']"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submit,hr_approve"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+
+                        <h1 class="mt0"
+                            invisible="name == '/'">
+                            <field name="name" readonly="state not in ['draft']" placeholder="HRCustody/0001"/>
+                        </h1>
+
+                    </div>
+                    <group>
+                        <group>
+                            <field name="custody_id" string="Custody Ref"/>
+                            <field name="custody" invisible="1"/>
+                            <field name="type_custody"
+                                   invisible="custody not in ['tangible']"
+                                   string="Custody of"/>
+                            <field name="other_custody"
+                                   invisible="custody not in ['non_tangible']"
+                                   string="Custody of"/>
+                            <field name="employee_id" readonly="state not in ['draft']" required="1"/>
+                            <field name="department_id"
+                                   invisible="custody not in ['tangible']"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state not in ['draft']"/>
+                            <field name="employee_no"/>
+
+
+                        </group>
+
+                    </group>
+
+                    <group invisible="type_custody not in ['car']">
+                        <field name="car_id"
+
+                               invisible="type_custody not in ['car']"
+                               string="Car Maker"/>
+                        <field name="plate_no"
+                               invisible="type_custody not in ['car']"/>
+                        <field name="car_color"
+                               invisible="type_custody not in ['car']"/>
+                        <field name="model"
+                               invisible="type_custody not in ['car']"/>
+                        <field name="mileage" invisible="type_custody not in ['car']"/>
+
+                    </group>
+                    <separator string="Car Accessories" invisible="type_custody not in ['car']"/>
+                    <group col="4" invisible="type_custody not in ['car']">
+
+                        <field name="fire" invisible="type_custody not in ['car']"/>
+                        <field name="lifting_tool" invisible="type_custody not in ['car']"/>
+                        <field name="mention_tool" invisible="type_custody not in ['car']"/>
+                        <field name="spare" invisible="type_custody not in ['car']"/>
+                        <field name="Mention_other" invisible="type_custody not in ['car']"/>
+                        <field name="car_other" invisible="Mention_other == False"/>
+                        <field name="check_status" invisible="type_custody not in ['car']"
+                               widget="radio"/>
+
+                    </group>
+                    <group col="4" invisible="type_custody not in ['car']">
+                        <field name="car_status" invisible="type_custody not in ['car']"/>
+                        <field name="remark" invisible="type_custody not in ['car']"/>
+                    </group>
+
+                    <group col="4" invisible="type_custody not in ['mobile']">
+                        <field name="asset_id" invisible="type_custody not in ['mobile']"/>
+                        <field name="mobile_no" invisible="type_custody not in ['mobile']"/>
+                        <field name="serial_no" invisible="type_custody not in ['mobile']"/>
+                        <field name="m_model" invisible="type_custody not in ['mobile']"/>
+                        <field name="color" invisible="type_custody not in ['mobile']"/>
+                        <field name="reciept_date" invisible="type_custody not in ['mobile']"/>
+                        <field name="remark" invisible="type_custody not in ['mobile']"/>
+                    </group>
+                    <separator string="Mobile Status and Accessories"
+                               invisible="type_custody not in ['mobile']"/>
+                    <group col="4" invisible="type_custody not in ['mobile']">
+
+                        <field name="headphones" invisible="type_custody not in ['mobile']"/>
+                        <field name="charger" invisible="type_custody not in ['mobile']"/>
+                        <field name="screen_protection" invisible="type_custody not in ['mobile']"/>
+                        <field name="cover" invisible="type_custody not in ['mobile']"/>
+                        <field name="others" invisible="type_custody not in ['mobile']"/>
+                        <field name="other_test" invisible="others == False"/>
+                    </group>
+                    <group>
+                        <field name="m_check_status" invisible="type_custody not in ['mobile']"
+                               widget="radio"/>
+                    </group>
+
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_custody_return_filter" model="ir.ui.view">
+        <field name="name">hr.custody.return.search</field>
+        <field name="model">hr.custody.return</field>
+        <field name="arch" type="xml">
+            <search string="HR Custody Retrun">
+                <field name="employee_id"/>
+                <field name="type_custody"/>
+                <field name="other_custody"/>
+                <field name="department_id"/>
+                <field name="job_position"/>
+                <filter name="group_employee_id" string="Employee" icon="terp-partner"
+                        context="{'group_by':'employee_id'}"/>
+                <filter name="group_state" string="State" icon="terp-partner" context="{'group_by':'state'}"/>
+                <filter name="group_date" string="Date" icon="terp-partner" context="{'group_by':'date'}"
+                        groups="base.group_user"/>
+            </search>
+        </field>
+    </record>
+    <!-- HR Custody -->
+    <record id="tree_hr_custody_view" model="ir.ui.view">
+        <field name="name">hr.custody.tree</field>
+        <field name="model">hr.custody</field>
+        <field name="arch" type="xml">
+            <tree string="HR Custody">
+
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="job_position"/>
+                <field name="date"/>
+                <field name="custody"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_hr_custody_form" model="ir.ui.view">
+        <field name="name">hr.custody.form</field>
+        <field name="model">hr.custody</field>
+        <field name="arch" type="xml">
+            <form string="HR Custody">
+                <header>
+                    <button name="action_submit" type="object" string="Submit"
+                            invisible="state not in ['draft']"
+                            groups="hr_custody.hr_custody_hr_user"
+                            class="oe_highlight"
+                    />
+                    <button name="action_approve" type="object" string="Approve"
+                            invisible="state not in ['submit']"
+                            class="oe_highlight"/>
+
+                    <button name="action_set_to_draft" type="object" string="Set To Draft"
+                            invisible="state not in ['submit','hr_approve']"/>
+                    <field name="created" invisible="1"/>
+                    <button name="action_custody_return" type="object" string="Return"
+                            invisible="state != 'hr_approve' or created == True"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submit,hr_approve"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                icon="fa-book"
+                                name="action_view_custody_return"
+                                type="object"
+                                invisible="return_count == 0">
+                            <field name="return_count" widget="statinfo"
+                                   string="Return"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+
+                        <h1 class="mt0" invisible="name == '/'">
+                            <field name="name" readonly="state not in ['draft']" placeholder="HRCustody/0001"/>
+                        </h1>
+
+                    </div>
+                    <group>
+                        <group>
+
+                            <!--                            <field name="custody" invisible="1"/>-->
+                            <field name="custody"/>
+                            <field name="type_custody" invisible="custody not in ['tangible']"
+                                   string="Custody of/نوع العهدة"/>
+                            <field name="other_custody" invisible="custody not in ['non_tangible']"
+                                   string="Custody of/نوع العهدة"/>
+                            <field name="finance_custody"
+                                   invisible="custody not in ['financial_custody']"
+                                   string="Custody of/نوع العهدة"/>
+                            <field name="employee_id" readonly="state not in ['draft']" required="1"/>
+                            <field name="guarntee_employee"
+                                   invisible="other_custody not in ['guarntee']"/>
+                            <field name="department_id" invisible="custody not in ['tangible']"/>
+                            <field name="department_id" invisible="custody not in ['non_tangible']"/>
+                            <field name="nationality_id"
+                                   invisible="type_custody not in ['hand_hold','stamp','cash','journal','branch']"/>
+                            <field name="identification_id"
+                                   invisible="type_custody not in ['hand_hold','stamp','cash','journal','branch']"/>
+                            <field name="financial_custody_amount"
+                                   invisible="finance_custody not in ['loan']"/>
+
+                        </group>
+                        <group>
+                            <field name="date" readonly="state not in ['draft']"/>
+                            <field name="employee_no"/>
+                            <field name="guarntee_employee_no" string="Guarntee Employee NO"
+                                   invisible="other_custody not in ['guarntee']"/>
+                            <field name="job_position"
+                                   invisible="type_custody not in ['mobile','hand_hold','stamp']"/>
+                            <field name="job_position"
+                                   invisible="other_custody not in ['training','guarntee']"/>
+                            <field name="is_asset"
+                                   invisible="custody not in ['tangible']"/>
+                            <field name="asset_id"
+                                   invisible="is_asset == False"
+                                   required="is_asset == True"/>
+                        </group>
+
+                    </group>
+                    <group col="4"
+                           invisible="other_custody not in ['training']">
+                        <field name="subject"
+                               invisible="other_custody != 'training'"
+                               required="other_custody == 'training'"/>
+                        <field name="trainig_days"
+                               invisible="other_custody != 'training'"
+                               required="other_custody == 'training'"/>
+
+                        <field name="start_date"
+                               invisible="other_custody != 'training'"
+                               required="other_custody == 'training'"/>
+
+                        <field name="end_date"
+                               invisible="other_custody != 'training'"
+                               required="other_custody == 'training'"/>
+
+                    </group>
+                    <group col="4" invisible="other_custody not in ['check']">
+                        <field name="nationality_id" invisible="other_custody not in ['check']"/>
+                        <field name="identification_id" invisible="other_custody not in ['check']"/>
+                        <field name="check_book" invisible="other_custody not in ['check']"/>
+                        <field name="from_no" invisible="other_custody not in ['check']"
+                               string="Check From No"/>
+                        <field name="to_no" invisible="other_custody not in ['check']"
+                               string="Check To No"/>
+                    </group>
+                    <group col="4" invisible="type_custody not in ['mobile']">
+                        <field name="mobile_no" invisible="type_custody not in ['mobile']"/>
+                        <field name="serial_no" invisible="type_custody not in ['mobile']"/>
+                        <field name="m_model" invisible="type_custody not in ['mobile']"/>
+                        <field name="color" invisible="type_custody not in ['mobile']"/>
+                        <field name="reciept_date" invisible="type_custody not in ['mobile']"/>
+                        <field name="sim_card_no" invisible="type_custody not in ['mobile']"/>
+                        <field name="device_status" invisible="type_custody not in ['mobile']"/>
+
+                    </group>
+                    <separator string="Mobile Status and Accessories"
+                               invisible="type_custody not in ['mobile']"/>
+                    <group col="4" invisible="type_custody not in ['mobile']">
+
+                        <field name="headphones" invisible="type_custody not in ['mobile']"/>
+                        <field name="charger" invisible="type_custody not in ['mobile']"/>
+                        <field name="screen_protection" invisible="type_custody not in ['mobile']"/>
+                        <field name="cover" invisible="type_custody not in ['mobile']"/>
+                        <field name="others" invisible="type_custody not in ['mobile']"/>
+                        <field name="other_test" invisible="others == False"/>
+                    </group>
+                    <group invisible="type_custody not in ['hand_hold']">
+                        <field name="type_custody_text"
+                               invisible="type_custody not in ['hand_hold']"/>
+                        <field name="description" invisible="type_custody not in ['hand_hold']"/>
+                        <field name="serial" invisible="type_custody not in ['hand_hold']"/>
+                        <field name="issue_id" invisible="type_custody not in ['hand_hold']"/>
+                        <field name="issue_date" invisible="type_custody not in ['hand_hold']"/>
+                        <field name="expiry_date" invisible="type_custody not in ['hand_hold']"/>
+                    </group>
+                    <group col="4">
+                        <field name="journal_id"
+                               invisible="type_custody not in ['stamp','cash','journal','branch']"/>
+
+                        <field name="journal_code" invisible="type_custody not in ['stamp','journal']"
+                               force_save="1"/>
+
+                        <field name="stamp_image"
+                               invisible="type_custody not in ['stamp','journal']"/>
+                        <field name="stamp_date" invisible="type_custody not in ['stamp','journal']"/>
+
+                        <field name="journal_amount" invisible="type_custody not in ['branch']"/>
+                        <field name="account_id" invisible="type_custody not in ['cash']"
+                               force_save="1"/>
+                        <field name="box_amount" invisible="type_custody not in ['cash']"
+                               force_save="1"/>
+                        <field name="currency_id" invisible="type_custody not in ['cash']"
+                               force_save="1"/>
+                        <field name="journal_component" invisible="type_custody not in ['journal']"/>
+                    </group>
+                    <group invisible="type_custody not in ['car']">
+                        <field name="car_id" invisible="type_custody not in ['car']"
+                               string="Car Maker"/>
+                        <field name="plate_no" invisible="type_custody not in ['car']"/>
+                        <field name="car_image" invisible="type_custody not in ['car']"/>
+                        <field name="car_color" invisible="type_custody not in ['car']"/>
+                        <field name="model" invisible="type_custody not in ['car']"/>
+                        <field name="mileage" invisible="type_custody not in ['car']"/>
+                        <field name="reciept_date" invisible="type_custody not in ['car']"/>
+
+                    </group>
+                    <separator string="Car Accessories" invisible="type_custody not in ['car']"/>
+                    <group col="4" invisible="type_custody not in ['car']">
+
+                        <field name="fire" invisible="type_custody not in ['car']"/>
+                        <field name="lifting_tool" invisible="type_custody not in ['car']"/>
+                        <field name="mention_tool" invisible="type_custody not in ['car']"/>
+                        <field name="spare" invisible="type_custody not in ['car']"/>
+                        <field name="Mention_other" invisible="type_custody not in ['car']"/>
+                        <field name="car_other" invisible="Mention_other == False"/>
+
+                    </group>
+                    <group col="4" invisible="type_custody not in ['car']">
+                        <field name="car_status" invisible="type_custody not in ['car']"/>
+                        <field name="remark" invisible="type_custody not in ['car']"/>
+                    </group>
+                    <group col="4" invisible="other_custody not in ['email']">
+                        <field name="email_id" invisible="other_custody not in ['email']"/>
+                        <label for="training_period" invisible="other_custody not in ['email']"/>
+                        <div class="o_row" invisible="other_custody not in ['email']">
+                            <field name="training_period" invisible="other_custody not in ['email']"/>
+                            days
+                        </div>
+
+                        <field name="justification" invisible="other_custody not in ['email']"/>
+                        <field name="access_category" invisible="other_custody not in ['email']"
+                               widget="radio"/>
+                        <field name="other_access" invisible="access_category not in ['Other']"/>
+                        <field name="access_period" invisible="other_custody not in ['email']"
+                               widget="radio"/>
+                        <field name="from_date" invisible="access_period not in ['period']"/>
+                        <field name="to_date" invisible="access_period not in ['period']"/>
+                    </group>
+                    <group col="4" invisible="type_custody not in ['financial_custody']">
+                        <field name="advance_amount"
+                               invisible="type_custody not in ['financial_custody']"/>
+                        <field name="justification"
+                               invisible="type_custody not in ['financial_custody']"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="custody_receive"/>
+                            <field name="custody_approve"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="terms_conditions"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_custody_filter" model="ir.ui.view">
+        <field name="name">hr.custody.search</field>
+        <field name="model">hr.custody</field>
+        <field name="arch" type="xml">
+            <search string="HR Custody ">
+                <field name="employee_id"/>
+                <field name="type_custody"/>
+                <field name="other_custody"/>
+                <field name="department_id"/>
+                <field name="job_position"/>
+                <filter name="group_employee_id" string="Employee" icon="terp-partner"
+                        context="{'group_by':'employee_id'}"/>
+                <filter name="group_state" string="State" icon="terp-partner" context="{'group_by':'state'}"/>
+                <filter name="group_date" string="Date" icon="terp-partner" context="{'group_by':'date'}"
+                        groups="base.group_user"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem name="HR Custody" parent="hr.menu_hr_root" id="menu_hr_custodys" sequence="20"/>
+
+
+    <record id="action_hr_custody_tangible" model="ir.actions.act_window">
+        <field name="name">Tangible Custody</field>
+        <field name="res_model">hr.custody</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+            {"default_custody":'tangible'}
+        </field>
+        <field name="domain">[('custody','=','tangible')]</field>
+    </record>
+    <record id="action_hr_custody_other" model="ir.actions.act_window">
+        <field name="name">Other Custody</field>
+        <field name="res_model">hr.custody</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+            {"default_custody":'non_tangible'}
+        </field>
+        <field name="domain">[('custody','=','non_tangible')]</field>
+
+    </record>
+    <record id="action_hr_custody_financial" model="ir.actions.act_window">
+        <field name="name">Financial Custody</field>
+        <field name="res_model">hr.custody</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+            {"default_custody":'financial_custody'}
+        </field>
+        <field name="domain">[('custody','=','financial_custody')]</field>
+    </record>
+
+    <menuitem name="Tangible Custody" parent="menu_hr_custodys" id="menu_hr_custody_tangible" sequence="1"
+              action="action_hr_custody_tangible"/>
+
+
+    <menuitem name="Other Custody" parent="menu_hr_custodys" id="menu_hr_custody_other" sequence="2"
+              action="action_hr_custody_other"/>
+    <menuitem name="Financial Custody" parent="menu_hr_custodys" id="menu_hr_custody_financial" sequence="3"
+              action="action_hr_custody_financial"/>
+
+
+</odoo>

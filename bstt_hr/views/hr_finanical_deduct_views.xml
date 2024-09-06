@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_financial_deduct_view" model="ir.ui.view">
+        <field name="name">hr.financial.deduct.view.tree</field>
+        <field name="model">hr.financial.deduct</field>
+        <field name="arch" type="xml">
+            <tree string="Fiscal Deficit">
+                <field name="employee_id"/>
+                <field name="employee_no"/>
+                <field name="emp_department_id"/>
+                <field name="emp_job_id"/>
+                <field name="date"/>
+                <field name="deduct_amount"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_financial_deduct_form_view" model="ir.ui.view">
+        <field name="name">hr.financial.deduct.view.form</field>
+        <field name="model">hr.financial.deduct</field>
+        <field name="arch" type="xml">
+            <form string="Fiscal Deficit">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            invisible="state not in ['draft']"
+
+                            class="oe_highlight"/>
+                    <button name="action_approve" type="object" string="Approve"
+                            invisible="state not in ['in_progress']"
+                            class="oe_highlight"
+                            groups="bstt_hr.group_hr_manager_group"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state not in ['draft','in_progress']"/>
+                    <button name="action_set_to_draft" type="object" string="Set To Draft"
+                            invisible="state not in ['approve','cancel']"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,approve"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="state not in ['draft', 'in_progress']"/>
+                            <field name="employee_no"/>
+                            <field name="emp_department_id"/>
+                            <field name="emp_job_id"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state not in ['draft', 'in_progress']"/>
+                            <field name="deduct_amount" readonly="state not in ['draft', 'in_progress']"/>
+                            <field name="reason" readonly="state not in ['draft', 'in_progress']"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_financial_deduct" model="ir.actions.act_window">
+        <field name="name">Fiscal Deficit</field>
+        <field name="res_model">hr.financial.deduct</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_financial_deduct_hr"
+              name="Fiscal Deficit"
+              parent="hr_work_entry_contract_enterprise.menu_hr_payroll_root"
+              action="action_financial_deduct"
+              sequence="68"/>
+
+</odoo>

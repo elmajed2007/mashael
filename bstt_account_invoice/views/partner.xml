@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- form view -->
+        <record id="view_res_partner_form" model="ir.ui.view">
+            <field name="name">res_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="before">
+
+                </xpath>
+                <xpath expr="//group" position="after">
+                    <group>
+                        <field name="foreign_name" placeholder="Foreign Name"/>
+                        <!--                    <field name="arabic_name"/>-->
+                        <label for="arabic_street" string="Arabic Address"/>
+                        <div class="o_address_format">
+                            <field name="arabic_street" placeholder="Arabic Street..." class="o_address_street"/>
+                            <field name="arabic_street2" placeholder="Arabic Street 2..." class="o_address_street"/>
+                            <field name="arabic_city" placeholder="Arabic City" class="o_address_city"/>
+                            <field name="arabic_state" class="o_address_state" placeholder="Arabic State"
+                                   options="{&quot;no_open&quot;: True}"/>
+                            <field name="arabic_zip" placeholder="Arabic ZIP" class="o_address_zip"/>
+                            <field name="arabic_country" placeholder="Arabic Country" class="o_address_country"
+                                   options="{&quot;no_open&quot;: True}"/>
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

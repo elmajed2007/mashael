@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- validate and format IBAN -->
+        <record id="view_partner_bank_acc_check_form" model="ir.ui.view">
+            <field name="name">res.partner.bank.form.acc.check.inherit</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_form"/>
+            <field name="arch" type="xml">
+                <field name="acc_number" position="attributes">
+                    <!-- The onchange method will be handled automatically in the model -->
+                    <attribute name="string">IBAN Number</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
+        <!--        <?xml version="1.0" encoding="UTF-8"?>-->
+        <!--<openerp>-->
+        <!--<data>-->
+
+        <!--    &lt;!&ndash; validate and format IBAN &ndash;&gt;-->
+        <!--    <record id="view_partner_bank_acc_check_form" model="ir.ui.view">-->
+        <!--        <field name="name">res.partner.bank.form.acc.check.inherit</field>-->
+        <!--        <field name="model">res.partner.bank</field>-->
+        <!--        <field name="inherit_id" ref="base.view_partner_bank_form"/>-->
+        <!--        <field name="arch" type="xml">-->
+        <!--            <field name="acc_number" position="attributes">-->
+        <!--                <attribute name="on_change">onchange_acc_id(acc_number)</attribute>-->
+        <!--            </field>-->
+        <!--        </field>-->
+        <!--    </record>-->
+
+        <!--</data>-->
+        <!--</openerp>-->

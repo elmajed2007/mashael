@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- QWeb Reports -->
+        <record id="hr_custody" model="ir.actions.report">
+            <field name="name">HR Custody Report</field>
+            <field name="model">hr.custody</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_custody.report_hr_custody</field>
+            <field name="report_file">hr_custody.report_hr_custody</field>
+            <field name="attachment">((object.name).replace('/','_')+'.pdf')</field>
+            <field name="binding_model_id" ref="model_hr_custody"/>
+            <field name="binding_type">report</field>
+
+        </record>
+        <record id="hr_custody_return" model="ir.actions.report">
+            <field name="name">HR Custody Return Report</field>
+            <field name="model">hr.custody.return</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_custody.report_hr_custody_return</field>
+            <field name="report_file">hr_custody.report_hr_custody_return</field>
+            <field name="attachment">((object.name).replace('/','_')+'.pdf')</field>
+            <field name="binding_model_id" ref="model_hr_custody_return"/>
+            <field name="binding_type">report</field>
+
+        </record>
+
+    </data>
+</odoo>

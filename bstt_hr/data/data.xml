@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employee_relationship" model="hr.employee.relation">
+        <field name="name">Husband</field>
+    </record>
+
+    <record id="employee_relationship_father" model="hr.employee.relation">
+        <field name="name">Father</field>
+    </record>
+
+    <record id="employee_relationship_mother" model="hr.employee.relation">
+        <field name="name">Mother</field>
+    </record>
+
+    <record id="action_calculate_sicktimeoff" model="ir.cron">
+        <field name="model_id" ref="hr_holidays.model_hr_leave"/>
+        <field name="state">code</field>
+        <field name="name">Calculate Sick Time Off</field>
+        <field name="active" eval="True"/>
+        <field name="code">model._get_sick_duration()</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="interval_number">1</field>
+        <field name="doall" eval="False"/>
+    </record>
+
+    <record id="action_calculate_probation_period" model="ir.cron">
+        <field name="model_id" ref="model_hr_contract"/>
+        <field name="state">code</field>
+        <field name="name">Calculate Probation Period</field>
+        <field name="active" eval="True"/>
+        <!-- <field name="code">model.calculate_probation_period()</field> -->
+        <field name="code">model.search([('state', '=', ('open'))]).calculate_probation_period()</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="interval_number">1</field>
+        <field name="doall" eval="False"/>
+    </record> 
+
+    <record id="mail_activity_process_probation_period" model="mail.activity.type">
+            <field name="name">Probation Period Notification </field>
+            <field name="icon">fa-refresh</field>
+            <field name="delay_count">0</field>
+            <field name="sequence">23</field>
+            <field name="decoration_type">warning</field>
+            <field name="res_model">hr.contract</field>
+            <field name="summary">Probation Period: 30 days left</field>
+        </record>    
+
+</odoo>

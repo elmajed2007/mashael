@@ -1,0 +1,2881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<template id="financial_custody_doc">
+           
+                    <h2>
+                        
+                       <center> E-mail Account/ Device Delivery Form استلام جهاز وايميل </center>
+                    </h2>
+
+
+    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف المستلم:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+                         </tr>
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Mobile Maker:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+<!--                            <span t-field="o.asset_id"/>-->
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">صانع الجهاز:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Email ID:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+<!--                            <span t-field="o.mobile_no"/>-->
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الايميل:</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>SN:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.serial_no"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">رقم التسلسل:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Model:</strong><span t-field="o.model"/>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;font-size:15px;">
+                                <strong>:موديل</strong>
+                                <strong>Color:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <span  t-field="o.color"/>
+                                <strong style="float:right;text-align:right" dir="rtl">اللون:</strong>
+
+                            </td>
+
+
+
+                        </tr>
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            <strong>Mobile Status &amp; Accessories حالة الجهاز وملحقاته</strong>
+                            </td>
+
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                <div class="col-auto col-6 mw-100 mb-2" >
+                                    <input type="checkbox" />Headphones سماعات<br/>
+                                    <input type="checkbox" />Charger شاحن<br/>
+                                    <input type="checkbox" />Screen Protection حماية شاشة<br/>
+                                    <input type="checkbox" />Bag حقيبة<br/>
+                                    <input type="checkbox" />Keyboard لوحة مفاتيح<br/>
+                                    <input type="checkbox" />Mouse ماوس<br/>
+                                    <input type="checkbox" />Others أخرى<br/>
+                        </div>
+
+
+                            </td>
+                         </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:12px;width:50%;">
+
+                                <div>
+Terms &amp; conditions:
+    <ul>
+    <li>Email account &amp; devices are the property of the company &amp; solely used for business related purposes to ease the work, enhance efficiency &amp; to boost performance.</li>
+    <li>Employee is committed preserve the device &amp; to avoid: misuse, installation of any software or setting modification, and will bear full maintenance/ replace charges for any damage under employee responsibility.</li>
+    <li>Employee is committed not to use the device for non-business-related purposes, not to store private or non-work-related material or files on the device &amp; to surrender the device to the company upon request.</li>
+    <li>Employee is not allowed to personally disassemble, adjust, add or replace parts of the device unless officially authorized by the company.</li>
+    <li>Employee will bear sole liability for violating Saudi cybercrimes laws &amp; regulations.</li>
+    <li>Device must be surrendered to direct manager or replacing staff through an official handover form prior to (vacation or administrative) leave.</li>
+    <li>Employee is committed to surrender the device with the same condition as received upon management request.</li>
+    <li>Employee is committed to use the email account according to company terms:
+        <ul>
+            <li>Keep email password secret at all times.</li>
+
+            <li>Abide to company email correspondences policy.</li>
+            </ul>
+    </li>
+</ul>
+
+                    </div>
+
+
+                            </td>
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:12px;width:50%;" dir="rtl">
+                                                                 <div style="float:right;text-align:right">
+
+الشروط والاحكام:
+
+                                                                     <ul style="padding-right:30px;">
+                                        <li> إن الجهاز والايميل ملكية خاصة للشركة ويستخدم في الأساس لأغراض العمل والهدف من استخدامه رفع كفاءة العمل وسرعة الانجاز وتسهيل مهام العمل.</li>
+                                        <li>يتعهد الموظف بالمحافظة على الجهاز وعدم الإهمال في استخدامه وعدم تنزيل أي برامج أو تغيير في اعدادات الجهاز ويتحمل مصاريف الصيانة في حال سوء الاستخدام أو التلف أو مصاريف الاستبدال في حال مسؤوليته الفقدان.</li>
+                                        <li>يتعهد الموظف بعدم استخدام الجهاز لغير أغراض العمل وعدم تخزين صور خاصة أو ملفات لا تتعلق بالعمل على الجهاز ويلتزم بالتسليم الفوري للجهاز عند الطلب في أي وقت تراه الشركة مناسبا.</li>
+                                        <li>لا يحق للموظف فك أو تعديل أو إضافة أو تبديل قطع غيار للجهاز بنفسه دون موافقة خطية من الشركة.</li>
+                                        <li>يعتبر الموظف مسؤول قانونيا في حال مخالفة نظام الجرائم المعلوماتية المعمول به في المملكة العربية السعودية.</li>
+                                        <li>يتم تسليم الجهاز للمدير المباشر أو الموظف البديل وفق محضر تسليم كتابي قبل الاجازة (سواء ادارية أو خاصة).</li>
+                                        <li>يتعهد الموظف بتسليم الجهاز على الحالة التي استلمها عليها فور طلب الإدارة.</li>
+                                        <li> يتعهد الموظف باستخدام الايميل وفق الشروط المحددة من الشركة:
+                                            <ul style="padding-right:30px;">
+                                                <li>المحافظة على كلمة السر وعدم افشائها. </li>
+
+                                                <li> الالتزام بسياسة المراسلات الخاصة بالشركة.</li>
+                                                </ul>
+                                        </li>
+                                    </ul>
+
+                                 </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                    </table>
+
+        Employee Signature....................................................................................................................................................................توقيع المستلم
+
+
+
+
+</template>
+<template id="stamp_doc">
+
+                    <h2>
+
+                       <center> Trust of Receiving &amp; Usage of Stamp عهدة استلام واستخدام ختم </center>
+                    </h2>
+
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Locker Name:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.journal_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">اسم الخزنة:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Locker Code:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span  t-field="o.journal_code"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">رقم الخزنة:</strong>
+                            </td>
+
+
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف المستلم:</strong>
+                            </td>
+
+
+
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                    <div>
+
+       I’m the aforementioned employee of the nationality <strong><span t-field="o.nationality_id"/></strong> ID/Residence Permit No  <strong><span t-field="o.identification_id"/></strong>. I confirm the followings:
+    <ul>
+        <li>I received from the Company's Admin. affairs a Locker to use for keeping Work related documents and Cash.</li>
+        <li> I have read the terms and understood conditions of the Trust of Receiving the Locker.</li>
+        <li> I am fully responsible for its content, and for using it for work only.</li>
+        <li> I pledge that I will not use the locker balance and to keep the cash in the locker only and be ready to deliver it anytime upon the company's or upon the completion or the end of its purpose. </li>
+        <li> I pledge to keep the Cash, a copy of every Documents, Receipt Voucher, and Payment Voucher in the Locker.</li>
+        <li> I pledge to keep evidence of Receipt and Delivery of each document in the Locker.</li>
+</ul>
+I pledge that I bear all responsibility for any loss, decrease, or misuse, mistake, and that I bear any damage or amounts owed to the company and that I will be subject to accountability and accountability and any sums resulting from that will be in my personal custody and financial responsibility and that I pay them.
+
+
+                    </div>
+                            </td>
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;" dir="rtl">
+                                    <div style="float:right;text-align:right;">
+
+       أنا الموظف المذكور أعلاه من الجنسية <strong><span t-field="o.nationality_id"/></strong>
+                                        رقم الإقامة/الهوية  <strong><span t-field="o.identification_id"/></strong>.
+                                        أقر بمايلي:
+    <ul style="padding-right:30px;">
+        <li>أني استلمت من الشؤون الإدارية بالشركة الختم المذكور أدناه للاستخدام الخاص بالعمل فقط.</li>
+        <li>أني اطلعت وعلى دراية بشروط وضوابط عهدة استلام الختم.</li>
+        <li>أني مسؤول مسؤولية تامة عن حسن استخدام الختم لأغراض العمل فقط.</li>
+        <li>أتعهد بأن لا أتصرف به إلا ضمن حدود العمليات المذكورة أعلاه وضمن حدود وسياسات الشركة المقرة من قبل الادارة وأن احتفظ به واحافظ عليه وأن أقوم بتسليمه للشركة عند الطلب في أي وقت أو عند اكتمال, أو انتهاء الغرض منه.</li>
+        <li>أتعهد بأني اتحمل كافة المسؤولية عن أي فقدان أو نقصان أو سوء استخدام, أو خطأ وأني اتحمل اي ضرر أو مبالغ تترتب على الشركة و اكون تحت طائلة المسائلة والمحاسبة واي مبالغ مترتبة عن ذلك تكون في عهدتي الشخصية وذمتي المالية وان أقوم بسدادها.</li>
+</ul>
+                    </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;height:2cm;">
+                                <strong>Authorised Purpose of use</strong>
+                                <strong style="float:right;text-align:right">دواعي الاستخدام المعتمدة</strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;height:3cm;">
+                                <strong>Stamp Print</strong>
+                                <strong style="float:right;text-align:right">طبعة الختم</strong>
+                            </td>
+                        </tr>
+
+                    </table>
+                    Recipient Signature...................................................................................................................................................................................توقيع المستلم
+                    <br/>
+                    <br/>
+                    HR &amp; Admin...............................................................................................................................................................................................الشؤون الادارية
+
+
+</template>
+<template id="cash_doc">
+
+                    <h2>
+
+                       <center> Main HO Trust of Receiving Cash Locker Account and ERP Finance User to Issue Payment and Receipt Vouchers </center>
+                    </h2>
+                     <div id="informations1" class="row mt-4 mb-4">
+
+                        <div class="col-auto col-6 mw-100 mb-2">
+                            <strong>Date:</strong>
+                            <span class="m-0" t-field="o.date"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Department:</strong>
+                            <span class="m-0" t-field="o.department_id"/>
+                        </div>
+
+                    </div>
+                  <div id="informations2" class="row mt-4 mb-4">
+
+
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Recipient Employee:</strong>
+                            <span class="m-0" t-field="o.employee_id"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Employee No:</strong>
+                            <span class="m-0" t-field="o.guarntee_employee_no"/>
+                        </div>
+
+                    </div>
+                    <div id="informations2" class="row mt-4 mb-4">
+
+
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Cash Locker Name </strong>
+                            <span class="m-0" t-field="o.journal_id"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Locker Account No:</strong>
+                            <span class="m-0" t-field="o.account_id"/>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div>
+I’m the aforementioned employee of the nationality <strong><span t-field="o.nationality_id"/></strong> ID/Residence Permit No. <strong><span t-field="o.identification_id"/></strong>.I confirm the followings:
+    <ul>
+    <li> I received from the Company's a Username and Password on ERP financial Module to enable execution of financial entries (part of it) issuing Cash Payment and Receipt Vouchers under my financial trust from and to any third party (Clients, Suppliers, Shareholders, Employees, etc.) and it will be recorded in the account as mentioned in the Receipt Voucher.</li>
+    <li>
+    I have read and acknowledge the terms and conditions of the Locker receipt and the user use details to do financial entries and issue the Cash Receipt and Payment Vouchers.</li>
+    <li>I’m fully responsible for it, and for using it properly and for work only</li>
+    <li> I pledge that I will deliver the cash Balance of the Locker account upon the company's request, or upon the end of its purpose.</li>
+    <li> I pledge to deposit the account balance when the balance reach’s 20,000.00 twenty thousand Saudi Riyals.</li>
+    <li> I pledge to keep a copy of each Voucher and a copy of the deposits in the company Bank account, or evidence of its delivery tp the third party or to the competent department.</li>
+    <li> I pledge that I bear all responsibility for any loss, decrease, mistake, or misuse, and that I bear any damage or amounts owed to the company and that I will be subject to accountability and accountability and any sums resulting from that will be in my personal custody and financial responsibility and that I pay them.</li>
+</ul>
+
+                    </div>
+
+<div>
+<p>Recipient Employee Signature....................</p>
+ <p>HR And Admin....................</p>
+
+</div>
+</template>
+<template id="journal_doc">
+                    <h2>
+                       <center> Trust of Receiving a Locker عهدة استلام خزنة</center>
+                    </h2>
+                    <table style="width:100%;border-width:1px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Locker Name:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.journal_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">اسم الخزنة:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Locker Code:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span  t-field="o.journal_code"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">رقم الخزنة:</strong>
+                            </td>
+
+
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف المستلم:</strong>
+                            </td>
+
+
+
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;">
+                                 <div>
+
+                                    I’m the aforementioned employee of the nationality <strong><span t-field="o.nationality_id"/></strong> ID/Residence Permit No.   <strong><span t-field="o.identification_id"/></strong>.I confirm the followings:
+                                    <ul>
+                                        <li> I received from the Company's Admin. affairs a Locker to use for keeping Work related documents and Cash.</li>
+                                        <li> I have read the terms and understood conditions of the Trust of Receiving the Locker.</li>
+                                        <li> I am fully responsible for its content, and for using it for work only.</li>
+                                        <li> I pledge that I will not use the locker balance and to keep the cash in the locker only and be ready to deliver it anytime upon the company's or upon the completion or the end of its purpose. </li>
+                                        <li> I pledge to keep the Cash, a copy of every Documents, Receipt Voucher, and Payment Voucher in the Locker.</li>
+                                        <li> I pledge to keep evidence of Receipt and Delivery of each document in the Locker.</li>
+                                        <li> I pledge that I bear all responsibility for any loss, decrease, or misuse, mistake, and that I bear any damage or amounts owed to the company and that I will be subject to accountability and accountability and any sums resulting from that will be in my personal custody and financial responsibility and that I pay them.</li>
+                                        <li> Locker Confirmed Content:
+                                            <ul>
+                                                <li>Cash </li>
+
+                                                <li> Passports while process of transaction</li>
+                                                <li> Cheque Receipt Voucher and its receipt/delivery proof</li>
+                                                <li> Suppliers Documents</li>
+                                                <li> Cheques while to deposit in Bank or sending to main HO</li>
+                                                <li> Promissory notes/Monetary Documents while collection or while sending to HO</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                 </div>
+                            </td>
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;" dir="rtl">
+                                 <div style="float:right;text-align:right;">
+
+                                     أنا الموظف المذكور أعلاه من الجنسية <strong><span t-field="o.nationality_id"/></strong>
+
+                                     الموظف رقم الهوية/الإقامة <strong><span t-field="o.identification_id"/></strong>
+                                     أقر بمايلي:
+
+                                    <ul style="padding-right:30px;">
+                                        <li> أني استلمت من الشؤون الإدارية بالشركة خزنة لحفظ الكاش الخاص بالعمل و حفظ أية مستندات متعلقة بالعمل.</li>
+                                        <li> أني اطلعت وعلى دراية بشروط وضوابط عهدة استلام الخزنة.</li>
+                                        <li>أني مسؤول مسؤولية تامة عن محتويات الخزنة وعن حسن استخدامها لأغراض العمل فقط.</li>
+                                        <li>أتعهد بأن لا أتصرف بمبلغ رصيد الخزنة وأن احتفظ به في الخزنة فقط و أن أقوم بتسليم الخزنة عند طلب الشركة في أي وقت أو عند اكتمال, أو انتهاء الغرض منها.</li>
+                                        <li>أن احتفظ بالمبالغ في الخزنة وبصورة عن كل مستند أو سند قبض أو دفع يودع في الخزنة.</li>
+                                        <li>أن احتفظ بما يثبت استلام وتسليم أي مستند أو مبالغ تم ادخالها للخزنة.</li>
+                                        <li>أتعهد بأني اتحمل كافة المسؤولية عن أي فقدان أو نقصان أو سوء استخدام, أو خطأ وأني اتحمل اي ضرر أو مبالغ تترتب على الشركة و اكون تحت طائلة المسائلة والمحاسبة واي مبالغ مترتبة عن ذلك تكون في عهدتي الشخصية وذمتي المالية وان أقوم بسدادها.</li>
+                                        <li> دواعي استخدام الخزنة لحفظ الوثائق التالية فقط:
+                                            <ul style="padding-right:30px;">
+                                                <li>نقد كاش</li>
+
+                                                <li>جوازات لاتمام بعض العمليات</li>
+                                                <li>دفاتر سند استلام الشيكات ومايثبت استلامها أو تسليمها.</li>
+                                                <li>مستندات الموردين.</li>
+                                                <li>شيكات قيد الايداع في البنك أو تنتظر الارسال للمكتب الرئيسي</li>
+                                                <li>سند لأمر أو مستندات مالية بينما يتم تحصيلها من العميل أو بينما يتم ارسالها للمكتب الرئيسي.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                 </div>
+                            </td>
+
+                        </tr>
+                    </table>
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+
+                        <tr>
+                                <td colspan="1"
+                                style=" float:right;text-align:right;border-width:0px;border-color:black;font-size:15px;width:49%;" dir="rtl">
+محتوى الخزنة الحالي
+                                </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:49%;float:left;text-align:left">
+Locker Current Content
+                            </td>
+                        </tr>
+
+                        <tr>
+                                <td colspan="2"
+                                style=" float:right;text-align:right;border-width:0px;border-color:black;font-size:15px;width:100%;" dir="rtl">
+                                    Locker Current Content
+                                       <br/>
+                                       <span t-field="o.journal_component"/>
+
+
+                                </td>
+                        </tr>
+
+                    </table>
+
+                Recipient Signature...................................................................................................................................................................................توقيع المستلم
+    <br/>
+    <br/>
+    HR &amp; Admin...............................................................................................................................................................................................الشؤون الادارية
+
+
+
+</template>
+<template id="branch_doc">
+
+                    <h2>
+
+                       <center> Branch Trust of Receiving Cash Locker Account and ERP Finance User to Issue Receipt Vouchers </center>
+                    </h2>
+
+                    <table style="width:100%;border-width:1px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Cash Locker Name:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.journal_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">اسم صندوق الكاش:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Locker Account No.</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.account_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">رقم حساب الصندوق:</strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Recipient Employee:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الموظف المستلم:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Employee No.</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.guarntee_employee_no"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:12px;">
+                                                    <div>
+I’m the aforementioned employee of the nationality <strong><span t-field="o.nationality_id"/></strong> ID/Residence Permit No. <strong><span t-field="o.identification_id"/></strong>.I confirm the followings:
+    <ul>
+        <li>I received from the Company's a Username and Password on ERP financial Module to enable issuing Cash Receipt Vouchers under my financial trust from Company Clients in the above-mentioned Locker Account.</li>
+    <li>I have read and acknowledge the terms and conditions of the Receipt of the Locker of the a/m account and the user details to issue the Cash Receipt Vouchers from Clients.</li>
+    <li>I’m fully responsible for it, and for using it properly and for work only.</li>
+    <li>I pledge that I will deliver the cash Balance of the Locker account upon the company's request, or upon the end of its purpose.</li>
+    <li>I pledge to deposit the account balance weekly and /or when the balance reach’s 10,000.00 ten thousand Saudi Riyals and bear the responsibility of not doing it.</li>
+    <li> I pledge to keep a copy of each Receipt Voucher and a copy of the deposits in the company Bank account, or evidence of its delivery to the competent financial department.</li>
+    <li> I pledge that I bear all responsibility for any loss, decrease, mistake, or misuse,and that I bear any damage or amounts owed to the company and that I will be subject to accountability and accountability and any sums resulting from that will be in my personal custody and financial responsibility and that I pay them.
+    </li>
+</ul>
+                    </div>
+
+                            </td>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:12px;" dir="rtl">
+                                                    <div style="float:right;text-align:right;">
+أنا الموظف المذكور أعلاه من الجنسية <strong><span t-field="o.nationality_id"/></strong>
+                                                        رقم الهوية/الإقامة
+                                                        <strong><span t-field="o.identification_id"/></strong>
+                                                        أقر بمايلي:
+    <ul style="padding-right:30px;">
+    <li>أني استلمت من الشركة اسم مستخدم وكلمة مرور في نظام الشركة المحاسبي وذلك بغرض اصدار سندات استلام مبالغ نقدية مقبوضة من عملاء الشركة تدخل في حساب الصندوق المذكور أعلاه وتبقى في عهدتي وذمتي المالية لحين سدادها للشركة.</li>
+    <li>أني اطلعت وعلى دراية بشروط وضوابط استلام صندوق الكاش برقم الحساب المذكور أعلاه والمستخدم في النظام المحاسبي لاصدار سندات قبض مبالغ نقدية من العملاء.</li>
+    <li>أني مسؤول عنه مسؤولية تامة وعن حسن استخدامه ولأغراض العمل فقط</li>
+    <li>أتعهد بأن أقوم بتسليم المبالغ المذكورة في رصيد حساب الصندوق عند طلب الشركة, أو عند انتهاء الغرض منه.</li>
+    <li>أتعهد بأن أقوم بايداع الرصيد بشكل اسبوعي و/أو عندما يصل مبلغ الرصيد في حساب الصندوق مبلغ <span t-field="o.journal_amount"/>
+     وان أتحمل تبعات عدم الالتزام بذلك.
+    </li>
+    <li>أن احتفظ بصورة كل سند قبض من الزبون واحتفظ بما يثبت ايداع المبالغ في حساب الشركة, أو مايثبت تسليمها للادارة المالية المختصة.</li>
+    <li> أتعهد بأني اتحمل كافة المسؤولية عن أي فقدان أو نقصان في رصيد حساب الصندوق أو أي خطأ أو سوء استخدام, وأني اتحمل اي ضرر أو مبالغ تترتب على الشركة و اكون تحت طائلة المسائلة القانونية والمحاسبة واي مبالغ مترتبة عن ذلك تكون في عهدتي الشخصية وذمتي المالية وان أقوم بسدادها.
+    </li>
+</ul>
+                    </div>
+
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+
+     Recipient Employee Signature...........................................................................................................................................................توقيع المستلم
+    <br/>
+    <br/>
+    HR &amp; Admin...............................................................................................................................................................................................الشؤون الادارية
+
+
+</template>
+ <template id="hand_hold_doc">
+
+                    <h2>
+                       <center>Trust of Receiving Hand Hold Custody عهدة استلام عهدة عينية</center>
+                    </h2>
+
+
+                     <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">المستلم:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+                         </tr>
+
+                         <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                                    <div>
+I’m the aforementioned  <spna t-field="o.nationality_id"/> ID/Residence Permit No. <spna t-field="o.identification_id"/>I confirm the followings:
+    <ul>
+    <li> I received from the Company's Admin affairs the selected hand hold custody to use for Work related purposes only.</li>
+    <li> I am fully responsible for using it for work only.</li>
+    <li>  I pledge that I will not use the custody except under the company terms and condition and be ready to deliver it anytime upon the company's or upon the completion or the end of its purpose.</li>
+    <li> I pledge that I bear all responsibility for any loss, decrease, or misuse, mistake, and that I bear any damage or amounts owed to the company and that I will be subject to accountability and accountability and any sums resulting from that will be in my personal custody and financial responsibility and that I pay them.</li>
+
+    </ul>
+
+
+
+
+                    </div>
+
+                            </td>
+
+
+                             <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;" dir="rtl">
+                                                     <div style="float:right;text-align:right">
+أنا الموظف المذكور أعلاه من الجنسية  <spna t-field="o.nationality_id"/>
+                                                         رقم الهوية / الإقامة
+                                                         <spna t-field="o.identification_id"/>
+                                                         أقر بمايلي:
+    <ul style="padding-right:30px;">
+    <li>أني استلمت من الشؤون الإدارية بالشركة العهدة العينية المحددة في هذه الوثيقة للاستخدام الخاص بالعمل فقط.</li>
+    <li>أني مسؤول مسؤولية تامة عن حسن استخدام االعهدة لأغراض العمل فقط.</li>
+    <li>أتعهد بأن لا أتصرف بها إلا ضمن حدود وسياسات الشركة المقرة من قبل الادارة وأن احتفظ بها واحافظ عليها وأن أقوم بتسليمها للشركة عند الطلب في أي وقت أو عند اكتمال, أو انتهاء الغرض منها.</li>
+    <li>أتعهد بأني اتحمل كافة المسؤولية عن أي فقدان أو نقصان أو سوء استخدام, أو خطأ وأني اتحمل اي ضرر أو مبالغ تترتب على الشركة و اكون تحت طائلة المسائلة والمحاسبة واي مبالغ مترتبة عن ذلك تكون في عهدتي الشخصية وذمتي المالية وان أقوم بسدادها.</li>
+
+    </ul>
+
+                    </div>
+
+                            </td>
+
+                         </tr>
+
+                         <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                <strong>Type of Custody:</strong>
+                            </td>
+                             <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                 <strong style="float:right;text-align:right">نوع العهدة</strong>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                <span t-field="o.type_custody_text"/>
+                            </td>
+                         </tr>
+
+                         <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                <strong>Description:</strong>
+                            </td>
+                             <td colspan="3"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                 <strong style="float:right;text-align:right">الوصف</strong>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:50%;font-size:13px;">
+                                <span t-field="o.description"/>
+                            </td>
+                         </tr>
+
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>SN, Doc No:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.serial"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الرقم التسلسلي/ رقم الملف:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Issuing Entity:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.issue_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الجهة المصدرة:</strong>
+                            </td>
+
+                        </tr>
+
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.issue_date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Expiry Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.expiry_date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">تاريخ الإنتهاء:</strong>
+                            </td>
+
+                        </tr>
+
+
+                     </table>
+
+
+
+
+<div>
+
+
+    Recipient Signature...................................................................................................................................................................................توقيع المستلم
+    <br/>
+    <br/>
+    HR &amp; Admin...............................................................................................................................................................................................الشؤون الادارية
+
+</div>
+</template>
+ <template id="mobile_doc">
+
+                                        <h2>
+
+                       <center>Trust of Receiving a Mobile &amp; Sim-Card عهدة استلام جهاز جوال وشريحة</center>
+                    </h2>
+
+
+
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">المستلم:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Mobile Maker:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.asset_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">صانع الجهاز:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Mobile No.:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.mobile_no"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">رقم شريحة الجوال:</strong>
+                            </td>
+
+
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>SN:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.serial_no"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">رقم التسلسل:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Model:</strong><span t-field="o.model"/>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;font-size:15px;">
+                                <strong>:موديل</strong>
+                                <strong>Color:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <span  t-field="o.color"/>
+                                <strong style="float:right;text-align:right" dir="rtl">اللون:</strong>
+
+                            </td>
+
+
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Receipt Date:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.reciept_date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">تاريخ الاستلام:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Time:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الوقت:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            <strong>Mobile Status &amp; Accessories حالة الجهاز وملحقاته</strong>
+                            </td>
+
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                <div class="col-auto col-6 mw-100 mb-2" >
+                            <t t-if="o.headphones == True">
+                                    <input type="checkbox" checked="true"/>Headphones سماعات<br/>
+                            </t>
+                            <t t-if="o.headphones == False">
+                                    <input type="checkbox" />Headphones سماعات<br/>
+                            </t>
+                            <t t-if="o.charger == True">
+                                    <input type="checkbox" checked="true"/>Charger شاحن<br/>
+                            </t>
+                            <t t-if="o.charger == False">
+                                    <input type="checkbox" />Charger شاحن<br/>
+                            </t>
+                            <t t-if="o.screen_protection == True">
+                                    <input type="checkbox" checked="true"/>Screen Protection حماية شاشة<br/>
+                            </t>
+                            <t t-if="o.screen_protection == False">
+                                    <input type="checkbox" />Screen Protection حماية شاشة<br/>
+                            </t>
+                            <t t-if="o.cover == True">
+                                    <input type="checkbox" checked="true"/>Cover حامي جهاز<br/>
+                            </t>
+                            <t t-if="o.cover == False">
+                                    <input type="checkbox" />Cover حامي جهاز<br/>
+                            </t>
+                            <t t-if="o.others == True">
+                                    <input type="checkbox" checked="true"/>Others أخرى<br/>
+                                    <span t-field="o.other_test"/><br/>
+                            </t>
+                            <t t-if="o.others == False">
+                                    <input type="checkbox" />Others أخرى<br/>
+                            </t>
+
+                        </div>
+
+
+                            </td>
+                         </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:12px;width:49%;">
+
+                                <div>
+                                            I hereby confirm that I have read the following terms and conditions of the trust of receiving mobile and sim-card and I undertake to abide by all of what is stated therein and be under liability:
+                                    <ul>
+                                        <li> The device and card are privately owned by a company and are primarily used for business purposes and the purpose of its use is to increase work efficiency, speed of delivery and facilitate work tasks.</li>
+                                        <li> The employee undertakes to maintain the device and the card and not to neglect in their use and not to use any counterfeit software and bear maintenance costs in case of misuse, damage or replacement expenses in the event of loss.</li>
+                                        <li> The employee undertakes not to use the device and the card for non-work purposes and does not store any special images or files that are not related to the work on the device and is committed to the immediate delivery of the device and chip upon request at any time deemed appropriate by the company.</li>
+                                        <li> The employee is legally liable in case of violation of the information crimes system in force in the Kingdom of Saudi Arabia.</li>
+                                        <li> The Employee shall not be entitled to disassemble, modify, add or change spare parts for the device by himself without the written consent of the Company.</li>
+                                        <li> The device and the card shall be delivered to the direct manager or alternate employee according to a written delivery record before the leave (administrative or private).</li>
+                                        <li> The employee undertakes to hand over the device and the chip in the same condition as he has received upon the request of the administration.</li>
+                                    </ul>
+
+
+
+                                </div>
+
+
+                            </td>
+
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:12px;width:49%;" dir="rtl">
+
+                                <div style="float:right;text-align:right;">
+أقر أنا الموقع أدناه بأنني أطلعت على شروط وضوابط عهدة استلام الجهاز والشريحة كمايلي, وأتعهد بالالتزام بجميع ما ذكر فيها وأكون تحت طائلة المسؤولية:                                    <ul  style="padding-right:30px;">
+                                        <li>إن الجهاز والشريحة ملكية خاصة لشركة ويستخدم في الأساس لأغراض العمل والهدف من استخدامه رفع كفاءة العمل وسرعة الانجاز وتسهيل مهام العمل.</li>
+                                        <li> يتعهد الموظف بالمحافظة على الجهاز والشريحة وعدم الإهمال في استخدامها وعدم استخدام أية برامج مقلدة ويتحمل مصاريف الصيانة في حال سوء الاستخدام أو التلف أو مصاريف الاستبدال في حال الفقدان.</li>
+                                        <li>يتعهد الموظف بعدم استخدام الجهاز والشريحة لغير أغراض العمل وعدم تخزين صور خاصة أو ملفات لا تتعلق بالعمل على الجهاز ويلتزم بالتسليم الفوري للجهاز والشريحة عند الطلب في أي وقت تراه الشركة مناسبا.</li>
+                                        <li>يعتبر الموظف مسؤول قانونيا في حال مخالفة نظام الجرائم المعلوماتية المعمول به في المملكة العربية السعودية.</li>
+                                        <li>لا يحق للموظف فك أو تعديل أو إضافة أو تبديل قطع غيار للجهاز بنفسه دون موافقة خطية من الشركة.</li>
+                                        <li>يتم تسليم الجهاز والشريحة للمدير المباشر أو الموظف البديل وفق محضر تسليم كتابي قبل الاجازة (سواء ادارية أو خاصة).</li>
+                                        <li>يتعهد الموظف بتسليم الجهاز والشريحة على الحالة التي استلمها عليها فور طلب الإدارة.</li>
+                                    </ul>
+
+
+
+                                </div>
+
+
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                             <td colspan="6"
+                                style="border-width:1px;border-color:black;font-size:15px;width:49%;" dir="rtl">
+                                توقيع المستلم........................................................................................................................Recipient Signature
+                             </td>
+
+                        </tr>
+
+                         <tr>
+
+                             <td colspan="6"
+                                style="border-width:1px;border-color:black;font-size:15px;width:49%;" dir="rtl">
+                                <center>
+                                    Return a Mobile &amp; Sim-Card ارجاع جهاز جوال وشريحة
+                                </center>
+                             </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Return Date:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.reciept_date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">تاريخ التسليم:</strong>
+                            </td>
+
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                            <strong>Time:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الوقت:</strong>
+                            </td>
+
+
+                         </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            <strong>Mobile Status &amp; Accessories حالة الجهاز وملحقاته</strong>
+                            </td>
+
+
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                <div class="col-auto col-6 mw-100 mb-2" >
+
+                                    <input type="checkbox" />Headphones سماعات<br/>
+
+                                    <input type="checkbox" />Charger شاحن<br/>
+
+                                    <input type="checkbox"/>Screen Protection حماية شاشة<br/>
+
+                                    <input type="checkbox" />Cover حامي جهاز<br/>
+
+                                    <input type="checkbox" />Others أخرى<br/>
+                        </div>
+                            </td>
+                         </tr>
+                        <tr>
+                        <td colspan="6"
+                                style="border-width:1px;border-color:black;font-size:15px;width:100%;">
+                            <center>
+                            Mobile Returned as Receipt Status تم الارجاع بنفس حالة الاستلام       □ No لا           □ Yes نعم
+                            </center>
+                        </td>
+                        </tr>
+
+
+                        <tr>
+                        <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            Remarks
+                        </td>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            <span style="float:right;text-align:right">ملاحظات</span>
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td colspan="6"
+                                style="border-width:1px;border-color:black;font-size:15px;width:100%;height:2cm;">
+                        </td>
+                        </tr>
+                    </table>
+
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:30%;">
+                                <strong>Employee Signature</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:45%;">
+
+                            </td>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:25%;">
+                                <strong style="float:right;text-align:right">توقيع الموظف المسلم</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:30%;">
+                                <strong>Car Return Dedicated Employee</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:45%;">
+
+                            </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:25%;">
+                                <strong style="float:right;text-align:right">الموظف المختص بالارجاع</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:30%;">
+                                <strong>Name</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:45%;">
+
+                            </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:25%;">
+                                <strong style="float:right;text-align:right">الإسم</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:30%;">
+                                <strong>Signature</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:45%;">
+
+                            </td>
+                            <td colspan="1"
+                                style="border-width:0px;border-color:black;font-size:15px;width:25%;">
+                                <strong style="float:right;text-align:right">التوقيع</strong>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+
+
+<div>
+
+
+
+</div>
+</template>
+ <template id="car_Doc">
+
+                    <h2>
+
+                       <center>Trust of Receiving a Car or Equipment عهدة استلام سيارة أو معدة</center>
+                    </h2>
+
+                     <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">المستلم:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Car Maker:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.car_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">صانع السيارة:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Plate No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.plate_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">رقم اللوحة:</strong>
+                            </td>
+
+
+                         </tr>
+
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Color:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.car_color"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">اللون:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Model:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.model"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">موديل:</strong>
+                            </td>
+
+
+                         </tr>
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Receipt Date:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Mileage:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.mileage"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">قراءة العداد:</strong>
+                            </td>
+                         </tr>
+
+                         <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Car Accessories</strong>
+                            </td>
+                             <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                 <t t-if="o.fire == True">
+                                    <input type="checkbox" checked="true"/>Fire Ex.<br/>
+                            </t>
+                            <t t-if="o.fire == False">
+                                    <input type="checkbox" />Fire Ex.<br/>
+                            </t>
+                            <t t-if="o.lifting_tool == True">
+                                    <input type="checkbox" checked="true"/>Lifting Tool <br/>
+                            </t>
+                            <t t-if="o.lifting_tool == False">
+                                    <input type="checkbox" />Lifting Tool <br/>
+                            </t>
+                            <t t-if="o.mention_tool == True">
+                                    <input type="checkbox" checked="true"/> Mention the Tools<br/>
+                            </t>
+                            <t t-if="o.mention_tool == False">
+                                    <input type="checkbox" /> Mention the Tools<br/>
+                            </t>
+                            <t t-if="o.spare == True">
+                                    <input type="checkbox" checked="true"/>Spare Wheel/Status <br/>
+                            </t>
+                            <t t-if="o.spare == False">
+                                    <input type="checkbox" />Spare Wheel/Status <br/>
+                            </t>
+                            <t t-if="o.Mention_other == True">
+                                    <input type="checkbox" checked="true"/>Mention Others<br/>
+                                    <span t-field="o.car_other"/><br/>
+                            </t>
+                            <t t-if="o.Mention_other == False">
+                                    <input type="checkbox" />Mention Others<br/>
+                            </t>
+
+                            </td>
+
+                             <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong style="float:right;text-align:right">ملحقات السيارة</strong>
+                            </td>
+                         </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Car Status:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.car_status"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">حالة السيارة:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Car Status Remarks:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.remark"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">ملاحظة حالة السيارة:</strong>
+                            </td>
+                         </tr>
+
+                         <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:11px;">
+                                                    <div>
+I, the above-mentioned employee, certify that I inspected the car in accordance with the situation described above and received it from the Company for use in the business purposes. I hereby undertake the following:
+    <ul>
+        <li>Not used for personal benefit.</li>
+        <li>Keep it and its accessories in good condition.</li>
+        <li>In the event of any problems, inform the administration immediately.</li>
+        <li>I acknowledge my responsibility for any damage to the car as a result of misuse or lack of care.</li>
+        <li>I acknowledge that I have checked the current use of oils for the car, the cooling system water level, and car needed maintenance and I confirm my responsibility for any damage may occur in case of not doing the needed maintenance on time.</li>
+        <li>I acknowledge my responsibility for any damage to the car as a result of misuse or lack of care.</li>
+        <li>To take into account in their use the laws and traffic regulations in force in the Kingdom of Saudi Arabia.</li>
+        <li>I am responsible for any damage resulting from violation of laws, traffic regulations and insurance.</li>
+        <li>Not to be used by third parties except with the written permission of the administration.</li>
+        <li>Do not drive the car in case the licenses or regular check-up or insurance are finished and bear any violation resulting from that.</li>
+        <li>Paying fees for handling incident files for insurance (unless employee endurance is zero).</li>
+        <li>To deliver the car in the same condition as he has received upon the request of the administration or before the leave (whether administrative or private).</li>
+    </ul>
+
+
+
+                    </div>
+
+                            </td>
+
+                             <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:12px;" dir="rtl">
+                                 <div style="float:right;text-align:right">
+        أقر أنا الموظف المذكور أعلاه بأنني قد عاينت السيارة وفق الحالة الموصوفة أعلاه واستلمتها من الشركة وذلك لإستخدامها في أغراض العمل وأتعهد بالآتي:
+    <ul style="padding-right:30px;">
+        <li>عدم استخدامها للمنفعة الشخصية.</li>
+        <li>المحافظة عليها وعلى ملحقاتها بحالة جيدة.</li>
+        <li>في حالة حدوث أي مشكلات أن أبلغ الإدارة فوراً.</li>
+        <li>أقر بمسؤوليتي عن أي تلفيات تحدث للسيارة نتيجة سوء الاستخدام أو عدم العناية.</li>
+        <li>أقر بأني على علم بمستوى استهلاك الزيوت الحالية للسيارة ومستوى المياه في نظام تبريد الحرارة وموعد تبديلها والصيانة المطلوبة, وأني سوف ألتزم باجراء الصيانة المطلوبة في وقتها وأن اتحمل مسؤولية أي ضرر يلحق للسيارة في حال عن عدم القيام باجراء الصيانة في وقتها.</li>
+        <li>أن أراعي في استخدامها القوانين وأنظمة المرور المعمول بها في المملكة العربية السعودية.</li>
+        <li>مسؤوليتي عن أي ضرر ينتج عن مخالفة القوانين وأنظمة المرور والتأمين.</li>
+        <li>عدم استخدامها من قبل الغير إلا بإذن خطي من الادارة.</li>
+        <li>عدم قيادة السيارة في حالة انتهاء الرخص و/أو الفحص الدوري وأي رخصة أو فحص أو تأمين أو شهادة يتطلبه نظام المرور السعودي وأتحمل أي مخالفة تنتج عن عدم التقيد بهذا.</li>
+        <li>دفع رسوم معالجة ملفات الحوادث للتأمين (مالم تكن نسبة التحمل على الموظف صفر).</li>
+        <li>أن أسلم السيارة على الحالة التي استلمتها عليها فور طلب الإدارة أو قبل الاجازة (سواء ادارية أو خاصة).</li>
+    </ul>
+
+
+
+                    </div>
+
+                            </td>
+
+
+                         </tr>
+
+
+
+                     </table>
+                                        Recipient Signature...................................................................................................................................................................................توقيع المستلم
+
+
+
+</template>
+        <template id="report_tangible_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+
+                <div class="page">
+                    <t t-if="o.type_custody == 'stamp'" t-call="hr_custody.stamp_doc"/>
+                    <t t-if="o.type_custody == 'cash'" t-call="hr_custody.cash_doc"/>
+                    <t t-if="o.type_custody == 'journal'" t-call="hr_custody.journal_doc"/>
+                    <t t-if="o.type_custody == 'branch'" t-call="hr_custody.branch_doc"/>
+                    <t t-if="o.type_custody == 'mobile'" t-call="hr_custody.mobile_doc"/>
+                    <t t-if="o.type_custody == 'hand_hold'" t-call="hr_custody.hand_hold_doc"/>
+                    <t t-if="o.type_custody == 'car'" t-call="hr_custody.car_Doc"/>
+                    <t t-if="o.type_custody == 'email'" t-call="hr_custody.financial_custody_doc"/>
+                </div>
+            </t>
+        </template>
+        <!-- other custody -->
+        <template id="training_doc">
+
+                    <h2>
+
+                       <center> Custody and Training Contract </center>
+                    </h2>
+
+
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Trainee Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف المتدرب:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+
+
+                        <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <strong>Training Subject موضوع التدريب</strong>
+                            </td>
+                            <td colspan="4"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <span t-field="o.subject"/>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <strong>No. of Training Days عدد أيام التدريب</strong>
+                            </td>
+                            <td colspan="4"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <span t-field="o.trainig_days"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <strong>Training Start Date تاريخ بداية التدريب</strong>
+                            </td>
+                            <td colspan="4"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <span t-field="o.start_date"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <strong>Training End Date تاريخ نهاية التدريب</strong>
+                            </td>
+                            <td colspan="4"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <span t-field="o.end_date"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                                <strong>Custody Period مدة العهدة</strong>
+                            </td>
+                            <td colspan="4"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+<!--                                <span t-field="o.end_date"/>-->
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                                    <div>
+
+                            By signing this contract, the trainee employee accepts the training rules and regulations as follows:
+
+First: Mashail Future Obligations
+
+<ul>
+    <li> Training registration fee.</li>
+    <li> Accommodation, transportation and meals expenses (meals per day).</li>
+    <li> Tickets, Travel Visa, exit and re-entry Visa fees.</li>
+    <li> The monthly salary of the trainee employee is considered to be payable in the event of attendanceand commitment to training.</li>
+</ul>
+Second: Obligations of the trainee employee
+<ul>
+    <li> Commitment to attendance at specific training times.</li>
+    <li> To bear the expenses and fees of the training in the event of In the case of non-enrolment in the training, lack of attendance, failure or failure to achieve less than 70% or in case of termination of the Labor relationship at the request of the employee within a period of not less than 18 months from the date of return to work after training.</li>
+</ul>
+                    </div>
+
+                            </td>
+
+
+
+
+
+
+                            <td colspan="3" dir="rtl"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                                    <div style="float:right;text-align:right;">
+
+بالتوقيع على هذا العقد، يقبل الموظف المتدرب بقواعد وأنظمة التدريب كمايلي:
+أولا: التزامات شركة مشاعل المستقبل
+<ul style="padding-right:30px;">
+    <li> رسوم تسجيل التدريب.</li>
+    <li> مصاريف الاقامة والمواصلات والوجبات (3 وجبات يوميا).</li>
+    <li>التذاكر ورسوم تأشيرة السفر والخروج والعودة.</li>
+    <li>يعتبر الراتب الشهري للموظف المتدرب مستحق في حالة الحضور والالتزام بالتدريب.</li>
+</ul>
+ثانيا: التزامات الموظف المتدرب
+                                                        <ul style="padding-right:30px;">
+    <li>الالتزام بالحضور في الاوقات المحددة للتدريب.</li>
+    <li>تحمل مصاريف ونفقات ورسوم التدريب في حالة عدم الالتحاق بالتدريب أو عدم الحضور أو الفشل أو عدم النجاح بنسبة أقل من 70% أو في حالة انتهاء العلاقة العمالية بناء على طلب الموظف خلال مدة لاتقل عن (18) شهر من تاريخ العودة للعمل بعد التدريب.</li>
+</ul>
+                    </div>
+
+                            </td>
+
+
+
+
+
+
+                        </tr>
+
+
+                    </table>
+
+                            Employee Signature....................................................................................................................................................................توقيع المستلم
+
+
+        </template>
+
+
+
+               <template id="financial_doc">
+                    <h2>
+                       <center>Financial Custody Request طلب عهدة مالية</center>
+                    </h2>
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+
+
+                         <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Advance Amount SR مبلغ العهدة ريال سعودي</strong>
+                            </td>
+                             <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                            </td>
+                         </tr>
+
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;height:3cm;">
+                                <strong>Justification of Request مبررات الطلب</strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <div>
+                                    Mrs, Mashail Future Co.
+                                    <br/>
+                                    This is my application for the above amount as a financial trust in my debt and I undertake to provide the assets of business invoices, services and related purchases relating to the payment of the amount of the trust.
+                                </div>
+                            </td>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;" dir="rtl">
+                                <div style="float:right;text-align:right;">
+                                        السادة شركة مشاعل المستقبل:
+                                    <br/>
+                                    بهذا أقدم طلبي للحصول على المبلغ المذكور أعلاه كعهدة مالية في ذمتي وأتعهد بتقديم أصول فواتير الأعمال والخدمات والمشتريات المتعلقة في صرف مبلغ العهدة.
+                                </div>
+
+                            </td>
+
+
+                        </tr>
+                    </table>
+
+                    <br/>
+                    Employee الموظف
+                   <br/>
+                   <br/>
+                   Direct Manager المدير المباشر
+                   <br/>
+                   <br/>
+                   GM المدير العام
+
+
+
+
+
+
+
+        </template>
+
+
+
+
+
+
+
+                <template id="check_doc">
+                    <h4>
+                       <center>Trust of Receiving a Cheque Receipt Voucher Book عهدة استلام دفتر سندات استلام شيكات</center>
+                    </h4>
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف المستلم:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <div>
+                                    I’m the aforementioned employee of the nationality <spna t-field="o.nationality_id"/> ID/Residence Permit No. <spna t-field="o.identification_id"/>I confirm the followings:
+                                        <ul>
+                                        <li> I received from the Company's Admin. affairs a Cheque Receipt Voucher Book number <strong><span t-field="o.check_book"/></strong> serial from <strong><span t-field="o.from_no"/></strong> to <strong><span t-field="o.to_no"/></strong>.</li>
+                                        <li> I have read the terms and conditions of the custody of the Cheque Receipt Vouchers Book.</li>
+                                        <li> I am fully responsible for it.</li>
+                                        <li> I pledge that I will deliver it upon the company's request or upon the completion of use, or upon the end of its purpose. </li>
+                                        <li> I pledge to keep a copy of every Cheque or document received attached to each Receipt Voucher.</li>
+                                        <li> I pledge to keep evidence of depositing the Cheque or document in the Company's Bank account, or evidence of its delivery to the competent financial department.</li>
+                                        <li> I pledge that I bear all responsibility for any loss, decrease, or misuse, and that I bear any damage or amounts owed to the company and that I will be subject to accountability and accountability and any sums resulting from that will be in my personal custody and financial responsibility and that I pay them.
+                                        </li>
+                                        </ul>
+                                </div>
+                            </td>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;" dir="rtl">
+                                <div style="float:right;text-align:right;">
+
+                                        <ul style="padding-right:30px;">
+                                        <li> أنا الموظف المذكور أعلاه من الجنسية<spna t-field="o.nationality_id"/>
+                                            الموظف رقم الإقامة/الهوية
+                                            <spna t-field="o.identification_id"/>
+                                            أقر بمايلي:</li>
+                                        <li>أني استلمت من الشؤون الإدارية بالشركة دفتر سند استلام شيكات عدد (<strong><span t-field="o.check_book"/></strong>
+                                            ) رقم تسلسل من <strong><span t-field="o.from_no"/></strong>
+                                            الى <strong><span t-field="o.to_no"/></strong></li>
+                                        <li>أني اطلعت على شروط وضوابط عهدة استلام دفتر سندات استلام الشيكات.</li>
+                                        <li>أني مسؤول عنه مسؤولية تامة.</li>
+                                        <li>أتعهد بأني أقوم بتسليمه عند طلب الشركة أو عند اكتمال استخدام السندات كاملة, أو عند انتهاء الغرض منه.</li>
+                                        <li>أن احتفظ بصورة كل شيك او مستند يتم استلامه مرفق مع كل سند.</li>
+                                        <li>أن احتفظ بما يثبت ايداع الشيك أو المستند في حساب الشركة البنكي أو مايثبت تسليمها للادارة المالية المختصة.</li>
+                                        <li> أتعهد بأني اتحمل كافة المسؤولية عن أي فقدان او نقصان أو سوء استخدام, وأني اتحمل اي ضرر أو مبالغ تترتب على الشركة و اكون تحت طائلة المسائلة والمحاسبة واي مبالغ مترتبة عن ذلك تكون في عهدتي الشخصية وذمتي المالية وان أقوم بسدادها.
+                                        </li>
+                                        </ul>
+                                </div>
+
+                            </td>
+
+
+                        </tr>
+                    </table>
+
+
+Recipient Signature...................................................................................................................................................................................توقيع المستلم
+                    <br/>
+                    <br/>
+                    HR &amp; Admin...............................................................................................................................................................................................الشؤون الادارية
+
+
+
+
+
+
+
+
+        </template>
+
+
+
+
+                <template id="loan_doc">
+                    <h4>
+                       <center>Loan Request طلب قرض</center>
+                    </h4>
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                           class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Recipient Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف المستلم:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+
+
+                         </tr>
+
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Requested Loan Amount SR مبلغ القرض المطلوب ريال سعودي</strong>
+                            </td>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+<!--                                <span t-field=""/>-->
+                            </td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Guarantor Employee الموظف الكفيل الضامن</strong>
+                            </td>
+                            <td colspan="3"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+<!--                                <span t-field=""/>-->
+                            </td>
+                        </tr>
+                         <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;height:2cm;">
+                                <strong>Justification التبرير</strong>
+                            </td>
+
+                         </tr>
+
+
+
+                    </table>
+
+                    Employee الموظف
+                    <br/>
+                    <br/>
+                    Direct Manager المدير المباشر
+                    <br/>
+                    <br/>
+                    HR شؤون الموظفين
+                    <br/>
+                    <br/>
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                           class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                                <strong>Approved Loan Amount SR مبلغ القرض المعتمد ريال سعودي</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                                <strong>Approved Monthly Pay Back SR مبلغ السداد الشهري المعتمد ريال سعودي</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                                <strong>Deduction to start from date يبدأ الخصم اعتبارا من تاريخ</strong>
+                            </td>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:50%;">
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    GM المدير العام
+
+
+
+
+
+        </template>
+
+
+
+                <template id="email_doc">
+
+                    <h2>
+
+                       <center>Internet Access &amp; Custody Application طلب منح وعهدة استخدام خدمة الانترنت</center>
+                    </h2>
+
+
+                    <table style="width:100%;border-width:0px;border-color:black;font-size:12px;"
+                                       class="table table-sm table-bordered oe_inline">
+                        <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong>Date:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.date"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">التاريخ:</strong>
+                            </td>
+
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+
+                                 <strong>Department:</strong>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                 <span t-field="o.department_id"/>
+                            </td>
+
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                <strong style="float:right;text-align:right" dir="rtl">الإدارة:</strong>
+                            </td>
+
+                        </tr>
+
+                         <tr>
+                            <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Employee:</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:13px;width:15%;">
+                            <strong style="float:right;text-align:right" dir="rtl">الموظف :</strong>
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;font-size:15px;width:15%;">
+                                 <strong>Employee No:</strong>
+
+                            </td>
+
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:20%;">
+                            <span t-field="o.guarntee_employee_no"/>
+                            </td>
+                             <td colspan="1"
+                                style="border-width:1px;border-color:black;width:15%;font-size:15px;">
+                            <strong style="float:right;text-align:right" dir="rtl">الرقم الوظيفي:</strong>
+                            </td>
+                         </tr>
+
+                        <tr>
+                            <td colspan="2"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Email ID:</strong>
+                            </td>
+                            <td colspan="4"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;height:2cm;">
+                                <strong>Justification التبرير</strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                <strong>Access Category فئة الدخول</strong><br/>
+                                <t t-if="o.access_category == 'full'">
+                                    <input type="checkbox" checked="true"/>Full accessدخول كامل<br/>
+                                    <input type="checkbox"/>Banking and financial بنوك ومالية<br/>
+                                    <input type="checkbox"/>Government portals<br/>
+                                    <input type="checkbox" />Social mediaوسائط تواصل اجتماعي<br/>
+                                    <input type="checkbox" />Other (please specify below): أخرى (الرجاء التوضيح)<br/>
+
+                                    </t>
+                                    <input type="checkbox" />Full accessدخول كامل<br/>
+                                    <input type="checkbox" />Banking and financial بنوك ومالية<br/>
+                                    <input type="checkbox"/>Government portals<br/>
+                                    <input type="checkbox" />Social mediaوسائط تواصل اجتماعي<br/>
+                                    <input type="checkbox" />Other (please specify below): أخرى (الرجاء التوضيح)<br/>
+
+                                 <t t-if="o.access_category == 'goverment'">
+                                    <input type="checkbox" />Full accessدخول كامل<br/>
+                                    <input type="checkbox"/>Banking and financial بنوك ومالية<br/>
+                                    <input type="checkbox" checked="true"/>Government portals<br/>
+                                    <input type="checkbox" />Social mediaوسائط تواصل اجتماعي<br/>
+                                    <input type="checkbox" />Other (please specify below): أخرى (الرجاء التوضيح)
+                                    </t>
+                                 <t t-if="o.access_category == 'social'">
+                                    <input type="checkbox"/>Full accessدخول كامل<br/>
+                                    <input type="checkbox"/>Banking and financial بنوك ومالية<br/>
+                                    <input type="checkbox"/>Government portals<br/>
+                                    <input type="checkbox" checked="true"/>Social mediaوسائط تواصل اجتماعي<br/>
+                                    <input type="checkbox" />Other (please specify below): أخرى (الرجاء التوضيح)<br/>
+                                    </t>
+
+
+                                <t t-if="o.access_category == 'Other'">
+                                    <input type="checkbox" />Full accessدخول كامل<br/>
+                                    <input type="checkbox"/>Banking and financial بنوك ومالية<br/>
+                                    <input type="checkbox"/>Government portals<br/>
+                                    <input type="checkbox" />Social mediaوسائط تواصل اجتماعي<br/>
+                                    <input type="checkbox"  checked="true"/>Other (please specify below): أخرى (الرجاء التوضيح)<br/>
+                                    <span t-field="o.other_access"/><br/>
+                                </t>
+
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;">
+                                    <strong>Access Period مدة الدخول</strong><br/>
+                                    <input type="checkbox"/>Permanent Access دخول دائم<br/>
+                                    <input type="checkbox"/>Temporary Access دخول مؤقت<br/>
+                                    <br/>
+                                <span>From Date من تاريخ:</span>                                          <span style="float:right;padding-right:150px;">  To Date الى تاريخ:</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="6"
+                                style="border-width:1px;border-color:black;width:15%;font-size:13px;height:2cm;">
+                                <div>
+                                    Signing on the application form, I hereby confirm that I have read and fully understood the Company Internet Usage Policy and that I will use the internet according to the requirements specified in this form and instructed in the mentioned policy.
+                                </div>
+
+                                <div style="float:right;text-align:right" dir="rtl">
+بتوقيعي على الطلب، أقر بأنني قرأت وفهمت سياسة استخدام الانترنت في الشركة كما هو مرفق ضمن هذا النموذج وبأنني سأستخدم الانترنت وفقاً للاحتياجات الموضحة بهذا الطلب بما يتوافق مع سياسة الشركة.                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div>
+                        Department Manage..................................................................................................................................................................................مدير القسم
+                       <br/>
+                        IT In-charge....................................................................................................................................................................مسؤول الخدمات المعلوماتية
+                        <br/>
+                        Admin........................................................................................................................................................................................................الشؤون الادارية
+                    </div>
+
+
+
+
+
+
+
+
+        </template>
+
+                <template id="guarntee_doc">
+
+                     <h2>
+
+                       <center>Custody of Loan Guarantee </center>
+                    </h2>
+                     <div id="informations1" class="row mt-4 mb-4">
+
+                        <div class="col-auto col-6 mw-100 mb-2">
+                            <strong>Date:</strong>
+                            <span class="m-0" t-field="o.date"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Department:</strong>
+                            <span class="m-0" t-field="o.department_id"/>
+                        </div>
+
+                    </div>
+
+                    <div id="informations2" class="row mt-4 mb-4">
+
+
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Guarantor Employee:</strong>
+                            <span class="m-0" t-field="o.guarntee_employee"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Employee No:</strong>
+                            <span class="m-0" t-field="o.guarntee_employee_no"/>
+                        </div>
+
+                    </div>
+
+                   <div id="informations22" class="row mt-4 mb-4">
+                     <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Borrowing Employee:</strong>
+                            <span class="m-0" t-field="o.employee_id"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Employee No:</strong>
+                            <span class="m-0" t-field="o.employee_no"/>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div>
+<center>Guarantor Employee</center>
+I’m the guarantor employee: <span t-field="o.guarntee_employee"/><br/>
+
+By this I guarantee my colleague as mentioned above, in performance and fine payment in case of delay or failure to pay the loan amount as mentioned below.<br/>
+
+Guarantor Employee Signature:...............
+<br/>
+Left Thumb Print:
+<br/>
+<br/>
+<br/>
+                    </div>
+
+<div>
+<p>Borrowing Employee.....................</p>
+
+</div>
+
+
+        </template>
+        <template id="report_non_tangible_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+
+                <div class="page">
+                    <t t-if="o.other_custody == 'email'" t-call="hr_custody.email_doc"/>
+                    <t t-if="o.other_custody == 'training'" t-call="hr_custody.training_doc"/>
+                    <t t-if="o.other_custody == 'guarntee'" t-call="hr_custody.guarntee_doc"/>
+                </div>
+            </t>
+        </template>
+
+
+        <template id="report_financial_custody_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+                <div class="page">
+                    <t t-if="o.finance_custody == 'cheque'" t-call="hr_custody.check_doc"/>
+                    <t t-if="o.finance_custody == 'loan'" t-call="hr_custody.loan_doc"/>
+                    <t t-if="o.finance_custody == 'financial'" t-call="hr_custody.financial_doc"/>
+                </div>
+            </t>
+        </template>
+
+
+
+
+
+
+
+        <template id="report_hr_custody">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.user_id.partner_id.lang"/>
+                    <t t-if="o.custody == 'tangible'"
+                        t-call="hr_custody.report_tangible_document" t-lang="lang"/>
+                    <t t-if="o.custody == 'non_tangible'"
+                        t-call="hr_custody.report_non_tangible_document" t-lang="lang"/>
+
+
+                    <t t-if="o.custody == 'financial_custody'"
+                        t-call="hr_custody.report_financial_custody_document" t-lang="lang"/>
+
+                </t>
+            </t>
+        </template>
+
+
+
+    </data>
+</odoo>

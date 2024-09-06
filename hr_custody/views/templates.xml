@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_account_journal_inheritform" model="ir.ui.view">
+            <field name="name">view.account.journal.bank.fees.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="code"/>
+
+                </field>
+
+            </field>
+        </record>
+
+        <!-- HR employee inherit Custody -->
+        <record id="view_employee_form_custody_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.custody.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="domain">[]</attribute>
+                </xpath>
+
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="act_hr_employee_custody_request"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file-text-o"
+                            groups="hr.group_hr_manager,hr.group_hr_user">
+                        <field name="custody_count" widget="statinfo" string="Custody"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

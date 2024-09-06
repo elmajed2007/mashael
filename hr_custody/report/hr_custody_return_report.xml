@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+ 
+        <template id="report_mobile_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+                
+                <div class="page">
+                    
+                    <h2>
+                        
+                       <center>Return a Mobile and Sim-Card </center>
+                    </h2>
+                     <div id="informations1" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2">
+                            <strong>Date:</strong>
+                            <span class="m-0" t-field="o.date"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Department:</strong>
+                            <span class="m-0" t-field="o.department_id"/>
+                        </div>
+                        
+                    </div>
+
+                   
+                    
+                     <div id="informations0" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Mobile Status and Accessories</strong>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <t t-if="o.headphones == True">
+                                    <input type="checkbox" checked="true"/>Headphones<br/>
+                            </t>
+                            <t t-if="o.headphones == False">
+                                    <input type="checkbox" />Headphones<br/>
+                            </t>
+                            <t t-if="o.charger == True">
+                                    <input type="checkbox" checked="true"/>Charger<br/>
+                            </t>
+                            <t t-if="o.charger == False">
+                                    <input type="checkbox" />Charger<br/>
+                            </t>
+                            <t t-if="o.screen_protection == True">
+                                    <input type="checkbox" checked="true"/>Screen Protection<br/>
+                            </t>
+                            <t t-if="o.screen_protection == False">
+                                    <input type="checkbox" />Screen Protection<br/>
+                            </t>
+                            <t t-if="o.cover == True">
+                                    <input type="checkbox" checked="true"/>Cover<br/>
+                            </t>
+                            <t t-if="o.cover == False">
+                                    <input type="checkbox" />Cover<br/>
+                            </t>
+                            <t t-if="o.others == True">
+                                    <input type="checkbox" checked="true"/>Others<br/>
+                                    <span t-field="o.other_test"/><br/>
+                            </t>
+                            <t t-if="o.others == False">
+                                    <input type="checkbox" />Others<br/>
+                            </t>
+                                   
+                        </div>
+                        
+                    </div>
+                    <div id="informations900" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Mobile Returned as Receipt Status</strong>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <t t-if="o.m_check_status == 'yes'">
+                                    <input type="checkbox" checked="true"/>Yes<br/>
+                                    <input type="checkbox"/>No<br/>
+                            </t>
+                            <t t-if="o.m_check_status == 'no'">
+                                    <input type="checkbox"/>Yes<br/>
+                                    <input type="checkbox" checked="true"/>No<br/>
+                            </t>
+                           
+                            
+                        </div>
+                        
+                    </div>
+                    <p><div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Remarks:</strong>
+                            <span class="m-0" t-field="o.remark"/>
+                        </div>
+                    </p>
+                    
+
+
+            <div>
+
+
+ <p>Employee Signature.....................</p>
+                    <p>Mobile Return Dedicated Employee<br/></p>
+                    <p>Name.............</p>
+                    <p>Signature............</p>
+ 
+</div>
+                </div>
+            </t>
+        </template>
+        <!-- Car custody -->
+        <template id="report_car_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+                
+                <div class="page">
+                    
+
+
+ <h2>
+                        
+                       <center>Car Return</center>
+                    </h2>
+                     <div id="informations1" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2">
+                            <strong>Date:</strong>
+                            <span class="m-0" t-field="o.date"/>
+                        </div>
+                        <div class="col-auto col-4 mw-100 mb-2" >
+                            <strong>Mileage:</strong>
+                            <span class="m-0" t-field="o.mileage"/>
+                        </div>
+                        
+                    </div>
+
+                     <div id="informations0" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Car Accessories</strong>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <t t-if="o.fire == True">
+                                    <input type="checkbox" checked="true"/>Fire Ex.<br/>
+                            </t>
+                            <t t-if="o.fire == False">
+                                    <input type="checkbox" />Fire Ex.<br/>
+                            </t>
+                            <t t-if="o.lifting_tool == True">
+                                    <input type="checkbox" checked="true"/>Lifting Tool <br/>
+                            </t>
+                            <t t-if="o.lifting_tool == False">
+                                    <input type="checkbox" />Lifting Tool <br/>
+                            </t>
+                            <t t-if="o.mention_tool == True">
+                                    <input type="checkbox" checked="true"/> Mention the Tools<br/>
+                            </t>
+                            <t t-if="o.mention_tool == False">
+                                    <input type="checkbox" /> Mention the Tools<br/>
+                            </t>
+                            <t t-if="o.spare == True">
+                                    <input type="checkbox" checked="true"/>Spare Wheel/Status <br/>
+                            </t>
+                            <t t-if="o.spare == False">
+                                    <input type="checkbox" />Spare Wheel/Status <br/>
+                            </t>
+                            <t t-if="o.Mention_other == True">
+                                    <input type="checkbox" checked="true"/>Mention Others<br/>
+                                    <span t-field="o.car_other"/><br/>
+                            </t>
+                            <t t-if="o.Mention_other == False">
+                                    <input type="checkbox" />Mention Others<br/>
+                            </t>
+                                   
+                        </div>
+                        
+                    </div>
+                     <div id="informations900" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Car Returned as Receipt Status</strong>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <t t-if="o.check_status == 'yes'">
+                                    <input type="checkbox" checked="true"/>Yes<br/>
+                                    <input type="checkbox"/>No<br/>
+                            </t>
+                            <t t-if="o.check_status == 'no'">
+                                    <input type="checkbox"/>Yes<br/>
+                                    <input type="checkbox" checked="true"/>No<br/>
+                            </t>
+                           
+                            
+                        </div>
+                        
+                    </div>
+                    <div id="informations088" class="row mt-4 mb-4">
+                        
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Car Status:</strong>
+                            <span class="m-0" t-field="o.car_status"/>
+                        </div>
+                        <div class="col-auto col-6 mw-100 mb-2" >
+                            <strong>Remarks:</strong>
+                            <span class="m-0" t-field="o.remark"/>
+                        </div>
+  
+                    </div>
+                    
+
+
+                    <div>
+
+
+                    <p>Employee Signature.....................</p>
+                    <p>Car Return Dedicated Employee<br/>
+                    <p>Name..........</p>
+                    <p>Signature............</p>
+
+                    </p>
+
+
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="report_hr_custody_return">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.user_id.partner_id.lang"/>
+                    <t t-if="o.type_custody == 'car'"
+                        t-call="hr_custody.report_car_document" t-lang="lang"/>
+                    <t t-if="o.type_custody != 'car'"
+                        t-call="hr_custody.report_mobile_document" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+
+
+
+    </data>
+</odoo>

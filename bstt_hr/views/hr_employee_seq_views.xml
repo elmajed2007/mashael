@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_seq_tree_view" model="ir.ui.view">
+        <field name="name">ir.sequence.view.tree</field>
+        <field name="model">ir.sequence</field>
+            <field name="arch" type="xml">
+            <tree string=" " create="false" import="false">
+                <field name="name"/>
+                <field name="number_next_actual"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_seq_form_view" model="ir.ui.view">
+        <field name="name">ir.sequence.view.form</field>
+        <field name="model">ir.sequence</field>
+            <field name="arch" type="xml">
+            <form string="" create="false">
+                <sheet>
+                    <group colspan="2">
+                        <field name="name" style="width:40%;" readonly='1'/>
+                        <field name="number_next_actual" style="width:40%;"  />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_hr_employee_seq" model="ir.actions.act_window">
+        <field name="name">Next Employee Number</field>
+        <field name="res_model">ir.sequence</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('code', '=', 'hr.employee')]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_employee_seq_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('hr_employee_seq_form_view')})]"/>    
+    </record>
+
+    <menuitem id="menu_hr_employee_se"
+            name="الرقم الوظيفي التالي"
+            parent="hr.menu_human_resources_configuration"
+            action ="action_hr_employee_seq"
+            sequence="68"/>
+
+
+
+
+
+</odoo>
