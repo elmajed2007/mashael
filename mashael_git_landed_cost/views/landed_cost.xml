@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_product_inherit" model="ir.ui.view">
+            <field name="name">view_product_inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="inside">
+                    <span class="d-inline-block">
+                        <field name="is_glc_product"/>
+                        <label for="is_glc_product"/>
+                    </span>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_landed_cost_inherit" model="ir.ui.view">
+            <field name="name">stock_landed_cost_inherit</field>
+            <field name="model">stock.landed.cost</field>
+            <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='vendor_bill_id']" position="after">
+                    <field name="git_landed_id"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

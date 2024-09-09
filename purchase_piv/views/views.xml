@@ -18,14 +18,16 @@
                 <form string="purchase_piv_form">
                     <sheet>
                         <div class="oe_title">
-                            <span class="o_form_label">Purchase Piv</span>
+                            <span class="o_form_label">Piv No.</span>
                             <h1 class="d-flex">
                                 <field name="name" readonly="1"/>
                             </h1>
                         </div>
+
+
                         <group>
                             <group>
-                                <field name="partner_id"/>
+                                <field name="partner_id" string="Supplier"/>
                                 <field name="destination_id"/>
                                 <field name="purchase_order_ids" widget="many2many_tags"/>
                             </group>
@@ -33,6 +35,8 @@
                                 <field name="supplier_invoice_number"/>
                                 <field name="supplier_invoice_date"/>
                                 <field name="packing_list"/>
+                                <field name="packing_date"/>
+                                <field name="attach"/>
                             </group>
                         </group>
 
@@ -42,37 +46,82 @@
                                        widget="section_and_note_one2many"
                                        mode="tree">
                                     <tree string="Purchase Piv Order Lines" editable="bottom">
-                                        <field name="product_id"/>
+                                        <field name="purchase_order_id" string="Po NO"/>
+                                        <field name="oc_no"/>
+                                        <field name="product_id" string="Item No"/>
+                                        <field name="coll_no" string="Coil No"/>
+                                        <field name="package_delivery_position"/>
+                                        <field name="package_description"/>
+                                        <field name="dimensions"/>
+                                        <field name="vendor_purchase_code"/>
                                         <field name="name"/>
                                         <field name="product_qty"/>
-                                        <field name="qty_received"/>
                                         <field name="qty_invoiced"/>
-                                        <field name="price_unit"/>
-<!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
-<!--                                        <field name="taxes_id" domain="[('type_tax_use', '=', 'purchase')" widget="many2many_tags"/>-->
-                                        <field name="taxes_id" widget="many2many_tags"/>
-                                        <field name="price_subtotal"/>
-                                        <field name="price_total"/>
                                         <field name="product_uom"/>
-                                        <field name="price_tax"/>
-                                        <field name="coll_no"/>
-                                        <field name="purchase_order_id"/>
-                                        <field name="serial_mts"/>
-                                        <field name="serial_calibration_cert"/>
-                                        <field name="serial_no_id"/>
-                                        <field name="expiry_date"/>
-                                        <field name="production_date"/>
-                                        <field name="batch_no"/>
                                         <field name="net_weight"/>
+                                        <field name="gross_weight"/>
+                                        <field name="batch_no"/>
+                                        <field name="production_date"/>
+                                        <field name="expiry_date"/>
+                                        <field name="serial_no_id"/>
+
+
+                                        <!--                                        <field name="product_qty"/>-->
+                                        <!--                                        <field name="qty_received"/>-->
+                                        <!--                                        <field name="qty_invoiced"/>-->
+                                        <!--                                        <field name="price_unit"/>-->
+                                        <!--                                        &lt;!&ndash;                                        <field name="taxes_id" widget="many2many_tags"/>&ndash;&gt;-->
+                                        <!--                                        &lt;!&ndash;                                        <field name="taxes_id" domain="[('type_tax_use', '=', 'purchase')" widget="many2many_tags"/>&ndash;&gt;-->
+                                        <!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
+                                        <!--                                        <field name="price_subtotal"/>-->
+                                        <!--                                        <field name="price_total"/>-->
+                                        <!--                                        <field name="product_uom"/>-->
+                                        <!--                                        <field name="price_tax"/>-->
+                                        <!--                                        <field name="serial_mts"/>-->
+                                        <!--                                        <field name="serial_calibration_cert"/>-->
+                                        <!--                                        <field name="serial_no_id"/>-->
+                                        <!--                                        <field name="expiry_date"/>-->
+                                        <!--                                        <field name="production_date"/>-->
+                                        <!--                                        <field name="batch_no"/>-->
+                                        <!--                                        <field name="net_weight"/>-->
                                     </tree>
                                 </field>
                             </page>
 
+                            <page string="Ready" name="ready">
+                                <field name="ready_line_ids"
+                                       widget="section_and_note_one2many"
+                                       mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="partner_id"/>
+                                        <field name="purchase_order_id"/>
+                                        <field name="product_id"/>
+                                        <field name="product_uom"/>
+                                        <field name="pending_qty"/>
+                                        <field name="piv_qty"/>
+                                        <field name="unit_price"/>
+                                        <field name="disc"/>
+                                        <field name="vat"/>
+                                        <field name="total"/>
+                                    </tree>
+                                </field>
+                            </page>
                         </notebook>
+<!--                        <group></group>-->
+<!--                        <group class="oe_subtotal_footer">-->
+<!--                            <field name="total" colspan="2"-->
+<!--                                   readonly="1"/>-->
+<!--                            -->
+<!--                        </group>-->
+<!--                        <div class="clearfix"/>-->
                         <group></group>
                         <group class="oe_subtotal_footer">
-                            <field name="total" colspan="2"
-                                   readonly="1"/>
+                            <field name="ready_total" colspan="2" readonly="1"/>
+                            <field name="total_discount" colspan="2" readonly="1"/>
+                            <field name="total_vat" colspan="2" readonly="1"/>
+                            <field name="total_net" colspan="2" readonly="1"/>
+                            <field name="grand_total" colspan="2" readonly="1"/>
+
                         </group>
                         <div class="clearfix"/>
 

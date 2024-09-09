@@ -9,6 +9,7 @@
                 </tree>
             </field>
         </record>
+
         <record id="git_landed_cost_view_form" model="ir.ui.view">
             <field name="name">git_landed_cost_view_form</field>
             <field name="model">git.landed.cost</field>
@@ -24,31 +25,31 @@
 
                         <group>
                             <group>
-                                <field name="git_id" string="GIT NO. رقم الشحنه"/>
-                                <field name="dec_no" string="Dec NO. رقم البيان"/>
-                                <field name="dec_date" string="Dec Date  تاريخ البيان"/>
-                                <field name="saded_unified_number" string="Sadad Unified No.  الرقم الموحد"/>
+                                <field name="git_id" string="GIT NO."/>
+                                <field name="dec_no" string="Dec NO."/>
+                                <field name="dec_date" string="Dec Date"/>
+                                <field name="saded_unified_number" string="Sadad Unified No."/>
                             </group>
                             <group>
-                                <field name="company_id" string="Importer. المسنورد"/>
-                                <field name="commercial_reg_no" string="Commercial Reg. No. رقم السجل التجاري"/>
-                                <field name="vat" string="Tax No. الرقم الضريبي"/>
-                                <field name="partner_id" string="clearing Agent المخلص الجمركي"/>
-                                <field name="license_no" string="Licence No. رقم الرخصة"/>
+                                <field name="company_id" string="Importer."/>
+                                <field name="commercial_reg_no" string="Commercial Reg. No."/>
+                                <field name="vat" string="Tax No."/>
+                                <field name="partner_id" string="clearing Agent"/>
+                                <field name="license_no" string="Licence No."/>
                             </group>
                         </group>
                         <group>
                             <group>
-                                <field name="loading_port_id" string="Port of Loading ميناء الشحن"/>
-                                <field name="destination_port_id" string="Port of Discharge ميناء التفريغ"/>
-                                <field name="destination_id" string="Port Type نوع المنفذ"/>
+                                <field name="loading_port_id" string="Port of Loading"/>
+                                <field name="destination_port_id" string="Port of Discharge"/>
+                                <field name="destination_id" string="Port Type"/>
                             </group>
                             <group>
-                                <field name="destination_company_id" string="Destination  جهة المقصد"/>
-                                <field name="bl_manifest" string=" B\L-AWB No./Manif. رقم البوليصة/ المنافيست"/>
-                                <field name="carrier_name" string=" Carrier’s Name اسم الناقلة"/>
+                                <field name="destination_company_id" string="Destination"/>
+                                <field name="bl_manifest" string=" B\L-AWB No./Manif."/>
+                                <field name="carrier_name" string=" Carrier’s Name"/>
                                 <!--                                <field name="flight_no" string=" Carrier’s Name اسم الناقلة"/>-->
-                                <field name="flight_no" string="Voyage / Flight No. رقم الرحلة"/>
+                                <field name="flight_no" string="Voyage / Flight No."/>
 
                             </group>
                         </group>
@@ -84,15 +85,15 @@
                                 <group>
                                 </group>
                                 <group class="oe_subtotal_footer">
-                                    <field name="total_custom" string="Customs Fees الرسوم الجمركية"/>
-                                    <field name="total_custom_vat" string="VAT ضريبة القيمة المضافة"/>
-                                    <field name="excis" string=" Excise الضريبة الإنتقائية"/>
-                                    <field name="handing_fees" string="Handling fees رسوم المناولة"/>
-                                    <field name="landing_fees" string="Landing Demurrage Fees رسوم الارضيات"/>
-                                    <field name="other_fees" string="Other Fees رسوم أخرى"/>
-                                    <field name="definitive" string="قطعي Definitive"/>
-                                    <field name="insurance" string="تأمين Insurance"/>
-                                    <field name="total_feeses" string="Total Fees اجمالي الرسوم"/>
+                                    <field name="total_custom" string="Customs Fees"/>
+                                    <field name="total_custom_vat" string="VAT"/>
+                                    <field name="excis" string=" Excise"/>
+                                    <field name="handing_fees" string="Handling fees"/>
+                                    <field name="landing_fees" string="Landing Demurrage Fees"/>
+                                    <field name="other_fees" string="Other Fees"/>
+                                    <field name="definitive" string="Definitive"/>
+                                    <field name="insurance" string="Insurance"/>
+                                    <field name="total_feeses" string="Total Fees"/>
                                 </group>
                             </group>
                             <div class="clearfix"/>

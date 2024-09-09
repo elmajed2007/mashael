@@ -37,10 +37,18 @@ class PurchasePiv(models.Model):
         store=False,
     )
 
+    ready_line_ids = fields.One2many(
+        comodel_name='purchase.ready.line',
+        inverse_name='po_ready_line_id',
+        string='Ready_line_ids',
+        required=False)
+
     @api.onchange('purchase_order_ids')
     def onchange_purchase_order_ids(self):
         po_lines = []
+        ready_lines = []
         self.purchase_piv_line_ids = [(5, 0)]
+        self.ready_line_ids = [(5, 0)]
         for po in self.purchase_order_ids:
             for line in po.order_line:
                     po_lines.append(
@@ -64,6 +72,34 @@ class PurchasePiv(models.Model):
         for line in po_lines:
             self.purchase_piv_line_ids = [(0, 0, line)]
 
+        for po in self.purchase_order_ids:
+            products = []
+            for line in po.order_line:
+                if line.product_id.id not in products:
+                    products.append(line.product_id.id)
+            for line in po.order_line:
+                for product in products:
+                    total_piv_qty = 0
+                    for line in self.purchase_piv_line_ids:
+                        if line.product_id.id == product and line.purchase_order_id.id == po.id:
+                            total_piv_qty += line.qty_invoiced
+                    qty = 0
+                    price = 0
+                    if line.product_id.id == product:
+                        qty += line.product_qty
+                        price = line.price_unit
+                    ready_lines.append(
+                        {
+                            "product_id": product,
+                            "pending_qty": qty,
+                            "piv_qty": total_piv_qty,
+                            "unit_price": price,
+                        }
+                    )
+        for line in ready_lines:
+            self.ready_line_ids = [(0, 0, line)]
+
+
     @api.depends('partner_id')
     def _compute_purchase_order_ids_domain(self):
         purchase = []
@@ -85,8 +121,48 @@ class PurchasePiv(models.Model):
         required=False)
 
     packing_list = fields.Char(
-        string='Packing List',
+        string='Packing List Ref',
         required=False)
+
+    packing_date = fields.Date(
+        string='Packing List Date',
+        required=False)
+
+    attach = fields.Binary('Attached')
+    
+    ready_total = fields.Float(
+        string='Total', 
+        required=False, compute='_compute_ready_total')
+
+    total_discount = fields.Float(
+        string='Total Discount',
+        required=False, compute='_compute_ready_total')
+    total_vat = fields.Float(
+        string='Vat Amount',
+        required=False, compute='_compute_ready_total')
+    total_net = fields.Float(
+        string='Net Total',
+        required=False, compute='_compute_ready_total')
+
+    grand_total = fields.Float(
+        string='Grand Total SR',
+        required=False, compute='_compute_ready_total')
+
+    @api.depends('ready_line_ids')
+    def _compute_ready_total(self):
+        for rec in self:
+            total = 0
+            discount = 0
+            vat = 0
+            for line in rec.ready_line_ids:
+                total += line.total
+                discount += (line.total * line.disc)
+                vat += (line.total * line.vat)
+            rec.ready_total = total
+            rec.total_discount = discount
+            rec.total_net = total - discount
+            rec.total_vat = vat
+            rec.grand_total = (total - discount) + vat
 
     purchase_piv_line_ids = fields.One2many(
         comodel_name='purchase.piv.line',
@@ -123,20 +199,51 @@ class PurchasePivLine(models.Model):
         string='purchase_piv_line_id',
         required=False)
 
+    purchase_order_id = fields.Many2one(comodel_name='purchase.order', string='Purchase_order_id', required=False)
+    oc_no = fields.Char(string='Oc No', required=False)
+    product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
+    partner_id = fields.Many2one('res.partner', related="purchase_piv_line_id.partner_id")
+    coll_no = fields.Char(string='Coil NO', required=False)
+    package_delivery_position = fields.Char(
+        string='Package Delivery Position',
+        required=False)
+    package_description = fields.Char(
+        string='Package Description',
+        required=False)
+
+    dimensions = fields.Char(
+        string='Dimensions(mm)',
+        required=False)
+
+    vendor_purchase_code = fields.Char(
+        string='Vendor_purchase_code',
+        required=False, compute="_compute_vendor_purchase_code")
+
+    name = fields.Text(string='Description', required=True, store=True, readonly=False)
+    product_qty = fields.Float(string='Po Quantity', store=True)
+    qty_invoiced = fields.Float(string="Billed Qty", store=True)
+    product_uom = fields.Many2one('uom.uom', string='Unit', store=True)
+    net_weight = fields.Char(string='Net Weight', required=False)
+    gross_weight = fields.Char(string='Gross Weight', required=False)
+    batch_no = fields.Char(string='Batch NO', required=False)
+    serial_no_id = fields.Many2one(comodel_name='piv.serial', string='Serial No', required=False)
+    expiry_date = fields.Date(string='Expiry Date', required=False)
+    production_date = fields.Date(string='Production Date', required=False)
+
+    @api.depends('product_id', 'partner_id')
+    def _compute_vendor_purchase_code(self):
+        for rec in self:
+            value = False
+            for line in rec.product_id.seller_ids:
+                if line.partner_id.id == rec.partner_id.id:
+                    value = line.product_code
+            rec.vendor_purchase_code = value
+
+
     # currency_id = fields.Many2one(store=True, string='Currency', readonly=True)
     currency_id = fields.Many2one('res.currency', 'Currency', readonly=True)
-
-
-
-    product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
-    name = fields.Text(
-        string='Description', required=True, store=True,
-        readonly=False)
-    product_qty = fields.Float(string='Quantity', store=True)
     # product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
     # product_uom_category_id = fields.Many2one()
-
-
     qty_received = fields.Float("Received Qty", compute_sudo=True, store=True, digits='Product Unit of Measure')
     qty_invoiced = fields.Float(string="Billed Qty", digits='Product Unit of Measure', store=True)
     price_unit = fields.Float(
@@ -144,46 +251,38 @@ class PurchasePivLine(models.Model):
     price_subtotal = fields.Monetary(string='Subtotal', store=True)
     price_total = fields.Monetary(string='Total', store=True)
     # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
-    product_uom = fields.Many2one('uom.uom', string='Unit of Measure', store=True)
     price_tax = fields.Float(string='Tax', store=True)
-    coll_no = fields.Char(
-        string='Coll NO',
-        required=False)
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
-
-    purchase_order_id = fields.Many2one(
-        comodel_name='purchase.order',
-        string='Purchase_order_id',
-        required=False)
-
     taxes_id = fields.Many2many('account.tax', string='Taxes')
-
-
-
     serial_no = fields.Char(
         string='Serial NO',
         required=False)
-
     serial_mts = fields.Binary('Serial MTC')
     serial_calibration_cert = fields.Binary('Serial Calibration Cert')
 
-    serial_no_id = fields.Many2one(
-        comodel_name='piv.serial',
-        string='Serial No',
-        required=False)
 
-    expiry_date = fields.Date(
-        string='Expiry Date',
-        required=False)
+class PurchaseReadyLines(models.Model):
+    _name = 'purchase.ready.line'
+    _description = 'PurchaseReadyLines'
 
-    production_date = fields.Date(
-        string='Production Date',
-        required=False)
+    name = fields.Char()
+    po_ready_line_id = fields.Many2one(comodel_name='purchase.piv', string='po_ready_line_id', required=False)
 
-    batch_no = fields.Char(
-        string='Batch NO',
-        required=False)
+    partner_id = fields.Many2one('res.partner', related="purchase_piv_line_id.partner_id")
+    purchase_order_id = fields.Many2one(comodel_name='purchase.order', string='Purchase_order_id', required=False)
+    product_id = fields.Many2one('product.product', string='Vendor Purchase Code', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
+    product_uom = fields.Many2one('uom.uom', string='Unit', store=True)
+    pending_qty = fields.Float(string='Pending QTY', required=False)
+    piv_qty = fields.Float(string='PIV QTY', required=False)
+    unit_price = fields.Float(string='Unit Price', required=False)
+    disc = fields.Float(string='Disc', required=False)
+    vat = fields.Float(string='Vat', required=False)
+    total = fields.Float(string='Total', required=False, compute="_compute_total")
 
-    net_weight = fields.Char(
-        string='Net Weight',
-        required=False)
+
+    @api.depends('piv_qty', 'unit_price')
+    def _compute_total(self):
+        for rec in self:
+            total = 0
+            total = rec.piv_qty * rec.unit_price
+            rec.total = total
