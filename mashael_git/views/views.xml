@@ -43,7 +43,7 @@
                                 <field name="piv_line_ids">
                                     <tree editable="bottom">
                                         <field name="destination_id" invisible="1"/>
-                                        <field name="piv_ids" invisible="1"/>
+<!--                                        <field name="piv_ids" invisible="1"/>-->
                                         <field name="piv_id"/>
                                         <field name="supplier_inv_date"/>
                                         <field name="supplier_inv_num"/>
