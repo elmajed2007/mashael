@@ -7,7 +7,7 @@ class PurchaseOrder(models.Model):
 
 
     partner_id = fields.Many2one('res.partner', string='Vendor', required=True, change_default=True, tracking=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
-    destination_id = fields.Many2one('destination',string='Shipping Mode',domain="[('partner_id', '=', partner_id)]")
+    destination_id = fields.Many2one('destination',string='Destination',domain="[('partner_id', '=', partner_id)]")
 
     @api.onchange('order_line','destination_id')
     def _onchange_order_line(self):
@@ -15,22 +15,12 @@ class PurchaseOrder(models.Model):
             if self.date_planned:
                 line.expected_arrival_date = self.date_planned
 
-    date_planned = fields.Datetime(
-        string='Expected Arrival', index=True, copy=False, compute='_compute_custome_date_planned', store=True, readonly=False,
-        help="Delivery date promised by vendor. This date is used to determine expected arrival of products.")
-
-    @api.depends('date_order', 'destination_id')
-    def _compute_custome_date_planned(self):
-        for rec in self:
-            rec.date_planned = rec.date_order + timedelta(days=rec.destination_id.duration)
-
-    #
-    # # @api.onchange('partner_id','destination_id','date_order')
-    # # def compute_date(self):
-    # #     for record in self:
-    # #         for rec in record.destination_id:
-    # #             if rec.duration and record.date_order:
-    # #                 record.date_planned = record.date_order + timedelta(days=rec.destination_id.duration)
+    @api.onchange('partner_id','destination_id','date_order')
+    def compute_date(self):
+        for record in self:
+            for rec in record.destination_id:
+                if rec.duration and record.date_order:
+                    record.date_planned = record.date_order + + timedelta(days=rec.duration)
 
 
 class PurchaseOrderLine(models.Model):
@@ -38,11 +28,6 @@ class PurchaseOrderLine(models.Model):
 
 
     expected_arrival_date=fields.Datetime("Expected Arrival")
-    hs_code = fields.Many2one('hs.code', string="HS Code", related='product_id.hs_code')
-    discount = fields.Float(
-        string='Discount', 
-        required=False)
-
 
 
 class SaleOrderLine(models.Model):

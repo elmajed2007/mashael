@@ -15,7 +15,7 @@
     'version': '17.0.1.2',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'purchase', 'account', 'stock', 'sr_warranty_management', 'ent_ohrms_loan'],
+    'depends': ['base', 'mail', 'purchase', 'account', 'stock', 'sr_warranty_management', 'dev_hr_loan','hr_end_service_benefits','hr'],
 
     # always loaded
     'data': [
@@ -27,6 +27,7 @@
         "views/hs_code.xml",
         "report/warrently_report.xml",
         "views/hr_loan.xml",
+        "views/hr_employee.xml",
     ],
     # only loaded in demonstration mode
     'demo': [

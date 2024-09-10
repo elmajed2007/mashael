@@ -12,8 +12,6 @@
             </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
                     <field name="expected_arrival_date" />
-                    <field name="hs_code" />
-                    <field name="discount" />
                 </xpath>
         </field>
     </record>
@@ -24,7 +22,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="before">
                     <field name="purchase_id" />
-                </xpath>
+            </xpath>
         </field>
     </record>
     <record id="view_sr_product_warranty_form" model="ir.ui.view">
