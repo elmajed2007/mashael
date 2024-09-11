@@ -18,6 +18,13 @@
             <field name="company_id" eval="False"/>
         </record>
 
+        <record id="price_policy_seq" model="ir.sequence">
+            <field name="name">price_policy_seq</field>
+            <field name="code">price.policy</field>
+            <field name="prefix">PP/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
 
 
     </data>

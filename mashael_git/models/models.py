@@ -113,23 +113,23 @@ class mshGitLine(models.Model):
         required=False)
     destination_id = fields.Many2one('destination', string='Destination', related="piv_line_id.destination_id")
 
-    # piv_ids = fields.Many2many(
-    #     comodel_name='purchase.piv',
-    #     string='Piv', compute='_compute_piv_ids')
+    piv_ids = fields.Many2many(
+        comodel_name='purchase.piv',
+        string='Piv', compute='_compute_piv_ids')
 
     piv_id = fields.Many2one(
         comodel_name='purchase.piv',
         string='Piv',
-        required=False)
+        required=False, domain="[('id', 'in', piv_ids)]")
 
-    # @api.depends('piv_line_id.partner_id', 'piv_line_id.destination_id')
-    # def _compute_piv_ids(self):
-    #     for rec in self:
-    #         pivs = []
-    #         piv_rec = self.env['purchase.piv'].search([('partner_id', '=', rec.piv_line_id.partner_id.id),('destination_id', '=', rec.piv_line_id.destination_id.id)])
-    #         for line in piv_rec:
-    #             pivs.append(line.id)
-    #         rec.piv_ids = pivs
+    @api.depends('piv_line_id.partner_id', 'piv_line_id.destination_id')
+    def _compute_piv_ids(self):
+        for rec in self:
+            pivs = []
+            piv_rec = self.env['purchase.piv'].search([('partner_id', '=', rec.piv_line_id.partner_id.id),('destination_id', '=', rec.piv_line_id.destination_id.id)])
+            for line in piv_rec:
+                pivs.append(line.id)
+            rec.piv_ids = pivs
 
 
     supplier_inv_num = fields.Char(

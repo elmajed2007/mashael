@@ -207,3 +207,24 @@ class Purchasecreen(models.Model):
     def onchange_method(self):
         self.confirmed_price = self.confirmed_qty - self.pl_price
         self.purchase_price = self.confirmed_qty - self.pl_price
+        #
+    price_policy_id = fields.Many2one(comodel_name='price.policy', string='Price Policy', required=False)
+    insurance = fields.Float(string='Insurance', required=False)
+    overhead = fields.Float(string='Over head', required=False)
+    delivery = fields.Float(string='Delivery', required=False)
+    direct_cost = fields.Float(string='Direct Cost', required=False)
+    total_cost = fields.Float(string='Total Cost', required=False)
+    red_price = fields.Float(string='Red Price', required=False)
+    green_price = fields.Float(string='Green Price', required=False)
+    # sales_delivery_condit = fields.Char(
+    #     string='# Sales Delivery Conditions',
+    #     required=False)
+    management_discount = fields.Float(
+        string='Management Discount',
+        required=False)
+    deal_red = fields.Float(
+        string='Deal Red', 
+        required=False)
+    deal_green = fields.Float(
+        string='Deal Green',
+        required=False)

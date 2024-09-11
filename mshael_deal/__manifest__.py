@@ -7,6 +7,7 @@
         'security/ir.model.access.csv',
         'security/groups.xml',
         'views/seq.xml',
+        'views/price_policy.xml',
         'views/views.xml',
     ],
 
