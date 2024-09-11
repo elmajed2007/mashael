@@ -143,10 +143,15 @@ class GeneralSpecification(models.Model):
     uom_id = fields.Many2one(comodel_name='uom.uom', string='Unit', required=False, related='product_id.uom_po_id')
     discount_requested = fields.Float(string='Discount Requested', required=False)# percent
     total_given_discount = fields.Float(string='Total Given Discount', required=False)
-    hs_code = fields.Many2one('hs.code', string="HS Code", related='product_id.hs_code')
-    origin = fields.Char(string='Origin', required=False, related='product_id.origin')
+    hs_code = fields.Many2one('hs.code', string="HS Code")
+    origin = fields.Char(string='Origin', required=False)
     saber_regulation = fields.Float(string='Saber Regulation', required=False)
     certificate = fields.Float(string='Certificate', required=False)
+
+    @api.onchange('product_id')
+    def onchange_product_id(self):
+        self.hs_code = self.product_id.hs_code
+        self.origin = self.product_id.origin
 
     @api.model
     def create(self, vals):
