@@ -9,7 +9,9 @@ class ContractType(models.Model):
     _order = 'sequence, id'
 
     name = fields.Char(string='Contract Type', required=True, help="Name")
+    code = fields.Char(string='Code')
     sequence = fields.Integer(help="Gives the sequence when displaying a list of Contract.", default=10)
+    country_id = fields.Many2one('res.country','Country')
 
 
 class ContractInherit(models.Model):
