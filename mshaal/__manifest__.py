@@ -26,7 +26,7 @@
         "views/purchase_order_view.xml",
         "views/hs_code.xml",
         "report/warrently_report.xml",
-        # "views/hr_loan.xml",
+        "views/hr_loan.xml",
         "views/hr_employee.xml",
     ],
     # only loaded in demonstration mode
