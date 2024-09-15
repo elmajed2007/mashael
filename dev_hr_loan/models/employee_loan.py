@@ -278,7 +278,9 @@ class employee_loan(models.Model):
             self.compute_installment()
         if self.manager_id and self.manager_id.work_email:
             ir_model_data = self.env['ir.model.data']
-            template_id = ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request')[2]
+            print(ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request'))
+            # template_id = ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request')[2]
+            template_id = ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request')[1]
             mtp = self.env['mail.template']
             template_id = mtp.browse(template_id)
             template_id.write({'email_to': self.manager_id.work_email})
