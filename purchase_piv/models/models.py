@@ -219,7 +219,7 @@ class PurchasePivLine(models.Model):
         string='Vendor_purchase_code',
         required=False, compute="_compute_vendor_purchase_code")
 
-    name = fields.Text(string='Description', required=True, store=True, readonly=False)
+    name = fields.Text(string='Description', required=False, store=True, readonly=False)
     product_qty = fields.Float(string='Po Quantity', store=True)
     qty_invoiced = fields.Float(string="Billed Qty", store=True)
     product_uom = fields.Many2one('uom.uom', string='Unit', store=True)
@@ -247,12 +247,12 @@ class PurchasePivLine(models.Model):
     qty_received = fields.Float("Received Qty", compute_sudo=True, store=True, digits='Product Unit of Measure')
     qty_invoiced = fields.Float(string="Billed Qty", digits='Product Unit of Measure', store=True)
     price_unit = fields.Float(
-        string='Unit Price', required=True, digits='Product Price', readonly=False, store=True)
+        string='Unit Price', required=False, digits='Product Price', readonly=False, store=True)
     price_subtotal = fields.Monetary(string='Subtotal', store=True)
     price_total = fields.Monetary(string='Total', store=True)
     # product_uom = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
     price_tax = fields.Float(string='Tax', store=True)
-    company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company.id)
+    company_id = fields.Many2one('res.company', 'Company', required=False, index=True, default=lambda self: self.env.company.id)
     taxes_id = fields.Many2many('account.tax', string='Taxes')
     serial_no = fields.Char(
         string='Serial NO',
