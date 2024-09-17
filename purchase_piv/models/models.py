@@ -268,7 +268,7 @@ class PurchaseReadyLines(models.Model):
     name = fields.Char()
     po_ready_line_id = fields.Many2one(comodel_name='purchase.piv', string='po_ready_line_id', required=False)
 
-    partner_id = fields.Many2one('res.partner', related="purchase_piv_line_id.partner_id")
+    partner_id = fields.Many2one('res.partner', related="po_ready_line_id.partner_id")
     purchase_order_id = fields.Many2one(comodel_name='purchase.order', string='Purchase_order_id', required=False)
     product_id = fields.Many2one('product.product', string='Vendor Purchase Code', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
     product_uom = fields.Many2one('uom.uom', string='Unit', store=True)
