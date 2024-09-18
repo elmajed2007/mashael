@@ -18,11 +18,6 @@
                         <field name="price_type"/>
                     </div>
 
-                    <!--                    <label for="price_policy_id" invisible="price_type != 'price_policy'"/>-->
-                    <!--                    <div name="price_policy_id" class="o_row" invisible="price_type != 'price_policy'">-->
-                    <!--                        <field name="price_policy_id" class="oe_inline" widget='monetary'/>-->
-                    <!--                    </div>-->
-
 
                     <!--                    <label for="list_price" invisible="price_type == 'price_policy'"/>-->
                     <!--                    <div name="pricing" class="o_row" invisible="price_type == 'price_policy'">-->
@@ -45,6 +40,16 @@
 
                 </xpath>
 
+                <xpath expr="//label[@for='price_type']" position="after">
+                    <label for="price_policy_id" invisible="price_type != 'price_policy'"/>
+
+                </xpath>
+                <xpath expr="//field[@name='price_type']" position="after">
+                    <div name="price_policy_id" class="o_row" invisible="price_type != 'price_policy'">
+                        <field name="price_policy_id" class="oe_inline" widget='monetary'/>
+                    </div>
+
+                </xpath>
 
             </field>
         </record>
