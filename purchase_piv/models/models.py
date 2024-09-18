@@ -382,8 +382,8 @@ class PurchaseReadyLines(models.Model):
     def _compute_product_price(self):
         for rec in self:
             price = 0
-            for line in rec.po_ready_line_id.purchase_piv_line_ids:
-                if line.product_id.id == rec.product_id.id and line.purchase_order_id.id == rec.purchase_order_id.id:
+            for line in rec.purchase_order_id.order_line:
+                if line.product_id.id == rec.product_id.id:
                     price = line.price_unit
             rec.unit_price = price
 
