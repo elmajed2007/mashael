@@ -133,10 +133,10 @@ class PurchasePiv(models.Model):
             ready_lines.append(
                 {
                     "product_id": product,
-                    "pending_qty": sum(po_qty),
+                    # "pending_qty": sum(po_qty),
                     "purchase_order_id": purchase.id,
-                    "piv_qty": total_piv_qty,
-                    "unit_price": price,
+                    # "piv_qty": total_piv_qty,
+                    # "unit_price": price,
                 }
             )
         for line in ready_lines:
@@ -352,12 +352,22 @@ class PurchaseReadyLines(models.Model):
     purchase_order_id = fields.Many2one(comodel_name='purchase.order', string='Purchase_order_id', required=False)
     product_id = fields.Many2one('product.product', string='Vendor Purchase Code', domain=[('purchase_ok', '=', True)], change_default=True, index='btree_not_null')
     product_uom = fields.Many2one('uom.uom', string='Unit', store=True)
-    pending_qty = fields.Float(string='Pending QTY', required=False)
+    pending_qty = fields.Float(string='Pending QTY', required=False, compute="_compute_pending_qty")
     piv_qty = fields.Float(string='PIV QTY', required=False)
     unit_price = fields.Float(string='Unit Price', required=False)
     disc = fields.Float(string='Disc', required=False)
     vat = fields.Float(string='Vat', required=False)
     total = fields.Float(string='Total', required=False, compute="_compute_total")
+
+
+    @api.depends('po_ready_line_id', 'product_id', 'purchase_order_id')
+    def _compute_pending_qty(self):
+        for rec in self:
+            qty = 0
+            for line in rec.po_ready_line_id.purchase_piv_line_ids:
+                if line.product_id.id == rec.product_id.id and line.purchase_order_id.id == rec.purchase_order_id.id:
+                    qty += line.product_qty
+            rec.pending_qty = qty
 
 
     @api.depends('piv_qty', 'unit_price')
