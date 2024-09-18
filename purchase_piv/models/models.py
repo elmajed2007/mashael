@@ -123,9 +123,8 @@ class PurchasePiv(models.Model):
                 for line in self.purchase_piv_line_ids:
                     if line.product_id.id == product and line.purchase_order_id.id == purchase:
                         total_piv_qty += line.qty_invoiced
-                if line.product_id.id == product:
-                    qty += line.product_qty
-                    price = line.price_unit
+                        qty += line.product_qty
+                        price = line.price_unit
             ready_lines.append(
                 {
                     "product_id": product,
