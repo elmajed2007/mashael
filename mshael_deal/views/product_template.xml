@@ -15,7 +15,7 @@
                 <xpath expr="//field[@name='list_price']" position="replace">
 
                     <div name="price_type" class="o_row">
-                        <field name="price_type" class="oe_inline" widget='monetary'/>
+                        <field name="price_type"/>
                     </div>
 
                     <!--                    <label for="price_policy_id" invisible="price_type != 'price_policy'"/>-->
