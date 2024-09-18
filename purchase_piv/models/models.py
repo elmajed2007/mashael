@@ -29,7 +29,10 @@ class PurchasePiv(models.Model):
 
     purchase_order_ids = fields.Many2many(
         comodel_name='purchase.order',
-        string='Purchase Orders')
+        string='Purchase Orders',
+        domain = "[('partner_id', '=', partner_id), ('destination_id', '=', destination_id)]",
+
+    )
 
     purchase_order_ids_domain = fields.Char(
         compute="_compute_purchase_order_ids_domain",
