@@ -29,6 +29,7 @@
                             <group>
                                 <field name="partner_id" string="Supplier"/>
                                 <field name="destination_id"/>
+                                <field name="purchase_order_ids_domain" invisible="1"/>
                                 <field name="purchase_order_ids" domain="purchase_order_ids_domain" widget="many2many_tags"/>
                             </group>
                             <group>
