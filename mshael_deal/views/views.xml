@@ -10,8 +10,8 @@
             </field>
         </record>
 
-        <record id="msh_deal_view_tree" model="ir.ui.view">
-            <field name="name">msh_deal_view_tree</field>
+        <record id="msh_deal_view_form" model="ir.ui.view">
+            <field name="name">msh_deal_view_form</field>
             <field name="model">msh.deal</field>
             <field name="arch" type="xml">
                 <form string="deal_form">
