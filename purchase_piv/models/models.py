@@ -385,7 +385,9 @@ class PurchaseReadyLines(models.Model):
             for line in rec.po_ready_line_id.purchase_piv_line_ids:
                 if line.product_id.id == rec.product_id.id and line.purchase_order_id.id == rec.purchase_order_id.id:
                     price = line.price_unit
-            rec.piv_qty = price
+            rec.unit_price = price
+
+
 
 
     @api.depends('piv_qty', 'unit_price')
