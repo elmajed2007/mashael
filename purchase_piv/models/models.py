@@ -103,12 +103,13 @@ class PurchasePiv(models.Model):
         # for line in ready_lines:
         #     self.ready_line_ids = [(0, 0, line)]
 
-    @api.onchange('purchase_piv_line_ids')
-    def onchange_purchase_piv_line_ids(self):
+
+    @api.constrains('purchase_piv_line_ids')
+    def check_lines(self):
+        self.ready_line_ids = [(5, 0)]
         ready_lines = []
         piv_pos = []
         piv_pos_products = []
-        self.ready_line_ids = [(5, 0)]
         for line in self.purchase_piv_line_ids:
             piv_pos.append(line.purchase_order_id.id)
 
@@ -138,6 +139,44 @@ class PurchasePiv(models.Model):
             )
         for line in ready_lines:
             self.ready_line_ids = [(0, 0, line)]
+
+
+
+    # @api.onchange('purchase_piv_line_ids')
+    # def onchange_purchase_piv_line_ids(self):
+    #     ready_lines = []
+    #     piv_pos = []
+    #     piv_pos_products = []
+    #     self.ready_line_ids = [(5, 0)]
+    #     for line in self.purchase_piv_line_ids:
+    #         piv_pos.append(line.purchase_order_id.id)
+    #
+    #     for po in piv_pos:
+    #         for line in po.order_line:
+    #             if line.product_id.id not in piv_pos_products:
+    #                 piv_pos_products.append(line.product_id.id)
+    #
+    #     for product in piv_pos_products:
+    #         total_piv_qty = 0
+    #         qty = 0
+    #         price = 0
+    #         for purchase in piv_pos:
+    #             for line in self.purchase_piv_line_ids:
+    #                 if line.product_id.id == product and line.purchase_order_id.id == purchase:
+    #                     total_piv_qty += line.qty_invoiced
+    #                     qty += line.product_qty
+    #                     price = line.price_unit
+    #         ready_lines.append(
+    #             {
+    #                 "product_id": product,
+    #                 "pending_qty": qty,
+    #                 "purchase_order_id": purchase,
+    #                 "piv_qty": total_piv_qty,
+    #                 "unit_price": price,
+    #             }
+    #         )
+    #     for line in ready_lines:
+    #         self.ready_line_ids = [(0, 0, line)]
 
     @api.depends('partner_id')
     def _compute_purchase_order_ids_domain(self):
