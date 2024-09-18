@@ -122,16 +122,18 @@ class PurchasePiv(models.Model):
             total_piv_qty = 0
             qty = 0
             price = 0
+            po_qty = []
             for purchase in piv_pos:
                 for line in self.purchase_piv_line_ids:
                     if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
+                        po_qty.append(line.product_qty)
                         total_piv_qty += line.qty_invoiced
                         qty += line.product_qty
                         price = line.price_unit
             ready_lines.append(
                 {
                     "product_id": product,
-                    "pending_qty": qty,
+                    "pending_qty": sum(po_qty),
                     "purchase_order_id": purchase.id,
                     "piv_qty": total_piv_qty,
                     "unit_price": price,
