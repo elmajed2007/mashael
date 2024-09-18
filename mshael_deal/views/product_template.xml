@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_template_form_view_inherit" model="ir.ui.view">
+            <field name="name">product_template_form_view_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//label[@for='list_price']" position="replace">
+                    <label for="lst_price"/>
+                </xpath>
+                <xpath expr="//field[@name='list_price']" position="replace">
+
+                    <label for="price_type"/>
+                    <div name="price_type" class="o_row">
+                        <field name="price_type" class="oe_inline" widget='monetary'/>
+                    </div>
+
+                    <label for="price_policy_id" invisible="price_type != 'price_policy'"/>
+                    <div name="price_policy_id" class="o_row" invisible="price_type != 'price_policy'">
+                        <field name="price_policy_id" class="oe_inline" widget='monetary'/>
+                    </div>
+
+
+                    <label for="list_price" invisible="price_type == 'price_policy'"/>
+                    <div name="pricing" class="o_row" invisible="price_type == 'price_policy'">
+                        <field name="list_price" class="oe_inline" widget='monetary'
+                               options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                    </div>
+
+
+                    <label for="red_sales_price" invisible="price_type == 'price_policy'"/>
+                    <div name="red_sales_price" class="o_row" invisible="price_type == 'price_policy'">
+                        <field name="red_sales_price" class="oe_inline" widget='monetary'/>
+                    </div>
+
+
+                    <label for="green_sales_price" invisible="price_type == 'price_policy'"/>
+                    <div name="green_sales_price" class="o_row" invisible="price_type == 'price_policy'">
+                        <field name="green_sales_price" class="oe_inline" widget='monetary'/>
+                    </div>
+
+
+                </xpath>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>
