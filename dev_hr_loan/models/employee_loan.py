@@ -41,11 +41,11 @@ class employee_loan(models.Model):
 
     def send_loan_detail(self):
         if self.employee_id and self.employee_id.work_email:
-            template_id = self.env['ir.model.data'].get_object_reference('dev_hr_loan',
-                                                                         'dev_employee_loan_detail_send_mail')
-
-            template_id = self.env['mail.template'].browse(template_id[1])
-            template_id.send_mail(self.ids[0], True)
+            template_ref = self.env['ir.model.data'].get_object_reference('dev_hr_loan',
+                                                                          'dev_employee_loan_detail_send_mail')
+            if template_ref:
+                template_id = self.env['mail.template'].browse(template_ref[1])
+                template_id.send_mail(self.ids[0], True)
         return True
 
     @api.depends('start_date', 'term')
@@ -67,24 +67,23 @@ class employee_loan(models.Model):
             loan.extra_in_amount = amount
 
     name = fields.Char('Name', default='/', copy=False)
-    # state = fields.Selection(loan_state, string='State', default='draft', track_visibility='onchange')
-    state = fields.Selection(loan_state, string='State', default='draft', tracking=True)
-    employee_id = fields.Many2one('hr.employee', default=_get_employee, required=True)
+    state = fields.Selection(loan_state, string='State', default='draft', track_visibility='onchange')
+    employee_id = fields.Many2one('hr.employee', default=_get_employee, required="1")
     department_id = fields.Many2one('hr.department', string='Department')
     hr_manager_id = fields.Many2one('hr.employee', string='Hr Manager')
-    manager_id = fields.Many2one('hr.employee', string='Department Manager', required=True)
+    manager_id = fields.Many2one('hr.employee', string='Department Manager', required="1")
     job_id = fields.Many2one('hr.job', string="Job Position")
     date = fields.Date('Date', default=fields.Date.today())
-    start_date = fields.Date('Start Date', default=fields.Date.today(), required=True)
+    start_date = fields.Date('Start Date', default=fields.Date.today(), required="1")
     end_date = fields.Date('End Date', compute='_get_end_date')
-    term = fields.Integer('Term', required=True)
-    loan_type_id = fields.Many2one('employee.loan.type', string='Type', required=True)
+    term = fields.Integer('Term', required="1")
+    loan_type_id = fields.Many2one('employee.loan.type', string='Type', required="1")
     payment_method = fields.Selection([('by_payslip', 'By Payslip')], string='Payment Method', default='by_payslip',
-                                      required=True)
-    loan_amount = fields.Float('Loan Amount', required=True)
+                                      required="1")
+    loan_amount = fields.Float('Loan Amount', required="1")
     paid_amount = fields.Float('Paid Amount', compute='get_paid_amount')
     remaing_amount = fields.Float('Remaing Amount', compute='get_remaing_amount')
-    installment_amount = fields.Float('Installment Amount', required=True, compute='get_installment_amount')
+    installment_amount = fields.Float('Installment Amount', required="1", compute='get_installment_amount')
     loan_url = fields.Char('URL', compute='get_loan_url')
     user_id = fields.Many2one('res.users', default=_get_default_user)
     is_apply_interest = fields.Boolean('Apply Interest')
@@ -92,7 +91,7 @@ class employee_loan(models.Model):
     interest_rate = fields.Float(string='Interest Rate')
     interest_amount = fields.Float('Interest Amount', compute='get_interest_amount')
     installment_lines = fields.One2many('installment.line', 'loan_id', string='Installments', )
-    notes = fields.Text('Reason', required=True)
+    notes = fields.Text('Reason', required="1")
     is_close = fields.Boolean('IS close', compute='is_ready_to_close')
     move_id = fields.Many2one('account.move', string='Journal Entry')
     loan_document_line_ids = fields.One2many('dev.loan.document', 'loan_id')
@@ -220,6 +219,7 @@ class employee_loan(models.Model):
         amount = 0
         for loan in self:
             if loan.loan_amount and loan.term:
+                pass
                 amount = loan.loan_amount / loan.term
             loan.installment_amount = amount
 
@@ -278,16 +278,15 @@ class employee_loan(models.Model):
             self.compute_installment()
         if self.manager_id and self.manager_id.work_email:
             ir_model_data = self.env['ir.model.data']
-            print(ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request'))
-            # template_id = ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request')[2]
-            template_id = ir_model_data._xmlid_lookup('dev_hr_loan.dev_dep_manager_request')[1]
-            mtp = self.env['mail.template']
-            template_id = mtp.browse(template_id)
+            template_id = self.env.ref('dev_hr_loan.dev_dep_manager_request')
+            # mtp = self.env['mail.template']
+            # template_id = mtp.browse(template_id)
             template_id.write({'email_to': self.manager_id.work_email})
             template_id.send_mail(self.ids[0], True)
 
     def get_hr_manager_email(self):
-        group_id = self.env['ir.model.data']._xmlid_lookup('hr.group_hr_manager')[2]
+        # group_id = self.env['ir.model.data']._xmlid_lookup('hr.group_hr_manager')[2]
+        group_id = self.env.ref('hr.group_hr_manager')
         group_ids = self.env['res.groups'].browse(group_id)
         email = ''
         if group_ids:
