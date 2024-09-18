@@ -95,6 +95,7 @@ class PurchasePiv(models.Model):
                         {
                             "product_id": product,
                             "pending_qty": qty,
+                            "purchase_order_id": po.id,
                             "piv_qty": total_piv_qty,
                             "unit_price": price,
                         }
