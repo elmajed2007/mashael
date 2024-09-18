@@ -59,6 +59,7 @@
                                         <field name="product_qty"/>
                                         <field name="qty_invoiced"/>
                                         <field name="product_uom"/>
+                                        <field name="price_unit"/>
                                         <field name="net_weight"/>
                                         <field name="gross_weight"/>
                                         <field name="batch_no"/>
@@ -70,7 +71,6 @@
                                         <!--                                        <field name="product_qty"/>-->
                                         <!--                                        <field name="qty_received"/>-->
                                         <!--                                        <field name="qty_invoiced"/>-->
-                                        <!--                                        <field name="price_unit"/>-->
                                         <!--                                        &lt;!&ndash;                                        <field name="taxes_id" widget="many2many_tags"/>&ndash;&gt;-->
                                         <!--                                        &lt;!&ndash;                                        <field name="taxes_id" domain="[('type_tax_use', '=', 'purchase')" widget="many2many_tags"/>&ndash;&gt;-->
                                         <!--                                        <field name="taxes_id" widget="many2many_tags"/>-->
@@ -108,13 +108,13 @@
                                 </field>
                             </page>
                         </notebook>
-<!--                        <group></group>-->
-<!--                        <group class="oe_subtotal_footer">-->
-<!--                            <field name="total" colspan="2"-->
-<!--                                   readonly="1"/>-->
-<!--                            -->
-<!--                        </group>-->
-<!--                        <div class="clearfix"/>-->
+                        <!--                        <group></group>-->
+                        <!--                        <group class="oe_subtotal_footer">-->
+                        <!--                            <field name="total" colspan="2"-->
+                        <!--                                   readonly="1"/>-->
+                        <!--                            -->
+                        <!--                        </group>-->
+                        <!--                        <div class="clearfix"/>-->
                         <group></group>
                         <group class="oe_subtotal_footer">
                             <field name="ready_total" colspan="2" readonly="1"/>
