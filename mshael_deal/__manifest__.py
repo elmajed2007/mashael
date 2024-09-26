@@ -2,7 +2,7 @@
     'name': "mshael_deal",
     'author': "Code Force | Toqa Elgazzar",
     'website': "",
-    'depends': ['base', 'crm', 'product', 'sale'],
+    'depends': ['base', 'crm', 'product', 'sale', 'mshaal'],
 
     'data': [
         'security/ir.model.access.csv',

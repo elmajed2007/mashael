@@ -16,11 +16,41 @@
             <field name="arch" type="xml">
                 <form string="deal_form">
                     <header>
-                        <button name="confirm_deal" type="object" invisible="state == 'confirm'" string="Confirm"
+
+                        <button name="processing_deal" type="object" invisible="state != 'draft'"
+                                string="Supplier Confirm"
+                                class="oe_highlight" id="bid_processing" data-hotkey="q"
+                                groups="mshael_deal.purchase_users_confirm_deal"
+                        />
+
+                        <button name="confirm_deal" type="object" invisible="state == 'confirm'"
+                                string="Supplier Confirm"
                                 class="oe_highlight" id="bid_confirm" data-hotkey="q"
                                 groups="mshael_deal.purchase_users_confirm_deal"
                         />
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" readonly="1"/>
+
+                        <button name="validate_deal" type="object"
+                                invisible="state not in ['draft', 'processing', 'reject', 'validate']"
+                                string="Supplier Confirm"
+                                class="oe_highlight" id="bid_confirm" data-hotkey="q"
+                                groups="mshael_deal.purchase_users_confirm_deal"
+                        />
+
+                        <button name="reject_deal" type="object"
+                                invisible="state not in ['draft', 'processing', 'reject', 'validate']"
+                                string="Supplier Confirm"
+                                class="oe_highlight" id="bid_confirm" data-hotkey="q"
+                                groups="mshael_deal.purchase_users_confirm_deal"
+                        />
+
+                        <button name="reset_to_draft" type="object" invisible="state != 'reject'"
+                                string="Supplier Confirm"
+                                class="oe_highlight" id="bid_processing" data-hotkey="q"
+                                groups="mshael_deal.purchase_users_confirm_deal"
+                        />
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,processing,confirm,reject,validate" readonly="1"/>
                     </header>
 
                     <sheet>
@@ -87,7 +117,34 @@
                                 </field>
                             </page>
 
+                            <page string="Management Screen">
+                                <field name="purchase_line_ids" widget="section_and_note_one2many" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="purchase_line_id" invisible="1"/>
+                                        <field name="product_id"/>
+                                        <field name="hs_code" invisible="1"/>
+                                        <field name="pl_price"/>
+                                        <field name="requested_price"/>
+                                        <field name="main_discount"/>
+                                        <field name="confirmed_price"/>
+                                        <field name="confirmed_qty"/>
+                                        <field name="confirmed_supplier_discount"/>
+                                        <field name="purchase_price"/>
+                                        <field name="customs_unit"/>
+                                        <field name="price_policy_id"/>
+                                        <field name="insurance"/>
+                                        <field name="overhead"/>
+                                        <field name="delivery"/>
+                                        <field name="direct_cost"/>
+                                        <field name="total_cost"/>
+                                        <field name="red_price"/>
+                                        <field name="green_price"/>
+                                        <field name="management_discount" widget="percentage"/>
+                                        <field name="deal_red"/>
 
+                                    </tree>
+                                </field>
+                            </page>
 
                         </notebook>
                     </sheet>

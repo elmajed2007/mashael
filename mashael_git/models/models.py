@@ -144,7 +144,7 @@ class mshGitLine(models.Model):
         string='Value',
         required=False, related="piv_id.total")
 
-    currency_id = fields.Many2one(comodel_name="res.currency", string="Currency")
+    currency_id = fields.Many2one(comodel_name="res.currency", string="Currency", related='piv_line_id.partner_id.property_purchase_currency_id')
 
     is_select = fields.Boolean(
         string='Select Check Box',

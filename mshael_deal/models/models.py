@@ -12,7 +12,10 @@ class MshDeal(models.Model):
     name = fields.Char()
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('confirm', 'Confirm')
+        ('processing', 'Processing'),
+        ('confirm', 'Supplier Confirm'),
+        ('reject', 'Reject'),
+        ('validate', 'Validate'),
     ], string='Status', readonly=True, index=True, copy=False, default='draft', tracking=True)
 
     version = fields.Char(
@@ -29,7 +32,7 @@ class MshDeal(models.Model):
         string='Offer Deadline',
         required=False)
     partner_id = fields.Many2one('res.partner', string='Supplier')
-    destination_id = fields.Many2one('destination',string='Destination',domain="[('partner_id', '=', partner_id)]")
+    destination_id = fields.Many2one(comodel_name='destination', string='Destination', domain="[('partner_id', '=', partner_id)]")
     discount_needed = fields.Float(
         string='Discount Needed',
         required=False) #persent
@@ -77,9 +80,21 @@ class MshDeal(models.Model):
         result.send_notification(po_users, self.name, self.deal_page())
         return result
 
+    def processing_deal(self):
+        self.write({'state': 'processing'})
 
     def confirm_deal(self):
         self.write({'state': 'confirm'})
+
+    def validate_deal(self):
+        self.write({'state': 'validate'})
+
+    def reject_deal(self):
+        self.write({'state': 'reject'})
+
+    def reset_to_draft(self):
+        self.write({'state': 'draft'})
+
 
     general_line_ids = fields.One2many(
         comodel_name='deal.general.specification',
@@ -142,7 +157,16 @@ class GeneralSpecification(models.Model):
     qty = fields.Float(string='Qty', required=False)
     uom_id = fields.Many2one(comodel_name='uom.uom', string='Unit', required=False, related='product_id.uom_po_id')
     discount_requested = fields.Float(string='Discount Requested', required=False)# percent
-    total_given_discount = fields.Float(string='Total Given Discount', required=False)
+    total_given_discount = fields.Float(string='Total Given Discount', required=False, compute='_compute_total_given_discount')
+
+    @api.depends('product_id', 'general_line_id.price_total')
+    def _compute_total_given_discount(self):
+        for rec in self:
+            total = 0
+            value_rec = self.env['deal.purchase.line'].search([('purchase_line_id', '=', rec.general_line_id.id), ('product_id', '=', rec.product_id.id)])
+            for rec in value_rec:
+                total = rec.confirmed_supplier_discount + rec.management_discount
+            rec.total_given_discount = total
     hs_code = fields.Many2one('hs.code', string="HS Code")
     origin = fields.Char(string='Origin', required=False)
     saber_regulation = fields.Float(string='Saber Regulation', required=False)
@@ -176,11 +200,16 @@ class MSScreen(models.Model):
 
 class Purchasecreen(models.Model):
     _name = 'deal.purchase.line'
-    _description = 'Purchase Screen'
+    _description = 'Management Screen'
 
     purchase_line_id = fields.Many2one(comodel_name='msh.deal', string='purchase_line_id', required=False)
     product_id = fields.Many2one('product.product', string='Code')
-    hs_code = fields.Many2one('hs.code', string="HS Code", related='product_id.hs_code')
+    hs_code = fields.Many2one('hs.code', string="HS Code")
+
+    @api.onchange('product_id')
+    def onchange_product_id(self):
+        self.hs_code = self.product_id.product_tmpl_id.hs_code.id
+        self.customs_unit = self.product_id.product_tmpl_id.duty_rate
 
     pl_price = fields.Float(
         string='Pl_price',
@@ -207,19 +236,60 @@ class Purchasecreen(models.Model):
         required=False)
     customs_unit = fields.Float(
         string='Customs Unit',
-        required=False, related='hs_code.duty_rate')
+        required=False)
 
     @api.onchange('confirmed_qty', 'pl_price')
     def onchange_method(self):
         self.confirmed_price = self.confirmed_qty - self.pl_price
         self.purchase_price = self.confirmed_qty - self.pl_price
         #
-    price_policy_id = fields.Many2one(comodel_name='price.policy', string='Price Policy', required=False)
-    insurance = fields.Float(string='Insurance', required=False)
-    overhead = fields.Float(string='Over head', required=False)
-    delivery = fields.Float(string='Delivery', required=False)
-    direct_cost = fields.Float(string='Direct Cost', required=False)
-    total_cost = fields.Float(string='Total Cost', required=False)
+    price_policy_id = fields.Many2one(comodel_name='price.policy', string='Price Policy', required=False, related='product_id.product_tmpl_id.price_policy_id')
+    insurance = fields.Float(string='Insurance', required=False, compute='_compute_insurance')
+
+    @api.depends('purchase_price', 'price_policy_id', 'price_policy_id.insurance')
+    def _compute_insurance(self):
+        for rec in self:
+            value = 0
+            value = rec.purchase_price * rec.price_policy_id.insurance
+            rec.insurance = value
+
+    overhead = fields.Float(string='Over head', required=False, compute='_compute_overhead')
+
+    @api.depends('purchase_price', 'price_policy_id', 'price_policy_id.over_head_factor')
+    def _compute_overhead(self):
+        for rec in self:
+            value = 0
+            value = rec.purchase_price * rec.price_policy_id.over_head_factor
+            rec.overhead = value
+
+    delivery = fields.Float(string='Delivery', required=False, compute='_compute_delivery')
+
+    @api.depends('purchase_price', 'price_policy_id', 'price_policy_id.delivery')
+    def _compute_delivery(self):
+        for rec in self:
+            value = 0
+            value = rec.purchase_price * rec.price_policy_id.delivery
+            rec.delivery = value
+
+    direct_cost = fields.Float(string='Direct Cost', required=False, compute='_compute_direct_cost')
+
+    @api.depends('purchase_price', 'price_policy_id', 'hs_code', 'price_policy_id.delivery', 'price_policy_id.insurance')
+    def _compute_direct_cost(self):
+        for rec in self:
+            value = 0
+            value = rec.rec.purchase_price + rec.hs_code.duty_rate + (rec.purchase_price * rec.price_policy_id.insurance) + (rec.purchase_price * rec.price_policy_id.delivery)
+            rec.direct_cost = value
+
+    
+    total_cost = fields.Float(string='Total Cost', required=False, compute='_compute_total_cost')
+
+    @api.depends('purchase_price', 'price_policy_id', 'hs_code', 'price_policy_id.delivery', 'price_policy_id.insurance', 'price_policy_id.over_head_factor')
+    def _compute_total_cost(self):
+        for rec in self:
+            value = 0
+            value = (rec.rec.purchase_price + rec.hs_code.duty_rate + (rec.purchase_price * rec.price_policy_id.insurance) + (rec.purchase_price * rec.price_policy_id.delivery)) + (rec.purchase_price * rec.price_policy_id.over_head_factor)
+            rec.total_cost = value
+
     red_price = fields.Float(string='Red Price', required=False)
     green_price = fields.Float(string='Green Price', required=False)
     # sales_delivery_condit = fields.Char(
