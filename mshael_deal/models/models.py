@@ -159,7 +159,7 @@ class GeneralSpecification(models.Model):
     discount_requested = fields.Float(string='Discount Requested', required=False)# percent
     total_given_discount = fields.Float(string='Total Given Discount', required=False, compute='_compute_total_given_discount')
 
-    @api.depends('product_id', 'general_line_id.price_total')
+    @api.depends('general_line_id', 'product_id')
     def _compute_total_given_discount(self):
         for rec in self:
             total = 0
