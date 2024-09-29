@@ -220,7 +220,7 @@ class MshDeal(models.Model):
                 'conf_qty_variance': self.conf_qty_variance,
             })
         for line in self.general_line_ids:
-            deal_version.order_line = [(0, 0, {
+            deal_version.general_line_ids = [(0, 0, {
                 'product_id': line.product_id.id,
                 'item_description': line.item_description,
                 'item_wise_additional_specification': line.item_wise_additional_specification,
@@ -235,7 +235,7 @@ class MshDeal(models.Model):
             })]
 
         for line in self.ms_screen_line_ids:
-            deal_version.order_line = [(0, 0, {
+            deal_version.ms_screen_line_ids = [(0, 0, {
                 'confirmed_qty_variance': line.confirmed_qty_variance,
                 'deal_red': line.deal_red,
                 'deal_green': line.deal_green,
@@ -244,7 +244,7 @@ class MshDeal(models.Model):
             })]
 
         for line in self.purchase_line_ids:
-            deal_version.order_line = [(0, 0, {
+            deal_version.purchase_line_ids = [(0, 0, {
                 'product_id': line.product_id.id,
                 'hs_code': line.hs_code,
                 'pl_price': line.pl_price,
