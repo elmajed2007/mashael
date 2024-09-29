@@ -284,7 +284,7 @@ class Purchasecreen(models.Model):
     def _compute_direct_cost(self):
         for rec in self:
             value = 0
-            value = rec.rec.purchase_price + rec.hs_code.duty_rate + (rec.purchase_price * rec.price_policy_id.insurance) + (rec.purchase_price * rec.price_policy_id.delivery)
+            value = rec.purchase_price + rec.hs_code.duty_rate + (rec.purchase_price * rec.price_policy_id.insurance) + (rec.purchase_price * rec.price_policy_id.delivery)
             rec.direct_cost = value
 
     
