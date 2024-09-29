@@ -271,6 +271,25 @@ class MshDeal(models.Model):
                 'deal_red': line.deal_red,
                 'deal_green': line.deal_green,
             })]
+            
+
+    def deal_versions_action(self):
+        return {
+            'name': 'Deal Versions',
+            'view_mode': 'tree,form',
+            'res_model': 'msh.deal.version',
+            'type': 'ir.actions.act_window',
+            'domain': [('main_deal_id', '=', self.id)],
+        }
+
+
+    deal_versions_count = fields.Integer(compute='compute_deal_versions_count')
+
+    def compute_deal_versions_count(self):
+        for rec in self:
+            rec.deal_versions_count = len(
+                rec.env['msh.deal.version'].search([('main_deal_id', '=', rec.id)]))
+
 
 
 
