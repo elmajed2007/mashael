@@ -11,7 +11,7 @@ class MshDeal(models.Model):
 
     name = fields.Char()
     state = fields.Selection([
-        ('draft', 'Draft'),
+        ('draft', 'Requested'),
         ('processing', 'Processing'),
         ('confirm', 'Supplier Confirm'),
         ('reject', 'Reject'),
@@ -47,6 +47,12 @@ class MshDeal(models.Model):
         required=False)
     client_name = fields.Char(
         string='Client Name',
+        required=False)
+    req_no_of_orders = fields.Float(
+        string='Req. No. of Orders (Text Entry)',
+        required=False)
+    req_qty_variance = fields.Float(
+        string='Req. Qty Variance % -/+',
         required=False)
     
     #send notification for po users group
@@ -175,7 +181,8 @@ class GeneralSpecification(models.Model):
     @api.onchange('product_id')
     def onchange_product_id(self):
         self.hs_code = self.product_id.hs_code
-        self.origin = self.product_id.origin
+        # self.origin = self.product_id.origin
+        self.origin = self.product_id.name
 
     @api.model
     def create(self, vals):

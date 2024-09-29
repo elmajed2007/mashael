@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_destination,access_res_partner_destination,model_res_partner_destination,,1,1,1,1

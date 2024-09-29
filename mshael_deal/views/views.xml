@@ -66,12 +66,14 @@
                                 <field name="deal_requester_id"/>
                                 <field name="req_date"/>
                                 <field name="offer_deadline"/>
+                                <field name="req_qty_variance"/>
                             </group>
                             <group>
                                 <field name="partner_id"/>
                                 <field name="destination_id"/>
                                 <field name="discount_needed" widget="percentage"/>
                                 <field name="req_project_duration"/>
+                                <field name="req_no_of_orders"/>
                             </group>
                         </group>
                         <group>

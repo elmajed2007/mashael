@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="res_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res_partner_form_inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[last()]" position="after">
+                    <page name="destination" string="Destination">
+                          <field name="destination_line_ids" widget="section_and_note_one2many">
+
+                            <tree editable="bottom">
+                                <field name="destination_line_id" invisible="1"/>
+                                <field name="destination_id"/>
+                                <field name="is_default"/>
+
+                            </tree>
+                          </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
