@@ -4,3 +4,7 @@ access_msh_deal,access_msh_deal,model_msh_deal,,1,1,1,1
 access_deal_general_specification,access_deal_general_specification,model_deal_general_specification,,1,1,1,1
 access_ms_screen_line,access_ms_screen_line,model_ms_screen_line,,1,1,1,1
 access_deal_purchase_line,access_deal_purchase_line,model_deal_purchase_line,,1,1,1,1
+access_msh_deal_version,access_msh_deal_version,model_msh_deal_version,,1,1,1,1
+access_deal_general_version_specification,access_deal_general_version_specification,model_deal_general_version_specification,,1,1,1,1
+access_ms_screen_version_line,access_ms_screen_version_line,model_ms_screen_version_line,,1,1,1,1
+access_deal_purchase_version_line,access_deal_purchase_version_line,model_deal_purchase_version_line,,1,1,1,1

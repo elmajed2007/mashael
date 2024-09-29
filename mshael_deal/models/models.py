@@ -55,6 +55,29 @@ class MshDeal(models.Model):
         string='Req. Qty Variance % -/+',
         required=False)
     
+    #py purchasing
+    processed_date = fields.Date(
+        string='Processed Date', 
+        required=False)
+    supplier_confirmation = fields.Boolean(
+        string='Supplier Confirmation',
+        required=False)
+    supplier_ref = fields.Char(
+        string='Supplier Ref',
+        required=False)
+    offer_date = fields.Date(
+        string='Offer Date',
+        required=False)
+    offer_expiry_date = fields.Date(
+        string='Offer/Deal Expiry Date',
+        required=False)
+    conf_no_of_orders = fields.Char(
+        string='Conf. No. of Orders (Text Entry)',
+        required=False)
+    conf_qty_variance = fields.Float(
+        string='Conf. Qty Variance % -/+',
+        required=False)
+    
     #send notification for po users group
     def deal_page(self):
         menu_id = self.env.ref('mshael_deal.mashael_deal_menu')
@@ -81,7 +104,7 @@ class MshDeal(models.Model):
         users = self.env['res.users'].search([])
         for user in users:
             if user not in po_users:
-                if user.has_groups('mshael_deal.purchase_users_confirm_deal'):
+                if user.has_group('mshael_deal.purchase_users_confirm_deal'):
                     po_users.append(user)
         result.send_notification(po_users, self.name, self.deal_page())
         return result
@@ -91,6 +114,8 @@ class MshDeal(models.Model):
 
     def confirm_deal(self):
         self.write({'state': 'confirm'})
+        self.processed_date = fields.Date.today()
+        self.supplier_confirmation = True
 
     def validate_deal(self):
         self.write({'state': 'validate'})
@@ -147,6 +172,101 @@ class MshDeal(models.Model):
         inverse_name='purchase_line_id',
         string='Purchase_line_ids',
         required=False)
+
+    #deal version
+    def write(self, vals):
+        res = super().write(vals)
+        self.create_deal_version()
+        return res
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        res.create_deal_version()
+        return res
+
+    def create_deal_version(self):
+        vals = {}
+        deal_history = self.env['msh.deal.version'].search([('main_deal_id', '=', self.id)])
+        print('len(deal_history) >>>', len(deal_history))
+        po_ver_seq = 0
+        if len(deal_history) > 0:
+            att = len(deal_history)
+            po_ver_seq = str(att + 1)
+        if len(deal_history) == 0:
+            po_ver_seq = str(1)
+        deal_version = self.env['msh.deal.version'].create({
+                'name': "V" + po_ver_seq,
+                'main_deal_id': self.id,
+                'state': self.state,
+                'deal_requester_id': self.deal_requester_id.id,
+                'req_date': self.req_date,
+                'offer_deadline': self.offer_deadline,
+                'partner_id': self.partner_id.id,
+                'destination_id': self.destination_id.id,
+                'discount_needed': self.discount_needed,
+                'req_project_duration': self.req_project_duration,
+                'project_name': self.project_name,
+                'owner_name': self.owner_name,
+                'client_name': self.client_name,
+                'req_no_of_orders': self.req_no_of_orders,
+                'req_qty_variance': self.req_qty_variance,
+                'processed_date': self.processed_date,
+                'supplier_confirmation': self.supplier_confirmation,
+                'supplier_ref': self.supplier_ref,
+                'offer_date': self.offer_date,
+                'offer_expiry_date': self.offer_expiry_date,
+                'conf_no_of_orders': self.conf_no_of_orders,
+                'conf_qty_variance': self.conf_qty_variance,
+            })
+        for line in self.general_line_ids:
+            deal_version.order_line = [(0, 0, {
+                'product_id': line.product_id.id,
+                'item_description': line.item_description,
+                'item_wise_additional_specification': line.item_wise_additional_specification,
+                'qty': line.qty,
+                'uom_id': line.uom_id.id,
+                'discount_requested': line.discount_requested,
+                'total_given_discount': line.total_given_discount,
+                'hs_code': line.hs_code,
+                'origin': line.origin,
+                'saber_regulation': line.saber_regulation,
+                'certificate': line.certificate,
+            })]
+
+        for line in self.ms_screen_line_ids:
+            deal_version.order_line = [(0, 0, {
+                'confirmed_qty_variance': line.confirmed_qty_variance,
+                'deal_red': line.deal_red,
+                'deal_green': line.deal_green,
+                'sales_delivery_condition': line.sales_delivery_condition,
+
+            })]
+
+        for line in self.purchase_line_ids:
+            deal_version.order_line = [(0, 0, {
+                'product_id': line.product_id.id,
+                'hs_code': line.hs_code,
+                'pl_price': line.pl_price,
+                'requested_price': line.requested_price,
+                'main_discount': line.main_discount,
+                'confirmed_price': line.confirmed_price,
+                'confirmed_qty': line.confirmed_qty,
+                'confirmed_supplier_discount': line.confirmed_supplier_discount,
+                'purchase_price': line.purchase_price,
+                'customs_unit': line.customs_unit,
+                'price_policy_id': line.price_policy_id,
+                'insurance': line.insurance,
+                'overhead': line.overhead,
+                'delivery': line.delivery,
+                'direct_cost': line.direct_cost,
+                'total_cost': line.total_cost,
+                'red_price': line.red_price,
+                'green_price': line.green_price,
+                'management_discount': line.management_discount,
+                'deal_red': line.deal_red,
+                'deal_green': line.deal_green,
+            })]
 
 
 
