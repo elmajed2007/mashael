@@ -9,7 +9,11 @@ class MshDeal(models.Model):
     _description = 'Deal'
 
 
-    name = fields.Char()
+    # name = fields.Char()
+
+    name = fields.Char(string='Deal', required=True, copy=False, readonly=True,
+                       index=True, default=lambda self: _('New'), tracking=True)
+
     state = fields.Selection([
         ('draft', 'Requested'),
         ('processing', 'Processing'),
@@ -274,7 +278,10 @@ class GeneralSpecification(models.Model):
     _name = 'deal.general.specification'
     _description = 'General Specification'
 
-    name = fields.Char()
+    # name = fields.Char()
+    name = fields.Char(string='GS', required=True, copy=False, readonly=True,
+                       index=True, default=lambda self: _('New'), tracking=True)
+
     general_line_id = fields.Many2one(comodel_name='msh.deal', string='General_line_id', required=False)
     product_id = fields.Many2one('product.product', string='Code')
     # item_description = fields.Char(string='Item Description', required=False, related='product_id.description')
