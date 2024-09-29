@@ -287,12 +287,12 @@ class GeneralSpecification(models.Model):
 
     @api.depends('general_line_id', 'product_id')
     def _compute_total_given_discount(self):
-        for rec in self:
+        for record in self:
             total = 0
-            value_rec = self.env['deal.purchase.line'].search([('purchase_line_id', '=', rec.general_line_id.id), ('product_id', '=', rec.product_id.id)])
+            value_rec = self.env['deal.purchase.line'].search([('purchase_line_id', '=', record.general_line_id.id), ('product_id', '=', record.product_id.id)])
             for rec in value_rec:
                 total = rec.confirmed_supplier_discount + rec.management_discount
-            rec.total_given_discount = total
+            record.total_given_discount = total
     hs_code = fields.Many2one('hs.code', string="HS Code")
     origin = fields.Char(string='Origin', required=False)
     saber_regulation = fields.Float(string='Saber Regulation', required=False)
