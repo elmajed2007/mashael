@@ -10,6 +10,8 @@ class Destination(models.Model):
     name = fields.Many2one('freight.mode',string='Freight Mode')
     country_id = fields.Many2one('res.country',string='Country')
     duration=fields.Integer('Duration')
+    category_id = fields.Many2one('uom.category', 'Category')
+    uom_id = fields.Many2one('uom.uom', "UoM", required=True, domain="[('category_id', '=', category_id)]")
     cost_per_volume=fields.Float('Cost Per Volume (m³)')
     cost_per_weight=fields.Float('Cost Per Weight (km³)',help='Distance in kilometers')
 

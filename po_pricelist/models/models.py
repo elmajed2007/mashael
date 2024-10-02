@@ -6,7 +6,7 @@ import json
 class ProductSupplierinfo(models.Model):
     _inherit = 'product.supplierinfo'
 
-    destination_id = fields.Many2one('destination', string='Destination')
+    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode', domain="[('partner_id', '=', partner_id)]", default=lambda self: self.env['res.partner.destination'].search([('destination_line_id', '=', self.partner_id.id),('is_default', '=', True)]))
     # destination_id = fields.Many2one('destination', string='Destination',default=lambda self: self.env['res.partner.destination'].search([('destination_line_id', '=', self.partner_id.id),('is_default', '=', True)], limit=1))
 
     supplier_line_ids = fields.One2many(

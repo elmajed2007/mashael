@@ -20,7 +20,7 @@ class ResPartner(models.Model):
             if line.is_default == True:
                 count+= 1
         if count > 1:
-            raise ValidationError(_('You Must Select One Destination'))
+            raise ValidationError(_('You Must Select One Default Destination'))
 
 
 

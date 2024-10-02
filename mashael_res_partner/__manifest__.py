@@ -4,7 +4,7 @@
     'author': "Code Force",
     'website': "",
     # any module necessary for this one to work correctly
-    'depends': ['base', ''],
+    'depends': ['base'],
 
     # always loaded
     'data': [
