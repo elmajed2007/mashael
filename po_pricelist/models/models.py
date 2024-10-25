@@ -105,7 +105,7 @@ class ProductSupplierinfoLine(models.Model):
             self.vendor_description = self.product_id.description_purchase
             self.weight = self.product_id.weight
             self.volume = self.product_id.volume
-            self.country_of_origin = self.product_id.country_of_origin.id
+            # self.country_of_origin = self.product_id.country_of_origin.id
             self.hs_code = self.product_id.hs_code.id
             self.uom_po_id = self.product_id.uom_po_id.id
 

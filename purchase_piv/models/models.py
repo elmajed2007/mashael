@@ -104,7 +104,7 @@ class PurchasePiv(models.Model):
         #     self.ready_line_ids = [(0, 0, line)]
 
 
-    @api.constrains('purchase_piv_line_ids')
+    @api.constrains('purchase_piv_line_ids', 'purchase_order_ids')
     def check_lines(self):
         self.ready_line_ids = [(5, 0)]
         ready_lines = []
