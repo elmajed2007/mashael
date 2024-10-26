@@ -23,8 +23,7 @@ class PurchasePiv(models.Model):
     partner_id = fields.Many2one('res.partner', string='Vendor', required=True, tracking=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
 
     destination_id = fields.Many2one(
-        comodel_name='destination',
-        string='Shipping Mode',
+        comodel_name='destination', string='Shipping Mode', domain="[('partner_id', '=', partner_id)]",
         required=False)
 
     purchase_order_ids = fields.Many2many(

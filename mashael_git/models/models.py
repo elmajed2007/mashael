@@ -111,7 +111,7 @@ class mshGitLine(models.Model):
         comodel_name='msh.git',
         string='',
         required=False)
-    destination_id = fields.Many2one('destination', string='Destination', related="piv_line_id.destination_id")
+    destination_id = fields.Many2one('destination', string='Shipping Mode', related="piv_line_id.destination_id")
 
     piv_ids = fields.Many2many(
         comodel_name='purchase.piv',

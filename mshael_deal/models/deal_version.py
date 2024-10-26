@@ -34,7 +34,7 @@ class MshDealVersion(models.Model):
         string='Offer Deadline',
         required=False)
     partner_id = fields.Many2one('res.partner', string='Supplier')
-    destination_id = fields.Many2one(comodel_name='destination', string='Destination',
+    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode',
                                      domain="[('partner_id', '=', partner_id)]")
     discount_needed = fields.Float(
         string='Discount Needed',

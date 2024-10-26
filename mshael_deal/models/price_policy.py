@@ -15,7 +15,7 @@ class PricePolicy(models.Model):
         result = super(PricePolicy, self).create(vals)
         return result
 
-    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode')
+    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode', domain="[('partner_id', '=', partner_id)]")
     description = fields.Char(string='Description', required=False)
     currency_exchange_top_up = fields.Float(string='Currency Exchange Top up', required=False)
     insurance = fields.Float(string='Insurance', required=False)

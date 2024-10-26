@@ -7,7 +7,7 @@ class PurchaseOrder(models.Model):
 
 
     partner_id = fields.Many2one('res.partner', string='Vendor', required=True, change_default=True, tracking=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
-    destination_id = fields.Many2one('destination',string='Destination',domain="[('partner_id', '=', partner_id)]")
+    destination_id = fields.Many2one('destination',string='Shipping Mode',domain="[('partner_id', '=', partner_id)]")
 
     @api.onchange('order_line','destination_id')
     def _onchange_order_line(self):
