@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//group/group/field[@name='partner_id']" position="after">
-                <field name="destination_id"/>
+                <field name="destination_id" string="Shipping Mode"/>
             </xpath>
               <xpath expr="//group/group/field[@name='partner_id']" position="replace">
                 <field name="partner_id"/>
