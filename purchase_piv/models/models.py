@@ -153,7 +153,7 @@ class PurchasePiv(models.Model):
                     "po_ready_line_id": self.id,
 
                 })
-        # 
+        #
         #             ready_lines.append(
         #         {
         #             "product_id": product,
