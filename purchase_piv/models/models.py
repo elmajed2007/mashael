@@ -117,7 +117,7 @@ class PurchasePiv(models.Model):
                     for b in byproduct_group:
                         self.env['purchase.ready.line'].create({
                             'product_id': b['product_id'][0] if b['product_id'] else False,
-                            'purchase_order_id': b['purchase_order_id'][0] if b['purchase_order_id'] else False,
+                            'purchase_order_id': po.id,
                         })
 
 
