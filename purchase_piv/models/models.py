@@ -145,17 +145,18 @@ class PurchasePiv(models.Model):
                 # for purchase in piv_pos:
                 #     purchase_val = purchase
                 # for line in self.purchase_piv_line_ids:
-                #     if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
+                if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
+                    self.env['purchase.ready.line'].create({
+                        'product_id': product,
+                        "purchase_order_id": purchase.id,
+                        "po_ready_line_id": self.id,
+
+                    })
+
                 #         po_qty.append(line.product_qty)
                 #         total_piv_qty += line.qty_invoiced
                 #         qty += line.product_qty
                 #         price = line.price_unit
-                self.env['purchase.ready.line'].create({
-                    'product_id': product,
-                    "purchase_order_id": purchase.id,
-                    "po_ready_line_id": self.id,
-
-                })
 
 
         #     ready_lines.append(
