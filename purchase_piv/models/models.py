@@ -128,7 +128,8 @@ class PurchasePiv(models.Model):
         piv_pos = []
         piv_pos_products = []
         for line in self.purchase_piv_line_ids:
-            piv_pos.append(line.purchase_order_id)
+            if line.purchase_order_id not in piv_pos:
+                piv_pos.append(line.purchase_order_id)
 
         for po in piv_pos:
             for line in po.order_line:
