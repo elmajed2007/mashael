@@ -66,10 +66,17 @@ class PurchaseOrder(models.Model):
             })]
 
 
-
-    @api.onchange('partner_id', 'destination_id', 'partner_ref', 'currency_id', 'date_approve', 'date_planned', 'picking_type_id', 'order_line')
-    def onchange_method(self):
+    @api.constrains('partner_id', 'destination_id', 'partner_ref', 'currency_id', 'date_approve', 'date_planned', 'picking_type_id', 'order_line')
+    def check_changes(self):
         self.create_po_version()
+
+
+
+
+
+    # @api.onchange('partner_id', 'destination_id', 'partner_ref', 'currency_id', 'date_approve', 'date_planned', 'picking_type_id', 'order_line')
+    # def onchange_method(self):
+    #     self.create_po_version()
 
     # def write(self, vals):
     #     res = super().write(vals)
