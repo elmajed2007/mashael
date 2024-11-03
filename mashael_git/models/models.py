@@ -142,7 +142,7 @@ class mshGitLine(models.Model):
 
     value = fields.Float(
         string='Value',
-        required=False, related="piv_id.total")
+        required=False, related="piv_id.grand_total")
 
     currency_id = fields.Many2one(comodel_name="res.currency", string="Currency", related='piv_line_id.partner_id.property_purchase_currency_id')
 

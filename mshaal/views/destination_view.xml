@@ -34,6 +34,8 @@
                         <field name="cost_per_volume"/>
                         <field name="uom_id"/>
                         <field name="cost_per_weight"/>
+                        <field name="sec_category_id"/>
+                        <field name="sec_uom_id"/>
                     </group>
             </form>
         </field>
