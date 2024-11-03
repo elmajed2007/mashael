@@ -39,11 +39,11 @@ class PurchasePiv(models.Model):
         store=False,
     )
 
-    # ready_line_ids = fields.One2many(
-    #     comodel_name='purchase.ready.line',
-    #     inverse_name='po_ready_line_id',
-    #     string='Ready_line_ids',
-    #     required=False)
+    ready_line_ids = fields.One2many(
+        comodel_name='purchase.ready.line',
+        inverse_name='po_ready_line_id',
+        string='Ready_line_ids',
+        required=False)
 
     @api.onchange('purchase_order_ids')
     def onchange_purchase_order_ids(self):
@@ -102,62 +102,69 @@ class PurchasePiv(models.Model):
         # for line in ready_lines:
         #     self.ready_line_ids = [(0, 0, line)]
 
-    ready_line_ids = fields.One2many('purchase.ready.line', 'po_ready_line_id', compute='fill_ready_line')
-
-    @api.depends('purchase_piv_line_ids', 'purchase_order_ids')
-    def fill_ready_line(self):
-        for rec in self:
-            rec.ready_line_ids = [(5, 0, 0)]
-            if rec.purchase_piv_line_ids:
-                for po in rec.purchase_order_ids:
-                    byproduct_group = self.env['purchase.piv.line'].sudo().read_group(
-                        [('purchase_order_id', '=', po.id)],
-                        ['product_id', 'purchase_order_id', 'product_qty'],
-                        ['product_id'])
-                    for b in byproduct_group:
-                        self.env['purchase.ready.line'].create({
-                            'product_id': b['product_id'][0] if b['product_id'] else False,
-                            'purchase_order_id': po.id,
-                        })
-
-
-    # @api.constrains('purchase_piv_line_ids', 'purchase_order_ids')
-    # def check_lines(self):
-    #     self.ready_line_ids = [(5, 0)]
-    #     ready_lines = []
-    #     piv_pos = []
-    #     piv_pos_products = []
-    #     for line in self.purchase_piv_line_ids:
-    #         piv_pos.append(line.purchase_order_id)
+    # ready_line_ids = fields.One2many('purchase.ready.line', 'po_ready_line_id', compute='fill_ready_line')
     #
-    #     for po in piv_pos:
-    #         for line in po.order_line:
-    #             if line.product_id.id not in piv_pos_products:
-    #                 piv_pos_products.append(line.product_id.id)
-    #
-    #     for product in piv_pos_products:
-    #         total_piv_qty = 0
-    #         qty = 0
-    #         price = 0
-    #         po_qty = []
-    #         for purchase in piv_pos:
-    #             for line in self.purchase_piv_line_ids:
-    #                 if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
-    #                     po_qty.append(line.product_qty)
-    #                     total_piv_qty += line.qty_invoiced
-    #                     qty += line.product_qty
-    #                     price = line.price_unit
-    #         ready_lines.append(
-    #             {
-    #                 "product_id": product,
-    #                 # "pending_qty": sum(po_qty),
-    #                 "purchase_order_id": purchase.id,
-    #                 # "piv_qty": total_piv_qty,
-    #                 # "unit_price": price,
-    #             }
-    #         )
-    #     for line in ready_lines:
-    #         self.ready_line_ids = [(0, 0, line)]
+    # @api.depends('purchase_piv_line_ids', 'purchase_order_ids')
+    # def fill_ready_line(self):
+    #     for rec in self:
+    #         rec.ready_line_ids = [(5, 0, 0)]
+    #         if rec.purchase_piv_line_ids:
+    #             for po in rec.purchase_order_ids:
+    #                 byproduct_group = self.env['purchase.piv.line'].sudo().read_group(
+    #                     [('purchase_order_id', '=', po.id)],
+    #                     ['product_id', 'purchase_order_id', 'product_qty'],
+    #                     ['product_id'])
+    #                 for b in byproduct_group:
+    #                     self.env['purchase.ready.line'].create({
+    #                         'product_id': b['product_id'][0] if b['product_id'] else False,
+    #                         'purchase_order_id': po.id,
+    #                     })
+
+
+    @api.constrains('purchase_piv_line_ids', 'purchase_order_ids')
+    def check_lines(self):
+        self.ready_line_ids = [(5, 0)]
+        ready_lines = []
+        piv_pos = []
+        piv_pos_products = []
+        for line in self.purchase_piv_line_ids:
+            piv_pos.append(line.purchase_order_id)
+
+        for po in piv_pos:
+            for line in po.order_line:
+                if line.product_id.id not in piv_pos_products:
+                    piv_pos_products.append(line.product_id.id)
+
+        for product in piv_pos_products:
+            total_piv_qty = 0
+            qty = 0
+            price = 0
+            po_qty = []
+            for purchase in piv_pos:
+                for line in self.purchase_piv_line_ids:
+                    if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
+                        po_qty.append(line.product_qty)
+                        total_piv_qty += line.qty_invoiced
+                        qty += line.product_qty
+                        price = line.price_unit
+                self.env['purchase.ready.line'].create({
+                    'product_id': product,
+                    "purchase_order_id": purchase.id,
+                    "po_ready_line_id": self.id,
+
+                })
+        # 
+        #             ready_lines.append(
+        #         {
+        #             "product_id": product,
+        #             # "pending_qty": sum(po_qty),
+        #             "purchase_order_id": purchase.id,
+        #             # "piv_qty": total_piv_qty,
+        #             # "unit_price": price,
+        #         }
+        #     )
+        # for line in ready_lines:
+        #     self.ready_line_ids = [(0, 0, line)]
 
 
 
