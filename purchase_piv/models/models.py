@@ -135,23 +135,19 @@ class PurchasePiv(models.Model):
             for line in po.order_line:
                 if line.product_id.id not in piv_pos_products:
                     piv_pos_products.append(line.product_id.id)
-        for purchase in piv_pos:
-            for product in piv_pos_products:
-                total_piv_qty = 0
-                qty = 0
-                price = 0
-                po_qty = []
-                # purchase_val = False
-                # for purchase in piv_pos:
-                #     purchase_val = purchase
-                # for line in self.purchase_piv_line_ids:
-                if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
+
+        for product in piv_pos_products:
+            for purchase in piv_pos:
+                # if line.product_id.id == product and line.purchase_order_id.id == purchase.id:
                     self.env['purchase.ready.line'].create({
                         'product_id': product,
                         "purchase_order_id": purchase.id,
                         "po_ready_line_id": self.id,
 
                     })
+        for line in self.ready_line_ids:
+            if line.pending_qty == 0:
+                line.unlink()
 
                 #         po_qty.append(line.product_qty)
                 #         total_piv_qty += line.qty_invoiced
