@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- ====================================================Main Menu========================================================================= -->
+
+        <menuitem id="salon_spa_management_main_menu"
+                  name="Salon and Spa"
+                  groups="pways_salon_and_spa_management.group_salon_user"
+                  sequence="10"
+                  web_icon="pways_salon_and_spa_management,static/description/icon.png"/>
+
+        <!-- ====================================================DashBoard========================================================================= -->
+
+        <menuitem id="salon_spa_chair_dashboard_root_menu"
+                  name="Dashboard"
+                  parent="salon_spa_management_main_menu"
+                  sequence="20"
+                  action="salon_management_client_action"
+        />
+        <!--                action="salon_chair_dashboard_action"-->
+
+
+        <!-- ====================================================Bookings And Orders============================================================== -->
+
+        <menuitem id="bookings_root_menu"
+                  name="Bookings"
+                  sequence="30"
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="bookings_sub_menu"
+                      name="Bookings"
+                      sequence="35"
+                      action="salon_booking_action"/>
+
+            <menuitem id="customers_sub_menu"
+                      name="Customers"
+                      sequence="40"
+                      action="res_partner_inherit_action_customer"/>
+        </menuitem>
+
+        <!-- ====================================================Salon============================================================== -->
+
+        <menuitem id="salon_root_menu"
+                  name="Salon"
+                  sequence="45"
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="salon_orders_sub_menu"
+                      name="Salon Orders"
+                      sequence="50"
+                      action="salon_order_action"/>
+
+            <menuitem id="salon_product_sub_menu"
+                      name="Salon Products"
+                      sequence="55"
+                      action="salon_products_action"/>
+        </menuitem>
+
+        <!-- ====================================================Spa============================================================== -->
+
+        <menuitem id="spa_root_menu"
+                  name="Spa"
+                  sequence="60"
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="spa_orders_sub_menu"
+                      name="Spa Orders"
+                      sequence="65"
+                      action="spa_order_action"/>
+
+            <menuitem id="spa_product_sub_menu"
+                      name="Spa Products"
+                      sequence="70"
+                      action="spa_products_action"/>
+        </menuitem>
+
+        <!-- ====================================================Membership============================================================== -->
+
+        <menuitem id="membership_root_menu"
+                  name="Memberships"
+                  sequence="75"
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="membership_sub_menu"
+                      name="Memberships"
+                      sequence="80"
+                      action="membership.action_membership_products"/>
+
+            <menuitem id="membership_list_sub_menu"
+                      name="Active Memberships"
+                      sequence="81"
+                      action="membership_list_type_action"/>
+
+
+        </menuitem>
+
+        <!-- =======================================Accounting================================================= -->
+
+        <menuitem id="accounting_root_menu"
+                  name="Accouting"
+                  parent="salon_spa_management_main_menu"
+                  sequence="85">
+
+            <menuitem id="invoice_sub_menu"
+                      name="Invoices"
+                      sequence="90"
+                      action="invoice_salon_spa_form_action"/>
+
+            <menuitem id="bill_sub_menu"
+                      name="Bills"
+                      sequence="95"
+                      action="bill_salon_spa_form_action"/>
+
+            <menuitem id="expence_sub_menu"
+                      name="Expenses"
+                      sequence="100"
+                      action="hr_expense_salon_spa_action"/>
+        </menuitem>
+
+        <!-- =======================================Purchase================================================= -->
+
+        <menuitem id="purchase_root_menu"
+                  name="Purchase"
+                  sequence='105'
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="rfq_sub_menu"
+                      name="RFQ (Request For Quatation)"
+                      sequence="110"
+                      action="request_for_quatation_inherited_action"/>
+
+            <menuitem id="purchase_order_sub_menu"
+                      name="Purchase Order"
+                      sequence="115"
+                      action="purchase_order_salon_spa_action"/>
+        </menuitem>
+
+
+        <!-- ====================================================Employess============================================================== -->
+
+        <menuitem id="employees_root_menu"
+                  name="Employees"
+                  sequence="120"
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="employee_work_sub_menu"
+                      name="Employees"
+                      sequence="130"
+                      action="employee_work_action"/>
+
+            <menuitem id="employee_work_lines_sub_menu"
+                      name="Employee Work"
+                      sequence="131"
+                      action="employee_work_lines_action"/>
+        </menuitem>
+
+        <!-- ====================================================Commission============================================================== -->
+
+
+        <menuitem id="commission_root_menu"
+                  name="Commission"
+                  sequence="135"
+                  parent="salon_spa_management_main_menu">
+
+            <menuitem id="commission_sub_menu"
+                      name="Commission Rules"
+                      sequence="140"
+                      action="action_commission_rules"/>
+        </menuitem>
+
+
+        <!-- ====================================================Reports========================================================================= -->
+
+        <menuitem id="salon_spa_reports_root_menu"
+                  name="Reports"
+                  sequence="145"
+                  action='salon_spa_report_wizard_action'
+                  parent="salon_spa_management_main_menu">
+        </menuitem>
+        <!-- ====================================================Configuration============================================================== -->
+
+        <menuitem id="configuration_menu_root"
+                  parent="salon_spa_management_main_menu"
+                  sequence="165"
+                  name="Configuration">
+
+            <menuitem id="chair_sub_menu"
+                      name="Chair"
+                      sequence="170"
+                      action="salon_chair_action"/>
+
+            <!--             <menuitem id="working_hours_sub_menu"
+                                name="Working Hours"
+                                sequence="175"
+                                action="salon_working_hours_action"/> -->
+            <!--
+                        <menuitem id="configuration_settings_sub_menu"
+                                name="Settings"
+                                sequence="180"
+                                action="salon_config_settings_action"/> -->
+        </menuitem>
+    </data>
+</odoo>
+
+
+        <!-- ============================================================================================================================= -->
+        <!--  <menuitem id="pways_salon_and_spa_management_menu_root"
+                 name="Salon"
+                 groups="pways_salon_and_spa_management.group_salon_user"
+                 web_icon="pways_salon_and_spa_management,static/description/icon.png"/>
+
+         <menuitem id="salon_chair_dashboard_menu_action"
+                 parent="pways_salon_and_spa_management_menu_root"
+                 action="salon_chair_dashboard_action"/> -->
+
+        <!-- ============================================================================================================================= -->
+        <!--   <menuitem id="pways_salon_and_spa_management_salon_root"
+                  name="Salon"
+                  parent="pways_salon_and_spa_management_menu_root"/>
+
+          <menuitem id="salon_chair_menu_action"
+                  name="Chair"
+                  parent="pways_salon_and_spa_management_salon_root"
+                  action="salon_chair_action"/>
+
+          <menuitem id="salon_service_menu_action"
+                  name = "services"
+                  parent="pways_salon_and_spa_management_salon_root"
+                  action="salon_service_action"/>
+
+          <menuitem id="salon_order_menu_action"
+                  parent="pways_salon_and_spa_management_salon_root"
+                  name="Salon Orders"
+                  action="salon_order_action"/>
+
+          <menuitem id="salon_booking_menu_action"
+                  name="Bookings"
+                  parent="pways_salon_and_spa_management_salon_root"
+                  action="salon_booking_action"/> -->
+
+        <!-- ============================================================================================================================= -->
+        <!--         <menuitem id="pways_salon_and_spa_management_settings_menu_root"
+                        parent="pways_salon_and_spa_management_menu_root"
+                        name="Configuration"/>
+
+                <menuitem id="salon_config_settings_menu_action"
+                        parent="pways_salon_and_spa_management_settings_menu_root"
+                        name="Settings"
+                        action="salon_config_settings_action"/>
+
+                <menuitem id="salon_working_hours_menu_action"
+                        parent="pways_salon_and_spa_management_settings_menu_root"
+                        name="Working Hours"
+                        action="salon_working_hours_action"/> -->

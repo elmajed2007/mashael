@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="paperformat_lowmargin_new" model="report.paperformat">
+        <field name="name">European A4 low margin new</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">25</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_simplified_saudi_vat_invoice_2" model="ir.actions.report">
+        <field name="paperformat_id" ref="paperformat_lowmargin_new"/>
+        <field name="name">Qafas Invoice</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qafas_invoice.qafas_invoice_report</field>
+        <field name="report_file">qafas_invoice.qafas_invoice_report</field>
+    </record>
+
+    <report
+            id="qafas_invoice_report"
+                string="Qafas Invoice Report"
+                model="account.move"
+                report_type="qweb-pdf"
+                file="qafas_invoice.qafas_invoice_report"
+                name="qafas_invoice.qafas_invoice_report"
+                print_report_name="'%s' % (object.name)"/>
+
+</odoo>
+

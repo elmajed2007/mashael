@@ -1,0 +1,23 @@
+<odoo>
+    <record id="membership_type_tree" model="ir.ui.view">
+        <field name="name">membership.membership_line.view.tree</field>
+        <field name="model">membership.membership_line</field>
+        <field name="arch" type="xml">
+            <tree create="0">
+                <field name="partner"/>
+                <field name="membership_id"/>
+                <field name="date"/>
+                <field name="membership_end_date"/>
+                <field name="member_price"/>
+                <field name="account_invoice_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="membership_list_type_action" model="ir.actions.act_window">
+        <field name="name">Active Memberships</field>
+        <field name="res_model">membership.membership_line</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="report_salon_spa">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <b><h1 style="text-align:center"><span>Salon Spa Report</span></h1></b>
+                        <br/>
+                        <div class="d-md-inline-flex">
+                          <b><h5 style="text-align:left; display: inline;">Start Date : - <span t-esc="start_date"/></h5></b>
+                          <b><h5 class="float-right">End Date : - <span t-esc="end_date"/></h5></b>
+                        </div>
+                        <br/>
+                        <t t-if="report_of == 'income_report'">
+                            <b><h2 style="text-align:center"><span>Income Sales Report</span></h2></b>
+                            <table class="table" border="1">
+                                <thead>
+                                  <tr align="center">
+                                    <h2><th scope="col"><b>Total orders</b></th></h2>
+                                    <h2><th scope="col"><b>Total Income</b></th></h2>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                      <tr align="center">
+                                        <td>  
+                                          <span t-esc="total_orders"/>
+                                        </td>
+                                        <td>  
+                                          <span t-esc="total_orders_amount"/>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                            <table class="table" border="1">
+                                <thead>
+                                  <tr align="center">
+                                    <h2><th scope="col"><b>Index</b></th></h2>
+                                    <h2><th scope="col"><b>Date</b></th></h2>
+                                    <h2><th scope="col"><b>Customer Name</b></th></h2>
+                                    <h2><th scope="col"><b>Product Name</b></th></h2>
+                                    <h2><th scope="col"><b>Price</b></th></h2>
+                                    <h2><th scope="col"><b>Employee Name</b></th></h2>
+                                    <h2><th scope="col"><b>Commission Amount</b></th></h2>
+                                  </tr>
+                                </thead>
+                                <t t-set="index" t-value="1"/>
+                                <t t-foreach="income_sales" t-as="o">
+                                    <tbody>
+                                          <tr align="center">
+                                            <td>
+                                                <span t-esc="index"/>
+                                                <t t-set="index" t-value="index + 1" />
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.date"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.partner_id.name"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.product_names"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.price_subtotal"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.employee_id.name"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.commission_amount"/>
+                                            </td>
+                                          </tr>
+                                    </tbody>
+                                </t>
+                            </table>
+                        </t>
+                        <t t-if="report_of == 'employee'">
+                                <b><h2 style="text-align:center"><span>Employee Report</span></h2></b>
+                                <table class="table" border="1">
+                                    <thead>
+                                      <tr align="center">
+                                        <h2><th scope="col"><b>Index</b></th></h2>
+                                        <h2><th scope="col"><b>Employee Name</b></th></h2>
+                                        <h2><th scope="col"><b>Customer Name</b></th></h2>
+                                        <h2><th scope="col"><b>Product Name</b></th></h2>
+                                        <h2><th scope="col"><b></b>Price</th></h2>
+                                        <h2><th scope="col"><b></b>Commission</th></h2>
+                                      </tr>
+                                    </thead>
+                                <t t-set="index" t-value="1"/>
+                                <t t-set="commission_total" t-value="0"/>
+                                <t t-foreach="employee" t-as="e">
+                                    <t t-foreach="e" t-as="o">
+                                        <tbody>
+                                              <tr align="center">
+                                                <td>
+                                                    <span t-esc="index"/>
+                                                    <t t-set="index" t-value="index + 1"/>
+                                                </td>
+                                                <td>  
+                                                  <span t-esc="o.employee_id.name"/>
+                                                </td>
+                                                <td>  
+                                                  <span t-esc="o.partner_id.name"/>
+                                                </td>
+                                                <td>  
+                                                  <span t-esc="o.product_names"/>
+                                                </td>
+                                                <td>  
+                                                  <span t-esc="o.price_subtotal"/>
+                                                </td>
+                                                <td>  
+                                                    <span t-esc="o.commission_amount"/>
+                                                    <t t-set="commission_total" t-value="commission_total + o.commission_amount"/>
+                                                </td>
+                                              </tr>
+                                        </tbody>
+                                    </t>
+                                </t>
+                                <td colspan="5" align="center"><b><h4>Total</h4></b></td>
+                                <td><b><h4 class="text-center"><span t-esc="commission_total"/></h4></b></td>  
+                            </table>
+                        </t>
+
+                        <t t-if="report_of == 'customer'">
+                            <table class="table" border="1">
+                                <thead>
+                                  <tr align="center">
+                                    <h2><th scope="col"><b>Total Customers</b></th></h2>
+                                    <h2><th scope="col"><b>Total Orders Income</b></th></h2>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                      <tr align="center">
+                                        <td>  
+                                            <span t-esc="total_customers"/>
+                                        </td>
+                                        <td>  
+                                            <span t-esc="total_cutomer_orders"/>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <b><h2 style="text-align:center"><span>Memberships Report</span></h2></b>
+                            <table class="table" border="1">
+                                <thead>
+                                  <tr align="center">
+                                    <h2><th scope="col"><b>Index</b></th></h2>
+                                    <h2><th scope="col"><b>Customer Name</b></th></h2>
+                                    <h2><th scope="col"><b>Membership Type</b></th></h2>
+                                    <h2><th scope="col"><b>Membership Price</b></th></h2>
+                                    <h2><th scope="col"><b>Start Date</b></th></h2>
+                                    <h2><th scope="col"><b>End Date</b></th></h2>
+                                  </tr>
+                                </thead>
+                                <t t-set="index" t-value="1"/>
+                                <t t-foreach="customer_membership" t-as="o">
+                                    <tbody>
+                                          <tr align="center">
+                                            <td>
+                                                <span t-esc="index"/>
+                                                <t t-set="index" t-value="index + 1"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.partner.name"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.membership_id.name"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.member_price"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.date"/>
+                                            </td>
+                                            <td>  
+                                                <span t-esc="o.membership_end_date"/>
+                                            </td>
+                                          </tr>
+                                    </tbody>
+                                </t>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <record id="report_salon_spa_action" model="ir.actions.report">
+            <field name="name">Salon Spa Report</field>
+            <field name="model">salon.spa.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pways_salon_and_spa_management.report_salon_spa</field>
+            <field name="report_file">pways_salon_and_spa_management.report_salon_spa</field>
+            <field name="binding_model_id" ref="model_salon_spa_report_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

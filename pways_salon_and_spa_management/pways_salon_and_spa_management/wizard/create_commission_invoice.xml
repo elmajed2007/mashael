@@ -1,0 +1,31 @@
+<odoo>
+    <record id="create_commission_invoice_form" model="ir.ui.view">
+        <field name="name">create.invoice.commission.form</field>
+        <field name="model">create.invoice.commission</field>
+        <field name="arch" type="xml">
+            <form string="Create Commission Invoice">
+                <group>
+<!--                     <group>
+                        <field name="employee_id"/>
+                    </group>
+                    <group>
+                        <field name="amount"/>
+                    </group> -->
+                </group>
+                <footer>
+                    <button string="Create Invoices" name="invoice_create" type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_invoice_create" model="ir.actions.act_window">
+        <field name="name">Create Invoice</field>
+        <field name="res_model">create.invoice.commission</field>
+        <field name="binding_model_id" ref="model_employee_work"/>
+        <field name="target">new</field>
+        <field name='view_mode'>form</field>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>

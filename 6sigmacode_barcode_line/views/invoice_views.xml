@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <record id="account_move_inh_tree_view" model="ir.ui.view">-->
+<!--            <field name="name">account.move.tree.inh.view</field>-->
+<!--            <field name="model">account.move</field>-->
+<!--            <field name="inherit_id" ref="account.view_invoice_tree"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <field name="invoice_partner_display_name" position="after">-->
+<!--                    <field name="invoice_line_ids"/>-->
+<!--&lt;!&ndash;                    <field name="barcode"/>&ndash;&gt;-->
+<!--                </field>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="account_move_inh_search_view" model="ir.ui.view">-->
+<!--            <field name="name">account.move.search.inh.view</field>-->
+<!--            <field name="model">account.move</field>-->
+<!--            <field name="inherit_id" ref="account.view_account_invoice_filter"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <field name="journal_id" position="before">-->
+<!--                     <field name="invoice_line_ids.product_id"/>-->
+<!--                    <field name="invoice_line_ids.barcode"/>-->
+<!--                </field>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

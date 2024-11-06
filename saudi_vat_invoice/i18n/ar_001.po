@@ -1,0 +1,441 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saudi_vat_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-21 10:21+0000\n"
+"PO-Revision-Date: 2022-12-21 10:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saudi_vat_invoice
+#: model:ir.actions.report,print_report_name:saudi_vat_invoice.action_report_simplified_saudi_vat_invoice
+msgid "'Simplified VAT Invoice -%s' %(object.partner_id.name)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.actions.report,print_report_name:saudi_vat_invoice.action_report_saudi_vat_invoice
+msgid "'VAT Invoice -%s' %(object.partner_id.name)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "(متضمن ضريبة القيمة المضافة)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "0.0"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Additional No."
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Building No."
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Buyer"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "City"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model,name:saudi_vat_invoice.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: saudi_vat_invoice
+#: model:ir.model,name:saudi_vat_invoice.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Country"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_bank_statement_line__date_issue
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_move__date_issue
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_payment__date_issue
+msgid "Date of Issue"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_bank_statement_line__date_supply
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_move__date_supply
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_payment__date_supply
+msgid "Date of Supply"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Date of Supply:"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Discount"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Discount<br/>خصم"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "District"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model.fields.selection,name:saudi_vat_invoice.selection__res_company__qr_code_generation_config__auto
+msgid "Generate QR Code when Invoice validate/post"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Invoice Issue Date"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Invoice Issue Date:"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Invoice Number"
+msgstr "رقم الفاتورة"
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Invoice Number:"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid ""
+"Item Subtotal (Including VAT)<br/>المجموع الفرعي للعنصر\n"
+"                    <br/>\n"
+"                    (بما في ذلك ضريبة القيمة المضافة)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid ""
+"Item Subtotal<br/>(Including VAT)<br/>المجموع الفرعي للعنصر\n"
+"                    <br/>\n"
+"                    (بما في ذلك ضريبة القيمة المضافة)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model,name:saudi_vat_invoice.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Line Items"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model.fields.selection,name:saudi_vat_invoice.selection__res_company__qr_code_generation_config__manual
+msgid "Manually Generate"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Name"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid ""
+"Nature of goods or service\n"
+"                    <br/>\n"
+"                    طبيعة البضاعة أو الخدمة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid ""
+"Nature of goods or services<br/>طبيعة البضائع أو\n"
+"                    الخدمات باللغة العربية"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Other Seller ID:"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Postal Code"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.res_config_settings_view_form_inherit
+msgid "QR CODE"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.view_vat_invoice_form
+msgid "QR Code"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_bank_statement_line__generate_method
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_move__generate_method
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_payment__generate_method
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_res_company__qr_code_generation_config
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_res_config_settings__qr_code_generation_config
+msgid "QR Code Generation Configuration"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.res_config_settings_view_form_inherit
+msgid "QR Code Generation Method"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_bank_statement_line__qr_code
+#: model:ir.model.fields,field_description:saudi_vat_invoice.field_account_move__qr_code
+msgid "QR code"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Quantity<br/>كمية"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Seller"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.actions.report,name:saudi_vat_invoice.action_report_simplified_saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Simplified Tax Invoice"
+msgstr "فاتورة ضريبية مبسطة"
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Street name"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Tax Amount<br/>قيمة الضريبة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Tax Invoice"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Tax Rate<br/>معدل الضريبة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Taxable Amount<br/>المبلغ الخاضع للضريبة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Total (VAT Excluding)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Total Amount Due"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Total Amounts:"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Total Taxable Amount (Exculding VAT)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Total VAT"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "Total taxable Amount<br/>(Excluding VAT)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "Unit price<br/>سعر الوحدة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model:ir.actions.report,name:saudi_vat_invoice.action_report_saudi_vat_invoice
+msgid "VAT Invoice"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "VAT Number:"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "unit Price<br/>سعر الوحدة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "إجمالي المبلغ الخاضع للضريبة (باستثناء ضريبة القيمة المضافة)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid ""
+"إجمالي المبلغ الخاضع للضريبة<br/>(باستثناء ضريبة\n"
+"                    القيمة المضافة)"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "إجمالي المبلغ المستحق"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "إجمالي ضريبة القيمة المضافة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "اسم"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "اسم الشارع"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "الإجمالي"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "العناصر"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "المبالغ الإجمالية"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "بلد"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "تاريخ إصدار الفاتورة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "تاريخ التوريد"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "خصم"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "رقم إضافي"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "رقم الفاتورة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "رقم المبنى"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "رمز بريدي"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "ظريبه الشراء"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "فاتورة ضريبية"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.report_simplified_vat_invoice_document
+msgid "فاتورة ضريبية مبسطة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "مدينة"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "مشتر"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "معرف البائع الآخر"
+msgstr ""
+
+#. module: saudi_vat_invoice
+#: model_terms:ir.ui.view,arch_db:saudi_vat_invoice.external_layout_saudi
+msgid "منطقة"
+msgstr ""

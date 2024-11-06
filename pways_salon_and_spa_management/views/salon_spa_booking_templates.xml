@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="salon_booking_form" name="Salon Booking">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" href="//jqueryui.com/resources/demos/style.css" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js" />
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" />
+        <script>$( function() {$( "#date" ).datepicker();} );</script>
+        <script>$( function() {$( "#check_date" ).datepicker();} );</script>
+        <t t-call="website.layout">
+            <div class="container">
+
+                <div class="row s_nb_column_fixed">
+
+                    <div class="col-lg-6 s_title pt16 pb16">
+                        <h1><b>Book Your Appointment</b></h1>
+<!--                        <form>-->
+                        <form action="/salon_booking_submit" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+<!-- name -->
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    NAME *
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16">
+                                    <input type="text" id="name" placeholder="Enter your Name" />
+                                </div>
+                            </div>
+<!-- Phone -->
+
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    PHONE *
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16">
+                                    <input type="text" id="phone" required="True"
+                                           placeholder="Enter your Phone number(eg:999**12345)" />
+                                </div>
+                            </div>
+<!-- Email -->
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    E-MAIL *
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16">
+                                    <input type="email" id="email" required="True"
+                                           placeholder="Enter your E-Mail Address(eg:example@gmail.com)" />
+                                </div>
+                            </div>
+
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    CHAIR *
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16">
+                                    <select id="chair" required="True">
+                                        <option value="">Select a chair</option>
+                                        <t t-foreach="chairs" t-as="chair">
+                                            <option t-att-value="chair.id" t-esc="chair.name" />
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+<!-- book for -->
+<!--                             <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    BOOKING*
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16">
+                                    <select id="booking_for" required="True">
+                                        <option value="salon">Salon</option>
+                                        <option value="spa">Spa</option>
+                                    </select>
+                                </div>
+                            </div> -->
+
+<!-- Time -->
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    TIME *
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16 row">
+                                    <div class="col-lg-4 s_title pt16 pb16">
+                                        <input type="text" id="date" placeholder="dd/mm/yyyy"
+                                               onkeyup="var v = this.value;if (v.match(/^\d{2}$/) !== null) {this.value = v + '/';} else if (v.match(/^\d{2}\/\d{2}$/) !== null) {this.value = v + '/';}"
+                                               maxlength="10" />
+                                    </div>
+                                    <div class="col-lg-3 s_title pt16 pb16">
+                                        <input type="text" id="time" placeholder="HH:MM"
+                                               onkeyup="var v = this.value;if (v.match(/^\d{2}$/) !== null) {this.value = v + ':';}"
+                                               maxlength="5" />
+                                    </div>
+                                    <div class="col-lg-5 s_title pt16 pb16" style="font-size: 12px;">
+                                        (Select date &amp; time based on availability of chair)
+                                    </div>
+                                </div>
+                            </div>
+<!-- Sloats -->
+
+<!--                             <div class="row s_nb_column_fixed">
+                                <div class="col-lg-2 s_title pt16 pb16 field_booking_chair">
+                                    Sloats *
+                                </div>
+                                <div class="col-lg-10 s_title pt16 pb16 row">
+                                    <div class="col-lg-5 s_title pt16 pb16">
+                                        <select id="chair" required="True">
+                                            <t t-foreach="all_slots" t-as="work">
+                                                <option t-att-value="work.id" t-esc="work.slot_start" />
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
+<!-- submit -->
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16">
+<!--                                    <button type="button" id="submit_button"-->
+<!--                                            class="btn btn-primary btn-md o_website_form_send">Submit-->
+<!--                                    </button>-->
+
+                                    <button type="submit" id="submit_button" class="btn btn-primary btn-md o_website_form_send">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="salon_booking_thank_you" name="Thank you">
+        <t t-call="website.layout">
+            <form>
+                <div style="text-align: center;padding: 125px;">
+                    <h1>Thank you for Booking your slot.</h1>
+                </div>
+            </form>
+        </t>
+    </template>
+
+</odoo>
