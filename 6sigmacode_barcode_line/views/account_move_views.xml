@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_move_inherit" model="ir.ui.view">
+            <field name="name">view.account.move.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="before">
+                    <field name="barcode"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_template_inh_tree_view" model="ir.ui.view">
+            <field name="name">product.template.tree.inh.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="account.product_template_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="barcode"/>
+                </field>
+            </field>
+        </record>
+        <record id="product_template_inh_kanban_view" model="ir.ui.view">
+            <field name="name">product.template.kanban.inh.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view"/>
+            <field name="arch" type="xml">
+                <field name="priority" position="before">
+                    <span>
+                        <field name="barcode"/>
+                        <br/>
+                    </span>
+                </field>
+            </field>
+        </record>
+        <record id="product_template_inh_search_view" model="ir.ui.view">
+            <field name="name">product.template.search.inh.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="barcode"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

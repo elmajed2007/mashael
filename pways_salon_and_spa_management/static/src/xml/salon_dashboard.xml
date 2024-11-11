@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Salon management dashboard template-->
+<templates id="template" xml:space="preserve">
+    <t t-name="SalonSpaDashBoard">
+    <link rel="stylesheet"
+          href="/pways_salon_and_spa_management/static/src/css/salon_dashboard.css"/>
+        <div class="row main-section">
+      <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 salon_spa_bookings salon salon_bookings"
+           t-on-click="show_bookings">
+        <div class="salon-card">
+          <div class="salon-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-calendar"/>
+              </div>
+                <div class="stat-content">
+                <div class="stat-text">Bookings</div>
+                    <div class="stat-digit" t-ref="bookings_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 salon_spa_orders salon salon_orders" t-on-click="show_orders">
+                <div class="salon-card">
+                  <div class="salon-card-body">
+                    <div class="stat-widget-one">
+                      <div class="stat-icon">
+                        <i class="fa fa-calendar"/>
+                      </div>
+                      <div class="stat-content">
+                        <div class="stat-text">Salon Orders</div>
+                        <div class="stat-digit" t-ref="orders_count"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 salon_spa_sales salon salon_sales"
+                 t-on-click="show_sales">
+        <div class="salon-card">
+          <div class="salon-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-money"/>
+              </div>
+                <div class="stat-content">
+                <div class="stat-text">Recent Works</div>
+                    <div class="stat-digit" t-ref="recent_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 salon_spa_clients salon salon_clients"
+                 t-on-click="show_clients">
+        <div class="salon-card">
+          <div class="salon-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-user "/>
+              </div>
+                <div class="stat-content">
+                <div class="stat-text">Salon Clients</div>
+                    <div class="stat-digit" t-ref="clients_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+         <div style="margin-bottom:10pt;margin-left:10pt;">
+              <input type="date" id="order_date" class="o_datepicker" width="100px" t-on-change="onFileChanged"/>
+          </div>
+        <!--  Dashboard chairs view-->
+        <article role="main" id="chairs_dashboard_view">
+            <table width="1000px" class="" style="width:100%font-size: 13px;">
+                <thead>
+                        <tr>
+                            <td width="10%" class="text-center border">Working Hours</td>
+                            <t t-foreach="this.state.list" t-as="chair" t-key="chair">
+                                <td width="20%" class="text-center border">
+                                    <img t-att-src="'data:image/png;base64,'+ chair['chair_image']" style="width: 100px; height: 100px; border-radius: 50%;" />
+                                    <t t-esc="chair['name']" />
+                                </td>
+                            </t>
+                        </tr>
+                </thead>
+<!--                <tbody>-->
+<!--                    <t t-set="working_hours" t-value="working_hours"/>-->
+<!--                    <t t-foreach="working_hours" t-as="wk" t-key="wk">-->
+<!--                        <tr>-->
+<!--                            <td class="text-center border" t-esc="wk"/>-->
+<!--                            <t t-foreach="chairs" t-as="chair" t-key="chair['id']">-->
+<!--                                <td class="text-center border" t-att-id="[wk, chair['id']]" t-on-click="order_click_new">-->
+<!--                                    <t t-foreach="chair['orders']" t-as="order" t-key="order">-->
+<!--                                        <t t-if="order['date'] == order['formatted_date']">-->
+<!--                                            <div style="background-color: #FFC94A;">-->
+<!--                                                <b>Customer:</b> <t t-esc="order['customer_name']"/><br/>-->
+<!--                                                <b>Services:</b>-->
+<!--                                                <ul>-->
+<!--                                                    <t t-foreach="order['services']" t-as="service" t-key="service">-->
+<!--                                                        <li><t t-esc="service['service_name']"/></li>-->
+<!--                                                    </t>-->
+<!--                                                </ul>-->
+<!--                                                <b>Date:</b> <t t-esc="order['date']"/>-->
+<!--                                                <b>Time:</b> <t t-esc="order['order_time']"/>-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                        <t t-elif="order['date'] &lt; order['formatted_date']">-->
+<!--                                            <div style="background-color: #FF0000;">-->
+<!--                                                <b>Customer:</b> <t t-esc="order['customer_name']"/><br/>-->
+<!--                                                <b>Services:</b>-->
+<!--                                                <ul>-->
+<!--                                                    <t t-foreach="order['services']" t-as="service" t-key="service">-->
+<!--                                                        <li><t t-esc="service['service_name']"/></li>-->
+<!--                                                    </t>-->
+<!--                                                </ul>-->
+<!--                                                <b>Date:</b> <t t-esc="order['date']"/>-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                        <t t-else="">-->
+<!--                                            <div style="background-color: #40A578;">-->
+<!--                                                <b>Customer:</b> <t t-esc="order['customer_name']"/><br/>-->
+<!--                                                <b>Services:</b>-->
+<!--                                                <ul>-->
+<!--                                                    <t t-foreach="order['services']" t-as="service" t-key="service">-->
+<!--                                                        <li><t t-esc="service['service_name']"/></li>-->
+<!--                                                    </t>-->
+<!--                                                </ul>-->
+<!--                                                <b>Date:</b> <t t-esc="order['date']"/>-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                    </t>-->
+<!--                                </td>-->
+<!--                            </t>-->
+<!--                        </tr>-->
+<!--                    </t>-->
+<!--                </tbody>-->
+
+                <tbody>
+                        <t t-set="working_hours"
+                           t-value="['07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','1:00 pm','01:30 pm','02:00 pm','02:30 pm','03:00 pm','03:30 pm','04:00 pm','04:30 pm','05:00 pm','05:30 pm','06:00 pm','06:30 pm','07:00 pm','07:30 pm','08:00 pm','08:30 pm','09:00 pm','09:30 pm','10:00 pm','10:30 pm','11:00 pm','11:30 pm']"/>
+                    <t t-foreach="working_hours" t-as="wk" t-key="wk">
+
+                        <tr>
+                            <td class="text-center border" t-esc="wk"/>
+                            <t t-foreach="this.state.list" t-as="chair" t-key="chair">
+                                <td class="text-center border" t-att-id="[wk,chair['id']]" t-on-click="order_click_new">
+                                    <t t-foreach="chair['orders']" t-as="order" t-key="order">
+<!--                                        <t t-if="order['order_time'] == wk">-->
+                                            <t t-if="order['date'] == order['formatted_date']">
+                                                <div style="background-color: #FFC94A;">
+                                                    <b>Customer:</b> <t t-esc="order['customer_name']"/><br/>
+                                                    <b>Services:</b>
+                                                    <ul>
+                                                        <t t-foreach="order['services']" t-as="service" t-key="service">
+                                                            <li><t t-esc="service['service_name']"/></li>
+                                                        </t>
+                                                    </ul>
+                                                    <b>Date:</b> <t t-esc="order['date']"/>
+                                                    <b>Date:</b> <t t-esc="order['order_time']"/>
+                                                </div>
+                                            </t>
+                                            <t t-elif="order['date'] &lt; order['formatted_date']">
+                                                <div style="background-color: #FF0000;">
+                                                    <b>Customer:</b> <t t-esc="order['customer_name']"/><br/>
+                                                    <b>Services:</b>
+                                                    <ul>
+                                                        <t t-foreach="order['services']" t-as="service" t-key="service">
+                                                            <li><t t-esc="service['service_name']"/></li>
+                                                        </t>
+                                                    </ul>
+                                                    <b>Date:</b> <t t-esc="order['date']"/>
+                                                </div>
+                                            </t>
+                                            <t t-else="">
+                                                <div style="background-color: #40A578;">
+                                                    <b>Customer:</b> <t t-esc="order['customer_name']"/><br/>
+                                                    <b>Services:</b>
+                                                    <ul>
+                                                        <t t-foreach="order['services']" t-as="service" t-key="service">
+                                                            <li><t t-esc="service['service_name']"/></li>
+                                                        </t>
+                                                    </ul>
+                                                    <b>Date:</b> <t t-esc="order['date']"/>
+                                                </div>
+                                            </t>
+<!--                                        </t>-->
+                                    </t>
+                                </td>
+                            </t>
+                        </tr>
+
+                    </t>
+                </tbody>
+            </table>
+
+    </article>
+  </t>
+</templates>

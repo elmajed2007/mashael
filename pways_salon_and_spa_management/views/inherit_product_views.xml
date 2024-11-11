@@ -1,0 +1,77 @@
+<odoo>
+<!-- Product Inherit form -->
+    <record id="milk_product_template_inherit_form" model="ir.ui.view">
+        <field name="name">product.template.inherit.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position='inside'>
+                <span class="d-inline-block">
+                    <field name="is_salon_product"/>
+                    <label for="is_salon_product"/>
+                </span>
+                <span class="d-inline-block">
+                    <field name="is_spa_product"/>
+                    <label for="is_spa_product"/>
+                </span>
+                <span class="d-inline-block">
+                    <field name="is_combo"/>
+                    <label for="is_combo"/>
+                </span>
+                <span class="d-inline-block">
+                    <field name="salon_spa"/>
+                    <label for="salon_spa"/>
+                </span>
+            </xpath>
+            <xpath expr="//notebook/page[@name='sales']" position="after">
+                <page name="combo_product" string="Combo Items"
+                 invisible="is_combo != 'False'"
+                >
+                    <field name="combo_product_ids">
+                        <tree editable="bottom">
+                            <field name="product_id" options="{'no_create': True}" domain="[('is_spa_product', '=', parent.is_spa_product), ('is_salon_product', '=', parent.is_salon_product)]"/>
+                            <field name="product_quantity" />
+                            <field name="price"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='combo_product_ids']" position="before">
+                <group>
+                    <group class="float-left">
+                        <field name="discount"
+                         invisible="is_combo != 'False'"
+                          required="is_combo != 'True'"
+                        />
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+<!-- Action -->
+
+    <record id="salon_products_action" model="ir.actions.act_window">
+        <field name="name">Salon Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[('is_salon_product','=',1)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face"> Milk Products Record is empty </p>
+        </field>
+    </record>   
+  
+    <!-- Action -->
+
+    <record id="spa_products_action" model="ir.actions.act_window">
+        <field name="name">Spa Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[('is_spa_product','=',1)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face"> Manure Products Record is empty </p>
+        </field>
+    </record>  
+</odoo>

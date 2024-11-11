@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="salon_chair_sequence" model="ir.sequence">
+            <field name="name">Chair Sequence</field>
+            <field name="code">salon.chair.sequence</field>
+            <field name="prefix">Chair-</field>
+            <field name="number_next">2</field>
+            <field name="number_increment">1</field>
+            <field name="padding">1</field>
+      </record>
+
+    </data>
+</odoo>

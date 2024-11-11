@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+        <template id="dashboard_salon_chairs" name="Chairs template">
+
+            <div class="col main-section">
+                <table width="1000px" class=""  style="width:100%font-size: 13px;">
+                    <thead>
+                        <tr>
+                            <td width="10%" class="text-center border">Working Hours</td>
+                            <t t-foreach="s_chairs" t-as="chair" t-key="name">
+                                <td  width="20%" t-esc="chair['name']" class="text-center border"/>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="working_hours"
+                           t-value="['07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','1:00 pm','01:30 pm','02:00 pm','02:30 pm','03:00 pm','03:30 pm','04:00 pm','04:30 pm','05:00 pm','05:30 pm','06:00 pm','06:30 pm','07:00 pm','07:30 pm','08:00 pm','08:30 pm','09:00 pm','09:30 pm','10:00 pm','10:30 pm','11:00 pm','11:30 pm']"/>
+                        <t t-foreach="working_hours" t-as="wk" t-key="wk">
+                            <tr>
+                                <td class="text-center border" t-esc="wk"/>
+                                <t t-foreach="s_chairs" t-as="chair" t-key="chair">
+                                    <t t-if="wk in chair">
+                                        <td class=" order_details" t-att-id="chair[wk]" t-ref="order_details"
+                                            style="background-color: #6f23a9;color: #FFFFFF;">
+                                            <t t-set="string_to_output" t-value="chair[wk].split('\n')"/>
+                                            <t t-foreach="string_to_output" t-as="string_line" t-key="string_line">
+                                                <t t-if="'specialtrue' in string_line">
+                                                    <span t-esc="string_line.replace('specialtrue','')"/>
+                                                    <span style="font-size: 30px">
+                                                        <![CDATA[
+                                                        &#10003
+                                                           ]]>
+                                                    </span>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-esc="string_line"/>
+                                                </t>
+                                                <br/>
+
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-else=""  >
+                                        <td class="text-center border order_new" name = "order_new"  t-ref="order_new" t-on-click="order_click_new" t-att-id="wk,chair['id']" >
+                                        <div  >
+
+                                        </div>
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </t>
+                    </tbody>
+
+
+                </table>
+            </div>
+
+            <!--            <t t-foreach="s_chairs" t-as="chair">-->
+            <!--                <div class="salon_chair" t-att-id="chair['id']" t-att-value="chair['id']">-->
+            <!--                    <h4 class="chair_name" t-att-id="chair['id']">-->
+            <!--                        <t t-esc="chair['name']"></t>-->
+            <!--                    </h4>-->
+            <!--                    <h2 class="chair_orders" t-att-id="chair['id']">-->
+            <!--                        <t t-esc="chair['orders']"></t>-->
+            <!--                    </h2>-->
+            <!--                    <i class="fa fa-cog chair_setting" t-att-id="chair['name']"></i>-->
+            <!--                </div>-->
+            <!--            </t>-->
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="qafas_invoice_report">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <div class="header">
+                            <img src='/qafas_invoice/static/src/img/qheader.jpeg'
+                                 alt="" style="float:center;width:100%;margin:auto;"/>
+                        </div>
+                        <br/>
+                        <div style="margin-top:20px">
+                            <div class="text-center font-weight-bold"
+                                 style="font-size:20px;margin-top:20px">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <span style="font-size:20px">
+                                    <u>VAT INVOICE</u>
+                                </span>
+                                <br/>
+                                <span style="font-size:20px">
+                                    <u>فاتورة ضريبية</u>
+                                </span>
+                            </div>
+                        </div>
+                        <br/>
+                        <table class="text-left table table-borderless"
+                               style="line-height:4px;font-size:15px;white-space:nowrap;">
+                            <tr>
+                                <td style="text-align:right">
+                                    <span t-esc="doc.name"/>
+                                </td>
+                                <td style="text-align:right">
+                                    رقم الفاتورة
+                                </td>
+                                <td style="text-align:right">
+                                    <span t-esc="doc.partner_id.name"/>
+                                </td>
+                                <td style="text-align:right">
+                                    اسم العميل
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+
+                                </td>
+                                <td style="text-align:right">
+                                    النوع
+                                </td>
+                                <td style="text-align:right">
+                                    <span t-esc="doc.partner_id.vat"/>
+                                </td>
+                                <td style="text-align:right">
+                                    الرقم الضريبي للعميل
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+                                    <span t-esc="doc.invoice_date"/>
+                                </td>
+                                <td style="text-align:right">
+                                    تاريخ اصدار الفاتورة
+                                </td>
+                                <td style="text-align:right">
+                                    <span t-esc="doc.partner_id.street "/>,
+                                    <span t-esc="doc.partner_id.street2 "/>,
+                                    <span t-esc="doc.partner_id.city "/>,
+                                </td>
+                                <td style="text-align:right">
+                                    عنوان العميل
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+                                    <span t-esc="doc.delivery_date"/>
+                                </td>
+                                <td style="text-align:right">
+                                    تاريخ التوريد
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="col-12">
+                            <table class="table table-borderless table-sm" style="text-align:right;direction: rtl;">
+                                <thead style="font-size:15px;border-top:1px solid;border-bottom:1px solid">
+                                    <tr rowspan="2">
+                                        <th class="text-center font-weight-bold">
+                                            <div>NO</div>
+                                            <br/>
+                                            <div>م</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold"
+                                            style="white-space:nowrap;">
+                                            <div>Product Name</div>
+                                            <br/>
+                                            <div>اسم الصنف</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold"
+                                            style=" white-space:nowrap;">
+                                            <div>Product No</div>
+                                            <br/>
+                                            <div>رقم الصنف</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold">
+                                            <div>Price</div>
+                                            <br/>
+                                            <div>السعر</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold">
+                                            <div>Quantity</div>
+                                            <br/>
+                                            <div>الكمية</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold" style="white-space:nowrap;">
+                                            <div>Price Before
+                                                <br/>
+                                                Discount
+                                            </div>
+                                            <br/>
+                                            <div>المجموع قبل
+                                                <br/>
+                                                الخصم
+                                            </div>
+                                        </th>
+                                        <th class="text-center font-weight-bold">
+                                            <div>Discount</div>
+                                            <br/>
+                                            <div>الخصم</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold"
+                                            style="white-space:nowrap;">
+                                            <div>Untaxed Amount</div>
+                                            <br/>
+                                            <div>الاجمالي الخاضع
+                                                <br/>
+                                                للضريبة
+                                            </div>
+                                        </th>
+                                        <th class="text-right font-weight-bold"
+                                            style="white-space:nowrap;">
+                                            <div>Vat Percentage</div>
+                                            <br/>
+                                            <div>نسبة الضريبة</div>
+                                        </th>
+                                        <th class="text-right font-weight-bold"
+                                            style="white-space:nowrap;">
+                                            <div>Vat Amount</div>
+                                            <br/>
+                                            <div>مبلغ الضريبة</div>
+                                        </th>
+                                        <th class="text-center font-weight-bold"
+                                            style="white-space:nowrap;">
+                                            <div>Total Price</div>
+                                            <br/>
+                                            <div>الاجمالي شامل
+                                                <br/>
+                                                الضريبة
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody style="font-size:15px;white-space:nowrap">
+                                    <t t-set="counter" t-value="0"/>
+                                    <t t-foreach="doc.invoice_line_ids" t-as="line">
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-esc="line_index + 1"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="line.product_id.name"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="line.product_id.barcode"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="'{0:,.2f}'.format(line.price_unit)"/>
+                                                <span t-esc="doc.currency_id.symbol"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="'{0:,.2f}'.format(line.quantity)"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="'{0:,.2f}'.format(line.price_unit * line.quantity)"/>
+                                                <span t-esc="doc.currency_id.symbol"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <t t-if="line.discount_fixed">
+                                                    <span t-esc="'{0:,.2f}'.format(line.discount_fixed)"/>
+                                                    <span t-esc="doc.currency_id.symbol"/>
+                                                </t>
+                                                <!--                                                <t t-if="line.discount">-->
+                                                <t t-else="">
+                                                    <span t-esc="'{0:,.2f}'.format(((line.discount/100) * line.price_unit * line.quantity))"/>
+                                                </t>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="'{0:,.2f}'.format((line.price_subtotal))"/>
+                                                <span t-esc="doc.currency_id.symbol"/>
+                                            </td>
+                                            <td class="text-center" style="white-space:nowrap;">
+                                                <span t-esc="'{0:,.2f}'.format(line.tax_ids.amount)"/>%
+                                                <!--                                                <span t-esc="doc.currency_id.symbol"/>-->
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="'{0:,.2f}'.format(((line.price_total)*0.15)/1.15)"/>
+                                                <span t-esc="doc.currency_id.symbol"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="'{0:,.2f}'.format(line.price_total)"/>
+                                                <span t-esc="doc.currency_id.symbol"/>
+                                                <!--                                                <span t-esc="'{0:,.2f}'.format(line.tax_ids.amount/100 * line.price_subtotal)"/>-->
+                                            </td>
+                                            <!--                                            <td class="text-center" style="white-space:nowrap;">-->
+                                            <!--                                                <span t-esc="'{0:,.2f}'.format((line.tax_ids.amount/100 * line.price_subtotal) + line.price_subtotal)"/>-->
+                                            <!--                                                &lt;!&ndash; <t t-set="tax_amount"-->
+                                            <!--                                                   t-value="(line.price_subtotal*(line.tax_ids.amount)/100)"/>-->
+                                            <!--                                                <t t-set="subtotal_with_tax"-->
+                                            <!--                                                   t-value="((line.price_unit * line.quantity) + tax_amount)"/>-->
+                                            <!--                                                <t t-esc="'{0:,.2f}'.format(subtotal_with_tax)"/> &ndash;&gt;-->
+                                            <!--                                                &lt;!&ndash;                                                <span t-esc="'%.2f'%line.price_subtotal"/>&ndash;&gt;-->
+                                            <!--                                                <span t-esc="doc.currency_id.symbol"/>-->
+
+                                            <!--                                            </td>-->
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <div class="col-18 text-center">
+                                <t t-if="counter >=10">
+                                    <div style="page-break-before:always;"></div>
+                                </t>
+                            </div>
+                            <div class="col-12">
+                                <div style="width:60%;float:left;margin-top:20px">
+                                    <table class="table table-borderless table-sm">
+                                        <tr>
+                                            <td style="font-size:15px">
+                                                <span t-esc="'{0:,.2f}'.format(doc.total_price_unit)"/>
+                                            </td>
+                                            <td style="text-align:right;font-size:15px">المجموع قبل الخصم</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:15px">
+                                                <span t-esc="'{0:,.2f}'.format(doc.amount_disc)"/>
+                                            </td>
+                                            <td style="text-align:right;font-size:15px">مجموع الخصومات</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:15px">
+                                                <span t-esc="'{0:,.2f}'.format(doc.price)"/>
+                                            </td>
+                                            <td style="text-align:right;font-size:15px">الاجمالي الخاضع للضريبة</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:15px">
+                                                <span t-esc="'{0:,.2f}'.format(doc.tax)"/>
+                                            </td>
+                                            <td style="text-align:right;font-size:15px">مجموع ضريبة القيمة المضافة</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:15px">
+                                                <span t-esc="doc.discount_val"/>
+                                            </td>
+                                            <td style="text-align:right;font-size:15px">اجمالي المبلغ المستحق</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float:right;margin-top:20px">
+                                    <img t-attf-src="data:image/*;base64,{{doc.qr_code}}"
+                                         style="width:200px; height:200px;display:inline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Calling our customize report footer template -->
+                    <div class="footer">
+                        <img src='/qafas_invoice/static/src/img/footer.jpeg'
+                             alt="" style="float:center;width:100%;margin:auto;"/>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

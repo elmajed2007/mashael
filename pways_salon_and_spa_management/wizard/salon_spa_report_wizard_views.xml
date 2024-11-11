@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="salon_spa_report_wizard_form" model="ir.ui.view">
+            <field name="name">salon.spa.report.wizard.form</field>
+            <field name="model">salon.spa.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Income report">
+                    <group>
+                        <group>
+                            <field name="start_date" required='1'/>
+                            <field name="report_of" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="end_date" required='1'/>
+                            <field name="employee_id" widget="many2many_tags"
+                            invisible="report_of != 'employee'"
+                            required="report_of != 'employee'"
+                            />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_print_report" string="Print" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="salon_spa_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Salon Spa Report</field>
+            <field name="res_model">salon.spa.report.wizard</field>
+            <field name="view_mode">form</field>
+			<field name="view_id" ref="salon_spa_report_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
