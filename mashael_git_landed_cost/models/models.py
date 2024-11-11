@@ -150,10 +150,16 @@ class GitLandedCost(models.Model):
     def check_piv_line_ids(self):
         products = []
         hs_codes = []
+        piv_currency = False
+        local_value = False
+        final_local_value = False
         for line in self.piv_line_ids:
             for piv in line.piv_id.purchase_piv_line_ids:
                 products.append(piv.product_id)
                 hs_codes.append(piv.product_id.product_tmpl_id.hs_code)
+                piv_currency = piv.currency_id
+                local_value += piv.qty_invoiced
+
         piv_products = set(products)
         piv_hs_codes = set(hs_codes)
         print('piv_products >>', piv_products)
@@ -161,9 +167,13 @@ class GitLandedCost(models.Model):
         if piv_hs_codes != False:
             for hs_code in piv_hs_codes:
                 print(';;')
+                if piv_currency.rate_ids:
+                    final_local_value = local_value * piv_currency.rate_ids[0].inverse_company_rate
                 add_line = self.env['piv.custom.line'].create({
                     'piv_custom_id': self.id,
                     'hs_code': hs_code.id if hs_code else False,
+                    'currency_id': piv_currency.id if piv_currency else False,
+                    'local_value': final_local_value,
                 })
                 print('add_line >', add_line)
                 total_prices = 0
@@ -237,7 +247,15 @@ class PivCustomLine(models.Model):
     currency_id = fields.Many2one('res.currency', 'Currency')
     price = fields.Float(
         string='سعر الصرف',
-        required=False)
+        required=False, compute='_compute_price')
+
+    @api.depends('currency_id')
+    def _compute_price(self):
+        for rec in self:
+            price = 0
+            price = rec.currency_id.rate_ids[0].inverse_company_rate
+            rec.price = price
+
     local_price = fields.Float(
         string='سعر الصرف المحلى',
         required=False)
@@ -266,7 +284,7 @@ class PivCustomLine(models.Model):
 
     @api.onchange('hs_code')
     def onchange_hs_code(self):
-        self.type_arabic_name = self.piv_custom_id.type_arabic_name
+        self.type_arabic_name = self.hs_code.type_arabic_name
 
     @api.onchange('hs_code')
     def onchange_hs_code(self):
@@ -279,12 +297,7 @@ class PivCustomLine(models.Model):
     def onchange_method(self):
         self.local_value = self.total_products_qty_hidden * self.price
 
-    @api.onchange('currency_id')
-    def onchange_currency_id(self):
-        for rec in self:
-            rec.price = rec.currency_id.rate_ids[0].inverse_company_rate
-
-    @api.onchange('custom_rate', 'local_value')
+    @api.onchange('hs_code','custom_rate', 'local_value')
     def onchange_total(self):
         self.total = self.local_value * self.custom_rate
 
