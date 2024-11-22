@@ -7,6 +7,8 @@ class MshGit(models.Model):
     _name = 'msh.git'
     _description = 'Git'
     _rec_name = "name"
+    _inherit = ['portal.mixin', 'product.catalog.mixin', 'mail.thread', 'mail.activity.mixin']
+
 
 
 
@@ -25,8 +27,8 @@ class MshGit(models.Model):
 
     stock_location_id = fields.Many2one(
         comodel_name='stock.location',
-        string='To Wh',
-        required=False)
+        string='To Location',
+        required=False, domain="[('usage', '=', 'internal')]")
 
     shipping_date = fields.Date(
         string='Shipping Date',

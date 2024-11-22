@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mshaeel_purchase_customize_mshaeel_purchase_customize,mshaeel_purchase_customize.mshaeel_purchase_customize,model_mshaeel_purchase_customize_mshaeel_purchase_customize,base.group_user,1,1,1,1

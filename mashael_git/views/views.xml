@@ -32,7 +32,7 @@
                                 <field name="destination_port_id"/>
                             </group>
                             <group>
-                                <field name="stock_location_id"/>
+                                <field name="stock_location_id" string="To Location"/>
                                 <field name="shipping_date"/>
                                 <field name="clearing_agent"/>
                                 <field name="transporter"/>
@@ -92,8 +92,12 @@
                                 </field>
                             </page>
                         </notebook>
-
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>
