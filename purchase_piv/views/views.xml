@@ -59,7 +59,7 @@
                                         <field name="product_qty"/>
                                         <field name="qty_invoiced"/>
                                         <field name="product_uom"/>
-<!--                                        <field name="price_unit"/>-->
+                                        <!--                                        <field name="price_unit"/>-->
                                         <field name="net_weight"/>
                                         <field name="gross_weight"/>
                                         <field name="batch_no"/>
@@ -127,6 +127,12 @@
                         <div class="clearfix"/>
 
                     </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>

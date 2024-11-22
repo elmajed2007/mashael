@@ -3,7 +3,7 @@
     'name': "purchase_piv",
     'author': "Sigma Code | Toqa Elgazzar",
     'website': "",
-    'depends': ['base', 'purchase', 'mshaal'],
+    'depends': ['base', 'purchase', 'mshaal', 'account'],
     'data': [
         'security/ir.model.access.csv',
         'views/serial.xml',

@@ -17,6 +17,8 @@ class GitLandedCost(models.Model):
     _name = 'git.landed.cost'
     _description = 'Git Landed Cost'
     _rec_name = "name"
+    _inherit = ['portal.mixin', 'product.catalog.mixin', 'mail.thread', 'mail.activity.mixin']
+
 
 
     name = fields.Char()

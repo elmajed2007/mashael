@@ -6,6 +6,8 @@ from odoo import api, fields, models, _
 class PurchasePiv(models.Model):
     _name = 'purchase.piv'
     _description = 'Purchase Piv'
+    _inherit = ['portal.mixin', 'product.catalog.mixin', 'mail.thread', 'mail.activity.mixin']
+
 
     name = fields.Char()
 
