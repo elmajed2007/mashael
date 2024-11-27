@@ -20,6 +20,13 @@ class Destination(models.Model):
     related_contact_id = fields.Many2one('res.partner', string='Related Contact'
                                       , domain="[('id', '=', related_con_ids)]")
     related_con_ids = fields.Many2many('res.partner', string='Related Contact')
+
+    destination_line_ids = fields.One2many(
+        comodel_name='destination.lines',
+        inverse_name='destination_id',
+        string='Destination_line_ids',
+        required=False)
+
     @api.onchange('partner_id')
     def compute_contact(self):
         for rec in self:
@@ -28,3 +35,18 @@ class Destination(models.Model):
                 for record in rec.partner_id.child_ids:
                     contact.append( record.id)
                     rec.related_con_ids = contact
+
+
+
+class DestinationLines(models.Model):
+    _name = 'destination.lines'
+    _description = 'Destination Lines'
+
+    destination_id = fields.Many2one(
+        comodel_name='destination',
+        string='Destination_id',
+        required=False)
+
+    name = fields.Many2one('freight.mode',string='Freight Mode')
+
+    duration=fields.Integer('Duration')

@@ -6,6 +6,8 @@
         <field name="arch" type="xml">
             <xpath expr="//group/group/field[@name='partner_id']" position="after">
                 <field name="destination_id" string="Shipping Mode"/>
+                <field name="freight_mode_ids" invivible="1"/>
+                <field name="freight_mode_id"/>
             </xpath>
               <xpath expr="//group/group/field[@name='partner_id']" position="replace">
                 <field name="partner_id"/>

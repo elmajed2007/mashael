@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_freight_mode,freight.mode,model_freight_mode,,1,1,1,1
 access_destination,destination,model_destination,,1,1,1,1
+access_destination_lines,access_destination_lines,model_destination_lines,,1,1,1,1
 access_hs_code,hs.code,model_hs_code,,1,1,1,1

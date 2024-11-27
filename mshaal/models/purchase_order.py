@@ -9,6 +9,25 @@ class PurchaseOrder(models.Model):
     partner_id = fields.Many2one('res.partner', string='Vendor', required=True, change_default=True, tracking=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
     destination_id = fields.Many2one('destination',string='Shipping Mode',domain="[('partner_id', '=', partner_id)]")
 
+    freight_mode_ids = fields.Many2many(
+        comodel_name='freight.mode',
+        string='freight_mode', compute='_compute_freight_mode')
+
+    freight_mode_id = fields.Many2one(
+        comodel_name='freight.mode',
+        string='Fright Mode',
+        required=False, domain="[('id', 'in', freight_mode_ids)]")
+
+    @api.depends('destination_id')
+    def _compute_freight_mode(self):
+        for rec in self:
+            modes = []
+            mode_rec = self.env['purchase.piv'].search([('destination_id', '=', rec.destination_id.id)])
+            for line in mode_rec:
+                modes.append(line.name.id)
+            rec.freight_mode_ids = modes
+
+
     @api.onchange('order_line','destination_id')
     def _onchange_order_line(self):
         for line in self.order_line:
