@@ -22,7 +22,7 @@ class PurchaseOrder(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
-    hs_code = fields.Many2one('hs.code', string="HS Code", related='product_id.hs_code')
+    hs_code = fields.Many2one('hs.code', string="HS Code", related='product_id.product_tmpl_id.hs_code')
 
 
 
