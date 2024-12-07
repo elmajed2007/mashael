@@ -36,7 +36,7 @@ class ResPartnerDestination(models.Model):
         required=False)
 
 
-    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode', domain="[('partner_id', '=', partner_id)]")
+    destination_id = fields.Many2one(comodel_name='destination', string='Shipping Mode', domain="[('partner_id', '=', destination_line_id)]")
 
     is_default = fields.Boolean(
         string='Is Default',
