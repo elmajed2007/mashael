@@ -1,40 +1,6 @@
 from odoo import models, fields, api,_
 from odoo.tools import frozendict, format_date, float_compare, Query
 
-# class ProductTemplate(models.Model):
-#     _inherit = "product.template"
-
-#     @api.depends('product_variant_ids.barcode')
-#     def _compute_barcode(self):
-#         self.barcode = False
-#         for template in self:
-#             # TODO master: update product_variant_count depends and use it instead
-#             variant_count = len(template.product_variant_ids)
-#             if variant_count == 1:
-#                 template.barcode = template._ensure_barcode_format(template.product_variant_ids.barcode)
-#             elif variant_count == 0:
-#                 archived_variants = template.with_context(active_test=False).product_variant_ids
-#                 if len(archived_variants) == 1:
-#                     template.barcode = template._ensure_barcode_format(archived_variants.barcode)
-
-#     def _search_barcode(self, operator, value):
-#         query = self.with_context(active_test=False)._search([('product_variant_ids.barcode', operator, value)])
-#         return [('id', 'in', query)]
-
-#     def _set_barcode(self):
-#         variant_count = len(self.product_variant_ids)
-#         if variant_count == 1:
-#             self.product_variant_ids.barcode = self._ensure_barcode_format(self.barcode)
-#         elif variant_count == 0:
-#             archived_variants = self.with_context(active_test=False).product_variant_ids
-#             if len(archived_variants) == 1:
-#                 archived_variants.barcode = self._ensure_barcode_format(self.barcode)
-
-#     def _ensure_barcode_format(self, barcode):
-#         """Ensure the barcode starts with '00'."""
-#         if barcode and not barcode.startswith('00'):
-#             return '00' + barcode
-#         return barcode
 
 class AccountMove(models.Model):
     _inherit = "account.move"
